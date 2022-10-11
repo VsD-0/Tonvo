@@ -8,12 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("content/icons/logo%20transparency1.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("content/pictures/fulllogo%20transparency1.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("content/pictures/fulllogo%20transparency2.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("content/pictures/fulllogo.jpg")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("content/pictures/logo%20transparency1.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("content/pictures/logo%20transparency2.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("content/pictures/logo.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("logo%20transparency1.ico")]
 
 

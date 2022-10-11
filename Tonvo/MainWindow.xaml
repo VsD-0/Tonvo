@@ -9,20 +9,14 @@
         Title="MainWindow"
         Height="650" Width="1100"
         MinHeight="400" MinWidth="500"
+        Background="Transparent"
+        Icon="/Logo transparency1.ico"
         WindowStartupLocation="CenterScreen" WindowStyle="None"
         AllowsTransparency="True" ResizeMode="CanResizeWithGrip"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-        Background="Transparent"
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
-        FontFamily="{materialDesign:MaterialDesignFont}">
-    <Window.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="LightTheme.xaml"></ResourceDictionary>
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Window.Resources>
+        FontFamily = "{materialDesign:MaterialDesignFont}">
     <Window.CommandBindings>
         <CommandBinding x:Name="CloseCommand"
                         Command="{x:Static SystemCommands.CloseWindowCommand}"
@@ -45,39 +39,40 @@
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
 
-                <Grid MouseDown="Grid_MouseDown">
+                <Grid MouseDown="Grid_MouseDown" Background="{StaticResource PrimaryLight}">
                     <!--Иконка и название-->
-                    <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
-                        <Image Width="30" Height="30" Margin="5, 5, 5, 0" Source="/Logo transparency1.png"/>
-                        <TextBlock Text="Tonvo"
+                    <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="5,3,0,3">
+                        <Image Width="30" Height="30" Margin="5" Source="\Content\Pictures\Logo transparency2.png"/>
+                        <TextBlock Text="Tonvo" Margin="5,5,5,3"
                                    Foreground="{StaticResource OnBackground}" FontSize="25"
                                    FontWeight="Medium" FontStyle="Normal" FontFamily="./#Montserrat"
                                    VerticalAlignment="Bottom" Height="30"></TextBlock>
                     </StackPanel>
                     <!--Элементы управления окна-->
-                    <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                    <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,3,5,3">
                         <!--Свернуть окно-->
                         <Button
-                        Width="30" Height="30" Margin="5, 5, 5, 0"
-                        Cursor="Hand" Command="{x:Static SystemCommands.MinimizeWindowCommand}">
+                        Width="30" Height="30" Margin="5"
+                        Cursor="Hand" Style="{StaticResource MaterialDesignIconButton}"
+                        Command="{x:Static SystemCommands.MinimizeWindowCommand}">
                             <materialDesign:PackIcon Kind="WindowMinimize" Width="30" Height="30"
-                                                     Foreground="{StaticResource OnBackground}"/>
+                                                     Foreground="{StaticResource PrimaryDark}"/>
                         </Button>
                         <!--Окно на весь экран-->
                         <Button
                         HorizontalAlignment="Center" VerticalAlignment="Center"
-                        Width="30" Height="30" Margin="5, 5, 5, 0"
+                        Width="30" Height="30" Margin="5"
                         Cursor="Hand" Style="{StaticResource MaterialDesignIconButton}"
                         Command="{x:Static SystemCommands.MaximizeWindowCommand}">
-                            <materialDesign:PackIcon Kind="WindowMaximize" Width="30" Height="30" Foreground="{StaticResource OnBackground}"/>
+                            <materialDesign:PackIcon Kind="WindowMaximize" Width="30" Height="30" Foreground="{StaticResource PrimaryDark}"/>
                         </Button>
                         <!--Закрыть окно-->
                         <Button
                         HorizontalAlignment="Center" VerticalAlignment="Center"
-                        Width="30" Height="30" Margin="5, 5, 5, 0"
+                        Width="30" Height="30" Margin="5"
                         Cursor="Hand" Style="{StaticResource MaterialDesignIconButton}"
                         Command="{x:Static SystemCommands.CloseWindowCommand}">
-                            <materialDesign:PackIcon Kind="WindowClose" Width="30" Height="30" Foreground="{StaticResource OnBackground}"/>
+                            <materialDesign:PackIcon Kind="WindowClose" Width="30" Height="30" Foreground="{StaticResource PrimaryDark}"/>
                         </Button>
                     </StackPanel>
                 </Grid>
