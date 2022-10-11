@@ -5,16 +5,43 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:materialDesign = "http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:Tonvo"
+      mc:Ignorable="d" 
+      Title="MainPage"
+      d:DesignWidth="1100" d:DesignHeight="615"
       TextElement.Foreground = "{DynamicResource MaterialDesignBody}"
       TextElement.FontWeight = "Medium" 
       TextElement.FontSize = "14"
-      FontFamily = "{materialDesign:MaterialDesignFont}"
-      mc:Ignorable="d" 
-      d:DesignWidth="1100" d:DesignHeight="615"
-      Title="MainPage">
-
+      FontFamily="./#Montserrat">
+    
     <Grid>
-        <Grid Background="{StaticResource Primary}" Width="300" HorizontalAlignment="Right">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="350*"/>
+            <ColumnDefinition Width="150*"/>
+        </Grid.ColumnDefinitions>
+        
+        <StackPanel>
+
+        </StackPanel>
+        
+        <Grid Grid.Column="1" Background="{StaticResource Primary}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.35*"/>
+                <RowDefinition Height="0.25*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            
+            <Image Source="\Content\Pictures\FullLogo transparency2.png"/>
+            
+            <!--Выбор списка-->
+            <ComboBox Grid.Row="1" Margin="10" 
+                  Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                  materialDesign:HintAssist.Hint="Выберите список"
+                  materialDesign:HintAssist.Background="{StaticResource Primary}"
+                  Foreground="{StaticResource OnPrimary}"
+                  FontWeight="Bold">
+                        <ComboBoxItem Content="Вакансии" />
+                        <ComboBoxItem Content="Соискатели" />
+            </ComboBox>
         </Grid>
     </Grid>
 </Page>
