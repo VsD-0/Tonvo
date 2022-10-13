@@ -7,7 +7,7 @@
       xmlns:local="clr-namespace:Tonvo"
       mc:Ignorable="d" 
       Title="MainPage"
-      d:DesignWidth="1100" d:DesignHeight="615"
+      d:DesignWidth="1092" d:DesignHeight="607"
       TextElement.Foreground = "{DynamicResource MaterialDesignBody}"
       TextElement.FontWeight = "Medium" 
       TextElement.FontSize = "14"
@@ -15,13 +15,52 @@
     
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="350*"/>
-            <ColumnDefinition Width="150*"/>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
-        
-        <StackPanel>
 
-        </StackPanel>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.35*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock x:Name="titleList" Text="Вакансии" VerticalAlignment="Center" HorizontalAlignment="Center"
+                       Foreground="{StaticResource OnBackground}" FontSize="85"/>
+
+            <ListView x:Name="ListVacancies" Grid.Row="1"
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <materialDesign:Card Background="{StaticResource Secondary}" Foreground="{DynamicResource OnSecondary}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Margin="16 16 16 4" Text="Dev" 
+                                           Foreground="{StaticResource OnSecondary}" FontSize="20"/>
+                                <TextBlock Grid.Row="2" Margin="16 0 16 8" VerticalAlignment="Center"
+                                           HorizontalAlignment="Left" Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                           Text="Salary$" />
+                                <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="16 0 16 8" HorizontalAlignment="Right">
+                                    <Button HorizontalAlignment="Right" Style="{StaticResource MaterialDesignToolForegroundButton}"
+                                            Width="30" Padding="2 0 2 0" materialDesign:RippleAssist.IsCentered="True">
+                                        <materialDesign:PackIcon Kind="Phone" />
+                                    </Button>
+                                </StackPanel>
+                            </Grid>
+                        </materialDesign:Card>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
         
         <Grid Grid.Column="1" Background="{StaticResource Primary}">
             <Grid.RowDefinitions>
@@ -33,10 +72,11 @@
             <Image Source="\Content\Pictures\FullLogo transparency2.png"/>
             
             <!--Выбор списка-->
-            <ComboBox Grid.Row="1" Margin="10" 
+            <ComboBox x:Name="listSelection" Grid.Row="1" Margin="10" 
                   Style="{StaticResource MaterialDesignOutlinedComboBox}"
                   materialDesign:HintAssist.Hint="Выберите список"
                   materialDesign:HintAssist.Background="{StaticResource Primary}"
+                  
                   Foreground="{StaticResource OnPrimary}"
                   FontWeight="Bold">
                         <ComboBoxItem Content="Вакансии" />
