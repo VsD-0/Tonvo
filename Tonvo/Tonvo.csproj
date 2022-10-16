@@ -75,7 +75,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Vacancies.cs" />
+    <Compile Include="ApplicationViewModel.cs" />
+    <Compile Include="Vacancy.cs" />
     <Page Include="LightTheme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

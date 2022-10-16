@@ -13,23 +13,29 @@
       TextElement.FontSize = "14"
       FontFamily="./#Montserrat">
     
+    <!--Главный контейнер-->
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="15*"/>
             <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
-
+        
+        <!--Контейнер списка-->
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.35*"/>
+                <RowDefinition Height="0.25*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
+            <!--Название списка-->
             <TextBlock x:Name="titleList" Text="Вакансии" VerticalAlignment="Center" HorizontalAlignment="Center"
                        Foreground="{StaticResource OnBackground}" FontSize="85"/>
 
-            <ListView x:Name="ListVacancies" Grid.Row="1"
-                      ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch">
+            <ListView x:Name="ListVacancies" Grid.Row="1" Margin="15,0,5,0"
+                      Style="{StaticResource MaterialDesignListView}"
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                      HorizontalContentAlignment="Stretch"
+                      ItemsSource="{Binding Vacancies}" SelectedItem="{Binding SelectedVacancy}">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <StackPanel/>
@@ -37,23 +43,31 @@
                 </ListView.ItemsPanel>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <materialDesign:Card Background="{StaticResource Secondary}" Foreground="{DynamicResource OnSecondary}">
+                        <materialDesign:Card Margin="0,0,5,0"
+                                             Background="{StaticResource Secondary}" 
+                                             Foreground="{DynamicResource OnSecondary}">
                             <Grid>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
-                                <TextBlock Grid.Row="0" Margin="16 16 16 4" Text="Dev" 
+                                <TextBlock Grid.Row="0" Margin="16 16 16 4" Text="{Binding Path=Title}" 
                                            Foreground="{StaticResource OnSecondary}" FontSize="20"/>
-                                <TextBlock Grid.Row="2" Margin="16 0 16 8" VerticalAlignment="Center"
+                                <TextBlock Grid.Row="2" Margin="16 0 16 4" VerticalAlignment="Center"
                                            HorizontalAlignment="Left" Style="{StaticResource MaterialDesignBody2TextBlock}"
-                                           Text="Salary$" />
-                                <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="16 0 16 8" HorizontalAlignment="Right">
-                                    <Button HorizontalAlignment="Right" Style="{StaticResource MaterialDesignToolForegroundButton}"
-                                            Width="30" Padding="2 0 2 0" materialDesign:RippleAssist.IsCentered="True">
-                                        <materialDesign:PackIcon Kind="Phone" />
-                                    </Button>
+                                           Text="{Binding Path=Salary}" />
+                                <TextBlock Grid.Row="3" Margin="16 0 16 16" VerticalAlignment="Center"
+                                           HorizontalAlignment="Left" Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                           Text="{Binding Path=CompanyTitle}" />
+                                <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="16 0 16 8" HorizontalAlignment="Right">
+                                    <Button Content="Откликнуться" HorizontalAlignment="Right" 
+                                            Style="{StaticResource MaterialDesignFlatAccentBgButton}"
+                                            materialDesign:ButtonAssist.CornerRadius="9"
+                                            Background="{StaticResource Primary}" Foreground="{StaticResource OnPrimary}"
+                                            
+                                            Width="130"/>
                                 </StackPanel>
                             </Grid>
                         </materialDesign:Card>
@@ -62,6 +76,7 @@
             </ListView>
         </Grid>
         
+        <!--Контейнер панели управления-->
         <Grid Grid.Column="1" Background="{StaticResource Primary}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.35*"/>

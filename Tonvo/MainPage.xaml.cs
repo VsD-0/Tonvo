@@ -23,26 +23,8 @@ namespace Tonvo
         public MainPage()
         {
             InitializeComponent();
-            List<Vacancies> list = new List<Vacancies>();
-            list.Add(new Vacancies());
-            list.Add(new Vacancies());
-            list.Add(new Vacancies());
-            list.Add(new Vacancies());
-            list.Add(new Vacancies());
-            list.Add(new Vacancies());
-            list.Add(new Vacancies());
-            list.Add(new Vacancies());
-            list.Add(new Vacancies());
-            list.Add(new Vacancies());
-            list.Add(new Vacancies());
-            list.Add(new Vacancies());
-            list.Add(new Vacancies());
-            list.Add(new Vacancies());
-            list.Add(new Vacancies());
-            list.Add(new Vacancies());
-            list.Add(new Vacancies());
 
-            ListVacancies.ItemsSource = list;
+            DataContext = new ApplicationViewModel();
         }
     }
 }
