@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.3.32922.545
+VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tonvo", "Tonvo\Tonvo.csproj", "{3AB6C4F5-7D00-4FF5-9F70-1267EFE72EEC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tonvo", "Tonvo\Tonvo.csproj", "{BFC98E6B-FCF9-4EB4-8E13-B2F0A8D527E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3AB6C4F5-7D00-4FF5-9F70-1267EFE72EEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3AB6C4F5-7D00-4FF5-9F70-1267EFE72EEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3AB6C4F5-7D00-4FF5-9F70-1267EFE72EEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3AB6C4F5-7D00-4FF5-9F70-1267EFE72EEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFC98E6B-FCF9-4EB4-8E13-B2F0A8D527E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFC98E6B-FCF9-4EB4-8E13-B2F0A8D527E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFC98E6B-FCF9-4EB4-8E13-B2F0A8D527E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFC98E6B-FCF9-4EB4-8E13-B2F0A8D527E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {1655AD25-34F0-4A9C-B311-CD6DA720674E}
+		SolutionGuid = {47D755D0-B8FA-42ED-A75F-7EB52B6D143A}
 	EndGlobalSection
 EndGlobal

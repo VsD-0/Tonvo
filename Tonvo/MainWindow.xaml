@@ -17,7 +17,6 @@
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="./#Montserrat">
-    
     <Window.CommandBindings>
         <CommandBinding x:Name="CloseCommand"
                         Command="{x:Static SystemCommands.CloseWindowCommand}"
@@ -46,7 +45,7 @@
                 <Grid>
                     <!--Иконка и название-->
                     <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="5,0,0,0">
-                        <Image Width="30" Height="30" Margin="5" Source="\Content\Pictures\Logo transparency2.png"/>
+                        <Image Width="30" Height="30" Margin="5" Source="/Content/Pictures/Logo transparency2.png"/>
                         <TextBlock Text="Tonvo" Margin="5,0,5,0" Height="30"
                                    Foreground="{StaticResource OnBackground}" FontSize="25"
                                    FontWeight="Medium" FontFamily="./#Montserrat"/>

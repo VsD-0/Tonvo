@@ -16,15 +16,10 @@ using System.Windows.Shapes;
 namespace Tonvo
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
-
         // Закрыть окно
         private void CloseCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {

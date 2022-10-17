@@ -83,8 +83,8 @@
                 <RowDefinition Height="0.25*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            
-            <Image Source="\Content\Pictures\FullLogo transparency2.png"/>
+
+            <Image Source="/Content/Pictures/FullLogo transparency2.png"/>
             
             <!--Выбор списка-->
             <ComboBox x:Name="listSelection" Grid.Row="1" Margin="10" 

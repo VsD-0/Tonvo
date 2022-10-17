@@ -3,7 +3,9 @@
     "",
     "\\Tonvo",
     "\\Tonvo\\Content",
-    "\\Tonvo\\Content\\Fonts"
+    "\\Tonvo\\Content\\Fonts",
+    "\\Tonvo\\Content\\Icons",
+    "\\Tonvo\\Content\\Pictures"
   ],
   "SelectedNode": "\\Tonvo.sln",
   "PreviewInSolutionExplorer": false
