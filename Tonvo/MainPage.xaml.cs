@@ -26,5 +26,17 @@ namespace Tonvo
 
             DataContext = new ApplicationViewModel();
         }
+
+        private void ComboBoxVacancy_Selected(object sender, RoutedEventArgs e)
+        {
+            ListVacancies.Visibility = Visibility.Visible;
+            ListApplicants.Visibility = Visibility.Hidden;
+        }
+
+        private void ComboBoxApplicant_Selected(object sender, RoutedEventArgs e)
+        {
+            ListVacancies.Visibility = Visibility.Hidden;
+            ListApplicants.Visibility = Visibility.Visible;
+        }
     }
 }

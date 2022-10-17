@@ -1,53 +1,47 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
+﻿using System.Collections.Specialized;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
 
 namespace Tonvo
 {
     internal class Vacancy : INotifyCollectionChanged
     {
-        private string _title;
-        private string _salary;
-        private string _companyTitle;
+        private string _vacancyName;
+        private string _vacancySalary;
+        private string _companyName;
 
-        public Vacancy(string title, string salary, string companyTitle)
+        public Vacancy(string vacancyName, string vacancySalary, string companyName)
         {
-            Title = title;
-            Salary = salary;
-            CompanyTitle = companyTitle;
+            VacancyName = vacancyName;
+            VacancySalary = vacancySalary;
+            CompanyName = companyName;
         }
 
-        public string Title
+        public string VacancyName
         {
-            get { return _title; }
+            get { return _vacancyName; }
             set
             {
-                _title = value;
-                OnPropertyChanged("Title");
+                _vacancyName = value;
+                OnPropertyChanged("VacancyName");
             }
         }
-        public string Salary
+        public string VacancySalary
         {
-            get { return _salary; }
+            get { return _vacancySalary; }
             set
             {
-                _salary = value;
-                OnPropertyChanged("Salary");
+                _vacancySalary = value;
+                OnPropertyChanged("VacancySalary");
             }
         }
-        public string CompanyTitle
+        public string CompanyName
         {
-            get { return _companyTitle; }
+            get { return _companyName; }
             set
             {
-                _companyTitle = value;
-                OnPropertyChanged("CompanyTitle");
+                _companyName = value;
+                OnPropertyChanged("CompanyName");
             }
         }
 

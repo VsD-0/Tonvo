@@ -35,7 +35,8 @@
                       Style="{StaticResource MaterialDesignListView}"
                       ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                       HorizontalContentAlignment="Stretch"
-                      ItemsSource="{Binding Vacancies}" SelectedItem="{Binding SelectedVacancy}">
+                      ItemsSource="{Binding Vacancies}" SelectedItem="{Binding SelectedVacancy}"
+                      >
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <StackPanel/>
@@ -53,14 +54,58 @@
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
-                                <TextBlock Grid.Row="0" Margin="16 16 16 4" Text="{Binding Path=Title}" 
+                                <TextBlock Grid.Row="0" Margin="16 16 16 4" Text="{Binding Path=VacancyName}" 
                                            Foreground="{StaticResource OnSecondary}" FontSize="20"/>
                                 <TextBlock Grid.Row="2" Margin="16 0 16 4" VerticalAlignment="Center"
                                            HorizontalAlignment="Left" Style="{StaticResource MaterialDesignBody2TextBlock}"
-                                           Text="{Binding Path=Salary}" />
+                                           Text="{Binding Path=VacancySalary}" />
                                 <TextBlock Grid.Row="3" Margin="16 0 16 16" VerticalAlignment="Center"
                                            HorizontalAlignment="Left" Style="{StaticResource MaterialDesignBody2TextBlock}"
-                                           Text="{Binding Path=CompanyTitle}" />
+                                           Text="{Binding Path=CompanyName}" />
+                                <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="16 0 16 8" HorizontalAlignment="Right">
+                                    <Button Content="Откликнуться" HorizontalAlignment="Right" 
+                                            Style="{StaticResource MaterialDesignFlatAccentBgButton}"
+                                            materialDesign:ButtonAssist.CornerRadius="9"
+                                            Background="{StaticResource Primary}" Foreground="{StaticResource OnPrimary}"
+                                            
+                                            Width="130"/>
+                                </StackPanel>
+                            </Grid>
+                        </materialDesign:Card>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ListView x:Name="ListApplicants" Grid.Row="1" Margin="15,0,5,0"
+                      Style="{StaticResource MaterialDesignListView}"
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                      HorizontalContentAlignment="Stretch"
+                      ItemsSource="{Binding Applicants}" SelectedItem="{Binding SelectedApplicant}"
+                      Visibility="Hidden">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <materialDesign:Card Margin="0,0,5,0"
+                                             Background="{StaticResource Secondary}" 
+                                             Foreground="{DynamicResource OnSecondary}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Margin="16 16 16 4" Text="{Binding Path=ProfessionName}" 
+                                           Foreground="{StaticResource OnSecondary}" FontSize="20"/>
+                                <TextBlock Grid.Row="2" Margin="16 0 16 4" VerticalAlignment="Center"
+                                           HorizontalAlignment="Left" Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                           Text="{Binding Path=ApplicantSalary}" />
+                                <TextBlock Grid.Row="3" Margin="16 0 16 16" VerticalAlignment="Center"
+                                           HorizontalAlignment="Left" Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                           Text="{Binding Path=WorkExperience}" />
                                 <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="16 0 16 8" HorizontalAlignment="Right">
                                     <Button Content="Откликнуться" HorizontalAlignment="Right" 
                                             Style="{StaticResource MaterialDesignFlatAccentBgButton}"
@@ -91,11 +136,10 @@
                   Style="{StaticResource MaterialDesignOutlinedComboBox}"
                   materialDesign:HintAssist.Hint="Выберите список"
                   materialDesign:HintAssist.Background="{StaticResource Primary}"
-                  
                   Foreground="{StaticResource OnPrimary}"
                   FontWeight="Bold">
-                        <ComboBoxItem Content="Вакансии" />
-                        <ComboBoxItem Content="Соискатели" />
+                <ComboBoxItem Content="Вакансии" Selected="ComboBoxVacancy_Selected"/>
+                <ComboBoxItem Content="Соискатели" Selected="ComboBoxApplicant_Selected"/>
             </ComboBox>
         </Grid>
     </Grid>
