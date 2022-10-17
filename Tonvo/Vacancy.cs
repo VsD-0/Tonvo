@@ -16,6 +16,13 @@ namespace Tonvo
         private string _salary;
         private string _companyTitle;
 
+        public Vacancy(string title, string salary, string companyTitle)
+        {
+            Title = title;
+            Salary = salary;
+            CompanyTitle = companyTitle;
+        }
+
         public string Title
         {
             get { return _title; }

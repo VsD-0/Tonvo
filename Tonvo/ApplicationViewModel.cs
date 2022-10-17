@@ -12,9 +12,45 @@ namespace Tonvo
 {
     internal class ApplicationViewModel : INotifyPropertyChanged
     {
-        private Vacancy _selectedVacancy;
-
+        private Vacancy? _selectedVacancy;
         public ObservableCollection<Vacancy> Vacancies { get; set; }
+
+        private RelayCommand _addCommand;
+        private RelayCommand _removeCommand;
+
+        // команда добавления нового объекта
+        public RelayCommand AddCommand
+        {
+            get
+            {
+                return _addCommand ??
+                  (_addCommand = new RelayCommand(obj =>
+                  {
+                      Vacancy vacancy = new Vacancy("", "", "");
+                      Vacancies.Insert(0, vacancy);
+                      SelectedVacancy = vacancy;
+                  }));
+            }
+        }
+
+        // команда удаления
+        public RelayCommand RemoveCommand
+        {
+            get
+            {
+                return _removeCommand ??
+                  (_removeCommand = new RelayCommand(obj =>
+                  {
+                      Vacancy vacancy = obj as Vacancy;
+                      if (vacancy != null)
+                      {
+                          Vacancies.Remove(vacancy);
+                      }
+                  },
+                 (obj) => Vacancies.Count > 0));
+            }
+        }
+
         public Vacancy SelectedVacancy
         {
             get { return _selectedVacancy; }
@@ -29,10 +65,10 @@ namespace Tonvo
         {
             Vacancies = new ObservableCollection<Vacancy>
             {
-                new Vacancy { Title="V1", Salary="1000$", CompanyTitle="V1Company" },
-                new Vacancy { Title="V2", Salary="1200$", CompanyTitle="V2Company" },
-                new Vacancy { Title="V3", Salary="900$", CompanyTitle="V3Company" },
-                new Vacancy { Title="V4", Salary="1500$", CompanyTitle="V4Company" }
+                new Vacancy("V1", "1900$", "V1Company" ),
+                new Vacancy("V2", "1000$", "V2Company" ),
+                new Vacancy("V3", "1200$", "V3Company" ),
+                new Vacancy("V4", "1500$", "V4Company" ),
             };
         }
 
