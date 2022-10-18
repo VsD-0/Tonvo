@@ -12,14 +12,14 @@
       TextElement.FontWeight = "Medium" 
       TextElement.FontSize = "14"
       FontFamily="./#Montserrat">
-    
+
     <!--Главный контейнер-->
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="15*"/>
             <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
-        
+
         <!--Контейнер списка-->
         <Grid>
             <Grid.RowDefinitions>
@@ -120,7 +120,7 @@
                 </ListView.ItemTemplate>
             </ListView>
         </Grid>
-        
+
         <!--Контейнер панели управления-->
         <Grid Grid.Column="1" Background="{StaticResource Primary}">
             <Grid.RowDefinitions>
@@ -130,7 +130,7 @@
             </Grid.RowDefinitions>
 
             <Image Source="/Content/Pictures/FullLogo transparency2.png"/>
-            
+
             <!--Выбор списка-->
             <ComboBox x:Name="listSelection" Grid.Row="1" Margin="10" 
                   Style="{StaticResource MaterialDesignOutlinedComboBox}"
@@ -138,9 +138,11 @@
                   materialDesign:HintAssist.Background="{StaticResource Primary}"
                   Foreground="{StaticResource OnPrimary}"
                   FontWeight="Bold">
-                <ComboBoxItem Content="Вакансии" Selected="ComboBoxVacancy_Selected"/>
-                <ComboBoxItem Content="Соискатели" Selected="ComboBoxApplicant_Selected"/>
+                <ComboBoxItem Content="Вакансии" Selected="ComboBoxVacancy_Selected" IsSelected="True"/>
+                <ComboBoxItem Content="Резюме" Selected="ComboBoxApplicant_Selected"/>
             </ComboBox>
         </Grid>
     </Grid>
 </Page>
+
+

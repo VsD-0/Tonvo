@@ -152,14 +152,12 @@ C:\Users\dimva\source\repos\Tonvo\Tonvo\bin\Debug\netcoreapp3.1\ru-ru\MaterialDe
 C:\Users\dimva\source\repos\Tonvo\Tonvo\bin\Debug\netcoreapp3.1\uz-Latn-UZ\MaterialDesignExtensions.resources.dll
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\netcoreapp3.1\Tonvo.csproj.AssemblyReference.cache
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\netcoreapp3.1\LightTheme.baml
-C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\netcoreapp3.1\MainPage.g.cs
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\netcoreapp3.1\MainWindow.g.cs
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\netcoreapp3.1\App.g.cs
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\netcoreapp3.1\Tonvo_Content.g.cs
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\netcoreapp3.1\Tonvo_MarkupCompile.cache
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\netcoreapp3.1\Tonvo_MarkupCompile.lref
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\netcoreapp3.1\App.baml
-C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\netcoreapp3.1\MainPage.baml
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\netcoreapp3.1\MainWindow.baml
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\netcoreapp3.1\Tonvo.g.resources
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\netcoreapp3.1\Tonvo.GeneratedMSBuildEditorConfig.editorconfig
@@ -170,3 +168,5 @@ C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\netcoreapp3.1\Tonvo.csproj.Cop
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\netcoreapp3.1\Tonvo.dll
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\netcoreapp3.1\Tonvo.pdb
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\netcoreapp3.1\Tonvo.genruntimeconfig.cache
+C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\netcoreapp3.1\MainPage.g.cs
+C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\netcoreapp3.1\MainPage.baml

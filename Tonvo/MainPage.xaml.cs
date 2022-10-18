@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -26,17 +24,18 @@ namespace Tonvo
 
             DataContext = new ApplicationViewModel();
         }
-
         private void ComboBoxVacancy_Selected(object sender, RoutedEventArgs e)
         {
             ListVacancies.Visibility = Visibility.Visible;
             ListApplicants.Visibility = Visibility.Hidden;
+            titleList.Text = "Вакансии";
         }
 
         private void ComboBoxApplicant_Selected(object sender, RoutedEventArgs e)
         {
             ListVacancies.Visibility = Visibility.Hidden;
             ListApplicants.Visibility = Visibility.Visible;
+            titleList.Text = "Резюме";
         }
     }
 }
