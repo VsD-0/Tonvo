@@ -82,7 +82,7 @@
                 </Grid>
             </Border>
 
-            <Frame Grid.Row="1" Source="MainPage.xaml" NavigationUIVisibility="Hidden"/>
+            <Frame Grid.Row="1" Source="Pages/MainPage.xaml" NavigationUIVisibility="Hidden"/>
 
         </Grid>
     </Border>
