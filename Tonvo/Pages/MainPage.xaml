@@ -28,12 +28,23 @@
             </Grid.RowDefinitions>
 
             <!--Название списка-->
-            <TextBlock x:Name="titleList" Text="Вакансии" VerticalAlignment="Center" HorizontalAlignment="Center"
-                       Foreground="{StaticResource OnBackground}" FontSize="85"/>
+            <TextBlock x:Name="titleList" VerticalAlignment="Center" HorizontalAlignment="Center"
+                       Foreground="{StaticResource OnBackground}" FontSize="85">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock" BasedOn="{StaticResource MaterialDesignBody2TextBlock}">
+                        <Setter Property="Text" Value="Вакансии"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=cbVacancy, Path=IsSelected}" Value="False">
+                                <Setter Property="Text" Value="Резюме"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
 
             <ListView x:Name="ListVacancies" Grid.Row="1" Margin="15,0,5,0"
                       ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                      HorizontalContentAlignment="Stretch" >
+                      HorizontalContentAlignment="Stretch">
                 <ListView.Style>
                     <Style TargetType="ListView" BasedOn="{StaticResource MaterialDesignListView}">
                         <Setter Property="ItemsSource" Value="{Binding Vacancies}"/>
@@ -116,23 +127,29 @@
         <!--Контейнер панели управления-->
         <Grid Grid.Column="1" Background="{StaticResource Primary}">
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.35*"/>
-                <RowDefinition Height="0.25*"/>
-                <RowDefinition/>
+                <RowDefinition Height="131*"/>
+                <RowDefinition Height="59*"/>
+                <RowDefinition Height="301*"/>
+                <RowDefinition Height="116"/>
             </Grid.RowDefinitions>
 
             <Image Source="/Content/Pictures/FullLogo transparency2.png"/>
 
             <!--Выбор списка-->
-            <ComboBox x:Name="listSelection" Grid.Row="1" Margin="10" 
+            <ComboBox x:Name="listSelection" Grid.Row="1" Margin="10,0,10,0" 
                   Style="{StaticResource MaterialDesignOutlinedComboBox}"
                   materialDesign:HintAssist.Hint="Выберите список"
                   materialDesign:HintAssist.Background="{StaticResource Primary}"
                   Foreground="{StaticResource OnPrimary}"
-                  FontWeight="Bold">
+                  FontWeight="Bold" Height="48">
                 <ComboBoxItem x:Name="cbVacancy" Content="Вакансии" IsSelected="True"/>
                 <ComboBoxItem x:Name="cbApplicant" Content="Резюме"/>
             </ComboBox>
+            <StackPanel Grid.Row="2"></StackPanel>
+            <StackPanel Grid.Row="3">
+                <Button></Button>
+                <Button></Button>
+            </StackPanel>
         </Grid>
     </Grid>
 </Page>

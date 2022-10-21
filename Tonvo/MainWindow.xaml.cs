@@ -21,46 +21,25 @@ namespace Tonvo
     public partial class MainWindow : Window
     {
         // Закрыть окно
-        private void CloseCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
-        {
-            e.CanExecute = true;
-        }
-
-        private void CloseCommand_Executed(object sender, ExecutedRoutedEventArgs e)
-        {
-            this.Close();
-        }
+        private void CloseCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e) { e.CanExecute = true; }
+        private void CloseCommand_Executed(object sender, ExecutedRoutedEventArgs e) { this.Close(); }
 
         // Свернутть окно
-        private void MinCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
-        {
-            e.CanExecute = true;
-        }
-
-        private void MinCommand_Executed(object sender, ExecutedRoutedEventArgs e)
-        {
-            WindowState = WindowState.Minimized;
-        }
+        private void MinCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e) { e.CanExecute = true; }
+        private void MinCommand_Executed(object sender, ExecutedRoutedEventArgs e) { WindowState = WindowState.Minimized;}
 
         // Расширить окно
-        private void MaxCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
-        {
-            e.CanExecute = true;
-        }
-
+        private void MaxCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e) { e.CanExecute = true; }
         private void MaxCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            if (WindowState == WindowState.Maximized)
-                WindowState = WindowState.Normal;
-            else
-                WindowState = WindowState.Maximized;
+            if (WindowState == WindowState.Maximized) WindowState = WindowState.Normal;
+            else WindowState = WindowState.Maximized;
         }
 
         // Перемещение окна
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
-                DragMove();
+            if (e.LeftButton == MouseButtonState.Pressed) DragMove();
         }
     }
 }

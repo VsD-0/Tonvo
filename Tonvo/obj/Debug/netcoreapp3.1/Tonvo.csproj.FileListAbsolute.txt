@@ -174,3 +174,4 @@ C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\netcoreapp3.1\Pages\ProfileApp
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\netcoreapp3.1\Pages\ProfileCompanyPage.g.cs
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\netcoreapp3.1\Pages\ProfileApplicantPage.baml
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\netcoreapp3.1\Pages\ProfileCompanyPage.baml
+C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\netcoreapp3.1\GeneratedInternalTypeHelper.g.cs

@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Data;
@@ -15,7 +16,7 @@ namespace Tonvo.Models
 
         private RelayCommand _addVacancyCommand;
         private RelayCommand _removeVacancyCommand;
-
+        
         // команда добавления нового объекта
         public RelayCommand AddVacancyCommand
         {
