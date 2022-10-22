@@ -78,8 +78,6 @@ namespace Tonvo {
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "6.0.10.0")]
         public static void Main() {
-            SplashScreen splashScreen = new SplashScreen("fulllogo.jpg");
-            splashScreen.Show(true);
             Tonvo.App app = new Tonvo.App();
             app.InitializeComponent();
             app.Run();

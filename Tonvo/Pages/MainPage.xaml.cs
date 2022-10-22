@@ -24,5 +24,10 @@ namespace Tonvo.Pages
 
             DataContext = new Models.ApplicationViewModel();
         }
+
+        private void btnRegistration_Click(object sender, RoutedEventArgs e)
+        {
+            //dialogHost.IsOpen = true;
+        }
     }
 }

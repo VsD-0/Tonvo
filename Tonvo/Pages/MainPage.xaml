@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:materialDesign = "http://materialdesigninxaml.net/winfx/xaml/themes"
-      xmlns:local="clr-namespace:Tonvo.Pages"
+      xmlns:local="clr-namespace:Tonvo.Pages" xmlns:system="clr-namespace:System;assembly=System.Runtime"
       mc:Ignorable="d" 
       Title="MainPage"
       d:DesignWidth="1092" d:DesignHeight="607"
@@ -110,13 +110,6 @@
                                         </Style>
                                     </TextBlock.Style>
                                 </TextBlock>
-                                <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="16 0 16 8" HorizontalAlignment="Right">
-                                    <Button Content="Откликнуться" HorizontalAlignment="Right" 
-                                            Style="{StaticResource MaterialDesignFlatAccentBgButton}"
-                                            materialDesign:ButtonAssist.CornerRadius="9"
-                                            Background="{StaticResource Primary}" Foreground="{StaticResource OnPrimary}"
-                                            Width="130"/>
-                                </StackPanel>
                             </Grid>
                         </materialDesign:Card>
                     </DataTemplate>
@@ -147,9 +140,54 @@
             </ComboBox>
             <StackPanel Grid.Row="2"></StackPanel>
             <StackPanel Grid.Row="3">
-                <Button></Button>
-                <Button></Button>
+                <Button Margin="12" Content="Войти"></Button>
+                <Button x:Name="btnRegistration" Margin="12" Content="Регистрация" Click="btnRegistration_Click" Cursor="Hand"></Button>
             </StackPanel>
         </Grid>
+        <!--<materialDesign:DialogHost x:Name="dialogHost" Grid.ColumnSpan="2" DialogBackground="{StaticResource Primary}">
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel Margin="16">
+                    <ComboBox Margin="10,0,10,0" 
+                          Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                          materialDesign:HintAssist.Hint="Выберите список"
+                          materialDesign:HintAssist.Background="{StaticResource Primary}"
+                          Foreground="{StaticResource OnPrimary}"
+                          FontWeight="Bold" Height="48">
+                        <ComboBoxItem x:Name="cbVacancyDh" Content="Вакансии" IsSelected="True"/>
+                        <ComboBoxItem x:Name="cbApplicantDh" Content="Резюме"/>
+                    </ComboBox>
+                    <TextBox></TextBox>
+                    <TextBox></TextBox>
+                    <TextBox></TextBox>
+                    <TextBox></TextBox>
+                    <Button></Button>
+                    <Button></Button>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>-->
+        <materialDesign:DialogHost HorizontalAlignment="Center" VerticalAlignment="Center">
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel Margin="16">
+                    <!-- HERE GOES YOUR CONTENT -->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+                        <Button Style="{StaticResource MaterialDesignFlatButton}" IsDefault="True"
+                        Margin="0 8 8 0" Command="materialDesign:DialogHost.CloseDialogCommand">
+                            <Button.CommandParameter>
+                                <system:Boolean>True</system:Boolean>
+                            </Button.CommandParameter>
+                            ACCEPT
+                        </Button>
+                        <Button Style="{StaticResource MaterialDesignFlatButton}"
+                         IsCancel="True" Margin="0 8 8 0" 
+                         Command="materialDesign:DialogHost.CloseDialogCommand">
+                            <Button.CommandParameter>
+                                <system:Boolean>False</system:Boolean>
+                            </Button.CommandParameter>
+                            CANCEL
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
     </Grid>
 </Page>
