@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
 C:\Users\dimva\source\repos\Tonvo\Tonvo\App.xaml
-51946805768
+3-1801227598
 1-1582485629
-1226936382
-198301355553
-MainWindow.xaml;Pages\MainPage.xaml;Pages\ProfileApplicantPage.xaml;Pages\ProfileCompanyPage.xaml;Themes\LightTheme.xaml;
+11124889287
+2171877983999
+Themes\LightTheme.xaml;Views\RootView.xaml;Views\ShellView.xaml;
 
-True
+False
 

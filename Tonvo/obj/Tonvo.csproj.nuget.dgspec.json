@@ -65,6 +65,22 @@
               "target": "Package",
               "version": "[13.0.1, )"
             },
+            "NuGet.Protocol": {
+              "target": "Package",
+              "version": "[6.3.1, )"
+            },
+            "ReactiveUI": {
+              "target": "Package",
+              "version": "[18.3.1, )"
+            },
+            "ReactiveUI.Fody": {
+              "target": "Package",
+              "version": "[18.3.1, )"
+            },
+            "ReactiveUI.WPF": {
+              "target": "Package",
+              "version": "[18.3.1, )"
+            },
             "ShowMeTheXAML": {
               "target": "Package",
               "version": "[2.0.0, )"
@@ -84,6 +100,9 @@
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App": {
+              "privateAssets": "none"
             },
             "Microsoft.WindowsDesktop.App.WPF": {
               "privateAssets": "none"

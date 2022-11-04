@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ReactiveUI.Fody.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
@@ -7,12 +8,8 @@ using System.Text;
 
 namespace Tonvo.Models
 {
-    internal class Applicant
+    internal class Applicant : INotifyPropertyChanged
     {
-        private string _professionName;
-        private string _applicantSalary;
-        private string _workExperience;
-
         public Applicant(string professionName, string applicantSalary, string workExperience)
         {
             ProfessionName = professionName;
@@ -20,40 +17,15 @@ namespace Tonvo.Models
             WorkExperience = workExperience;
         }
 
-        public string ProfessionName
-        {
-            get { return _professionName; }
-            set
-            {
-                _professionName = value;
-                OnPropertyChanged("ProfessionName");
-            }
-        }
-        public string ApplicantSalary
-        {
-            get { return _applicantSalary; }
-            set
-            {
-                _applicantSalary = value;
-                OnPropertyChanged("ApplicantSalary");
-            }
-        }
-        public string WorkExperience
-        {
-            get { return _workExperience; }
-            set
-            {
-                _workExperience = value;
-                OnPropertyChanged("WorkExperience");
-            }
-        }
+        [Reactive]
+        public string ProfessionName { get; set; }
+
+        [Reactive]
+        public string ApplicantSalary { get; set; }
+
+        [Reactive]
+        public string WorkExperience { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
-        public event NotifyCollectionChangedEventHandler CollectionChanged;
-
-        public void OnPropertyChanged([CallerMemberName] string prop = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
-        }
     }
 }
