@@ -155,10 +155,10 @@
           }
         }
       },
-      "NuGet.Common/6.3.1": {
+      "NuGet.Common/6.4.0": {
         "type": "package",
         "dependencies": {
-          "NuGet.Frameworks": "6.3.1"
+          "NuGet.Frameworks": "6.4.0"
         },
         "compile": {
           "lib/netstandard2.0/NuGet.Common.dll": {
@@ -171,10 +171,10 @@
           }
         }
       },
-      "NuGet.Configuration/6.3.1": {
+      "NuGet.Configuration/6.4.0": {
         "type": "package",
         "dependencies": {
-          "NuGet.Common": "6.3.1",
+          "NuGet.Common": "6.4.0",
           "System.Security.Cryptography.ProtectedData": "4.4.0"
         },
         "compile": {
@@ -188,7 +188,7 @@
           }
         }
       },
-      "NuGet.Frameworks/6.3.1": {
+      "NuGet.Frameworks/6.4.0": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/NuGet.Frameworks.dll": {
@@ -201,12 +201,12 @@
           }
         }
       },
-      "NuGet.Packaging/6.3.1": {
+      "NuGet.Packaging/6.4.0": {
         "type": "package",
         "dependencies": {
           "Newtonsoft.Json": "13.0.1",
-          "NuGet.Configuration": "6.3.1",
-          "NuGet.Versioning": "6.3.1",
+          "NuGet.Configuration": "6.4.0",
+          "NuGet.Versioning": "6.4.0",
           "System.Security.Cryptography.Cng": "5.0.0",
           "System.Security.Cryptography.Pkcs": "5.0.0"
         },
@@ -221,10 +221,10 @@
           }
         }
       },
-      "NuGet.Protocol/6.3.1": {
+      "NuGet.Protocol/6.4.0": {
         "type": "package",
         "dependencies": {
-          "NuGet.Packaging": "6.3.1"
+          "NuGet.Packaging": "6.4.0"
         },
         "compile": {
           "lib/netstandard2.0/NuGet.Protocol.dll": {
@@ -237,7 +237,7 @@
           }
         }
       },
-      "NuGet.Versioning/6.3.1": {
+      "NuGet.Versioning/6.4.0": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/NuGet.Versioning.dll": {
@@ -289,22 +289,6 @@
         },
         "build": {
           "build/ReactiveUI.Fody.props": {}
-        }
-      },
-      "ReactiveUI.WPF/18.3.1": {
-        "type": "package",
-        "dependencies": {
-          "ReactiveUI": "18.3.1"
-        },
-        "compile": {
-          "lib/net462/ReactiveUI.Wpf.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net462/ReactiveUI.Wpf.dll": {
-            "related": ".xml"
-          }
         }
       },
       "ShowMeTheXAML/2.0.0": {
@@ -1038,10 +1022,10 @@
         "packageIcon.png"
       ]
     },
-    "NuGet.Common/6.3.1": {
-      "sha512": "/WgxNyc9dXl+ZrQJDf5BXaqtMbl0CcDC5GEQITecbHZBQHApTMuxeTMMEqa0Y+PD1CIxTtbRY4jmotKS5dsLuA==",
+    "NuGet.Common/6.4.0": {
+      "sha512": "srECugLk+LB1bXelDCDhHoi6do/EYTXzuntKhjHraS4roVB3NfWohEdCSiAPdpSV9M40Q6jo6MV2Srml9e+jHQ==",
       "type": "package",
-      "path": "nuget.common/6.3.1",
+      "path": "nuget.common/6.4.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1051,14 +1035,14 @@
         "lib/net472/NuGet.Common.xml",
         "lib/netstandard2.0/NuGet.Common.dll",
         "lib/netstandard2.0/NuGet.Common.xml",
-        "nuget.common.6.3.1.nupkg.sha512",
+        "nuget.common.6.4.0.nupkg.sha512",
         "nuget.common.nuspec"
       ]
     },
-    "NuGet.Configuration/6.3.1": {
-      "sha512": "ja227AmXuDVgPXi3p2VTZFTYI/4xwwLSPYtd9Y9WIfCrRqSNDa96J5hm70wXhBCOQYvoRVDjp3ufgDnnqZ0bYA==",
+    "NuGet.Configuration/6.4.0": {
+      "sha512": "vPjauG9AoacEjiZWGIs+d11FCRVmseqAw78FIApfLvZrYMEbbwc9vc0LdC3PpoW5FxYkktyZSiiXVKXGLu+gXw==",
       "type": "package",
-      "path": "nuget.configuration/6.3.1",
+      "path": "nuget.configuration/6.4.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1068,14 +1052,14 @@
         "lib/net472/NuGet.Configuration.xml",
         "lib/netstandard2.0/NuGet.Configuration.dll",
         "lib/netstandard2.0/NuGet.Configuration.xml",
-        "nuget.configuration.6.3.1.nupkg.sha512",
+        "nuget.configuration.6.4.0.nupkg.sha512",
         "nuget.configuration.nuspec"
       ]
     },
-    "NuGet.Frameworks/6.3.1": {
-      "sha512": "Ae1vRjHDbNU7EQwQnDlxFRl+O9iQLp2H9Z/sRB/EAmO8+neUOeOfbkLClO7ZNcTcW5p1FDABrPakXICtQ0JCRw==",
+    "NuGet.Frameworks/6.4.0": {
+      "sha512": "qcufbjJIDtyY/Hah7JJfcRVpRYM3scgPqYBnukjO9kfADCFGr2azvVBozuwzljA6w/cR3w8bXLq6vW5xGrsmHw==",
       "type": "package",
-      "path": "nuget.frameworks/6.3.1",
+      "path": "nuget.frameworks/6.4.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1085,14 +1069,14 @@
         "lib/net472/NuGet.Frameworks.xml",
         "lib/netstandard2.0/NuGet.Frameworks.dll",
         "lib/netstandard2.0/NuGet.Frameworks.xml",
-        "nuget.frameworks.6.3.1.nupkg.sha512",
+        "nuget.frameworks.6.4.0.nupkg.sha512",
         "nuget.frameworks.nuspec"
       ]
     },
-    "NuGet.Packaging/6.3.1": {
-      "sha512": "/GI2ujy3t00I8qFGvuLrVMNAEMFgEHfW+GNACZna2zgjADrxqrCeONStYZR2hHt3eI2/5HbiaoX4NCP17JCYzw==",
+    "NuGet.Packaging/6.4.0": {
+      "sha512": "aR10aYqcUMGC2mwMGH5rls/MGaz3EVH8DKTTHQ/EC91hXNtrCTTAQonaRR+v1EItcoxtQeZ/WQOorv4z270Tgg==",
       "type": "package",
-      "path": "nuget.packaging/6.3.1",
+      "path": "nuget.packaging/6.4.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1104,14 +1088,14 @@
         "lib/net5.0/NuGet.Packaging.xml",
         "lib/netstandard2.0/NuGet.Packaging.dll",
         "lib/netstandard2.0/NuGet.Packaging.xml",
-        "nuget.packaging.6.3.1.nupkg.sha512",
+        "nuget.packaging.6.4.0.nupkg.sha512",
         "nuget.packaging.nuspec"
       ]
     },
-    "NuGet.Protocol/6.3.1": {
-      "sha512": "1x3jozJNwoECAo88hrhYNuKkRrv9V2VoVxlCntpwr9jX5h6sTV3uHnXAN7vaVQ2/NRX9LLRIiD8K0NOTCG5EmQ==",
+    "NuGet.Protocol/6.4.0": {
+      "sha512": "KIPjsWP0P3EMsDsXaa6YBCTvYKur/zI0luS1kO5G37ci8mHs2kJFsuG5qaMhGvgyHASu54sxlic1n1oza2Pcbw==",
       "type": "package",
-      "path": "nuget.protocol/6.3.1",
+      "path": "nuget.protocol/6.4.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1123,14 +1107,14 @@
         "lib/net5.0/NuGet.Protocol.xml",
         "lib/netstandard2.0/NuGet.Protocol.dll",
         "lib/netstandard2.0/NuGet.Protocol.xml",
-        "nuget.protocol.6.3.1.nupkg.sha512",
+        "nuget.protocol.6.4.0.nupkg.sha512",
         "nuget.protocol.nuspec"
       ]
     },
-    "NuGet.Versioning/6.3.1": {
-      "sha512": "T/igBDLXCd+pH3YTWgGVNvYSOwbwaT30NyyM9ONjvlHlmaUjKBJpr9kH0AeL+Ado4EJsBhU3qxXVc6lyrpRcMw==",
+    "NuGet.Versioning/6.4.0": {
+      "sha512": "YE8p3TpX4jIw+Gb24maE8YRDoqWA4imLmCbdOj5IvslLrZJXQ8akeFOGOplxICNVevON1g1SFYT2+cq4yy0nQQ==",
       "type": "package",
-      "path": "nuget.versioning/6.3.1",
+      "path": "nuget.versioning/6.4.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1140,7 +1124,7 @@
         "lib/net472/NuGet.Versioning.xml",
         "lib/netstandard2.0/NuGet.Versioning.dll",
         "lib/netstandard2.0/NuGet.Versioning.xml",
-        "nuget.versioning.6.3.1.nupkg.sha512",
+        "nuget.versioning.6.4.0.nupkg.sha512",
         "nuget.versioning.nuspec"
       ]
     },
@@ -1225,29 +1209,6 @@
         "reactiveui.fody.18.3.1.nupkg.sha512",
         "reactiveui.fody.nuspec",
         "weaver/ReactiveUI.Fody.dll"
-      ]
-    },
-    "ReactiveUI.WPF/18.3.1": {
-      "sha512": "NbBuMKNWaZ0pxm9AXcu6xlZsL37VaakQe3+hEblOnoFsydKj5eaUyGtSUuQN+ehJ2lXVfdz3oMTSaXa9/wsnrQ==",
-      "type": "package",
-      "path": "reactiveui.wpf/18.3.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE/LICENSE",
-        "lib/net462/ReactiveUI.Wpf.dll",
-        "lib/net462/ReactiveUI.Wpf.xml",
-        "lib/net472/ReactiveUI.Wpf.dll",
-        "lib/net472/ReactiveUI.Wpf.xml",
-        "lib/net48/ReactiveUI.Wpf.dll",
-        "lib/net48/ReactiveUI.Wpf.xml",
-        "lib/net6.0-windows10.0.19041/ReactiveUI.Wpf.dll",
-        "lib/net6.0-windows10.0.19041/ReactiveUI.Wpf.xml",
-        "lib/net6.0-windows7.0/ReactiveUI.Wpf.dll",
-        "lib/net6.0-windows7.0/ReactiveUI.Wpf.xml",
-        "logo.png",
-        "reactiveui.wpf.18.3.1.nupkg.sha512",
-        "reactiveui.wpf.nuspec"
       ]
     },
     "ShowMeTheXAML/2.0.0": {
@@ -3101,10 +3062,9 @@
       "MaterialDesignThemes >= 4.6.1",
       "Microsoft.Xaml.Behaviors.Wpf >= 1.1.39",
       "Newtonsoft.Json >= 13.0.1",
-      "NuGet.Protocol >= 6.3.1",
+      "NuGet.Protocol >= 6.4.0",
       "ReactiveUI >= 18.3.1",
       "ReactiveUI.Fody >= 18.3.1",
-      "ReactiveUI.WPF >= 18.3.1",
       "ShowMeTheXAML >= 2.0.0"
     ]
   },
@@ -3175,17 +3135,13 @@
           },
           "NuGet.Protocol": {
             "target": "Package",
-            "version": "[6.3.1, )"
+            "version": "[6.4.0, )"
           },
           "ReactiveUI": {
             "target": "Package",
             "version": "[18.3.1, )"
           },
           "ReactiveUI.Fody": {
-            "target": "Package",
-            "version": "[18.3.1, )"
-          },
-          "ReactiveUI.WPF": {
             "target": "Package",
             "version": "[18.3.1, )"
           },
@@ -3219,17 +3175,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Пакет \"ReactiveUI.WPF 18.3.1\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \".NETCoreApp,Version=v3.1\". Этот пакет может быть не полностью совместим с вашим проектом.",
-      "libraryId": "ReactiveUI.WPF",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    }
-  ]
+  }
 }

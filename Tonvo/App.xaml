@@ -3,14 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:Tonvo"
-             StartupUri="Views/ShellView.xaml">
+             xmlns:vms="clr-namespace:Tonvo.MVVM.ViewModels"
+             StartupUri="MVVM/Views/ShellView.xaml">
+    <!--TODO: Перенести стили в отдельную папку "Tonvo/Themes/Styles"-->
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="DeepPurple" SecondaryColor="Lime" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml"/>
-                <ResourceDictionary Source="Themes/LightTheme.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Themes/LightTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+
+            <Style x:Key="textBoxStyle" TargetType="TextBox" BasedOn="{StaticResource MaterialDesignOutlinedTextBox}">
+                <Setter Property="materialDesign:TextFieldAssist.HasClearButton" Value="True"/>
+            </Style>
+            
             <Style x:Key="listViewStyle" TargetType="ListView" BasedOn="{StaticResource MaterialDesignListView}">
                 <Setter Property="ItemsSource" Value="{Binding Vacancies}"/>
                 <Setter Property="SelectedItem" Value="{Binding SelectedVacancy}"/>
