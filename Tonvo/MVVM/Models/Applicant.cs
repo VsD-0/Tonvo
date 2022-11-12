@@ -14,23 +14,24 @@ using ReactiveUI;
 using System.Linq;
 using System.Reactive.Linq;
 using System.Net;
+using System.Windows.Controls;
 
 namespace Tonvo.Models
 {
-    internal class Applicant : ObservableObject, IModel, INotifyDataErrorInfo
+    internal class Applicant : AbstractModelBase, IModel
     {
         //TODO: Создать отдельный класс для валидации
-        private readonly Dictionary<string, List<string>> _errorsByPropertyName = new Dictionary<string, List<string>>();
         private List<bool> _valid = new List<bool>();
 
+        //TODO: Добавить метод каждому свойству
         [Reactive]
         public int Id { get; set; }
         [Reactive]
         public string ProfessionName { get; set; }
         [Reactive]
-        public int ApplicantSalary { get; set; }
+        public string ApplicantSalary { get; set; }
         [Reactive]
-        public int WorkExperience { get; set; }
+        public string WorkExperience { get; set; }
         [Reactive]
         public string Name { get; set; }
         [Reactive]
@@ -38,165 +39,355 @@ namespace Tonvo.Models
         [Reactive]
         public string ApplicantDescription { get; set; }
         [Reactive]
-        public int Age { get; set; }
+        public string Birthday { get; set; }
         [Reactive]
         public string Email { get; set; }
         [Reactive]
         public string Password { get; set; }
 
-        public bool HasErrors => _errorsByPropertyName.Any();
+        //public bool ValidateApplicant()
+        //{
+        //    _valid.Clear();
+        //    if (!ValidateApplicantProfessionName()) _valid.Add(false);
+        //    if (!ValidateApplicantSalary()) _valid.Add(false);
+        //    if (!ValidateApplicantWorkExperience()) _valid.Add(false);
+        //    if (!ValidateApplicantName()) _valid.Add(false);
+        //    if (!ValidateApplicantSecondName()) _valid.Add(false);
+        //    if (!ValidateApplicantEmail()) _valid.Add(false);
+        //    if (!ValidateApplicantBirthday()) _valid.Add(false);
+        //    if (!ValidateApplicantPassword()) _valid.Add(false);
+        //    if (!_valid.Any()) return true;
+        //    return false;
+        //}
 
-        public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
-
-        public IEnumerable GetErrors(string propertyName)
+        public Applicant()
         {
-            return _errorsByPropertyName.ContainsKey(propertyName) ?
-            _errorsByPropertyName[propertyName] : null;
+            //EventManager.Validated += ValidateApplicantProfessionName;
+            //EventManager.Validated += ValidateApplicantSalary;
+            //EventManager.Validated += ValidateApplicantWorkExperience;
+            //EventManager.Validated += ValidateApplicantName;
+            //EventManager.Validated += ValidateApplicantSecondName;
+            //EventManager.Validated += ValidateApplicantBirthday;
+            //EventManager.Validated += ValidateApplicantEmail;
+            //EventManager.Validated += ValidateApplicantPassword;
         }
 
-        private void OnErrorsChanged(string propertyName)
+        private RelayCommand _validateApplicantProfessionName;
+        public RelayCommand ValidateApplicantProfessionName
         {
-            ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
-        }
-
-        public bool ValidateApplicant()
-        {
-            // TODO: Доработай
-            if(!ValidateApplicantPassword()) _valid.Add(false);
-            if(!ValidateApplicantEmail()) _valid.Add(false);
-            if(!ValidateApplicantAge()) _valid.Add(false);
-            if (!_valid.Any()) return true;
-            return false;
-        }
-
-        private bool ValidateApplicantProfessionName()
-        {
-            ClearErrors(nameof(ProfessionName));
-            if (string.IsNullOrWhiteSpace(ProfessionName))
+            get
             {
-                AddError(nameof(ProfessionName), "Поле не может быть пустым");
-                return false;
-            }
-            if (!SecondName.All(char.IsLetter))
-            {
-                AddError(nameof(ProfessionName), "Название профессии должно содержать только буквы");
-                return false;
-            }
-            return true;
-        }
-
-        private bool ValidateApplicantName()
-        {
-            ClearErrors(nameof(SecondName));
-            if (string.IsNullOrWhiteSpace(SecondName))
-            {
-                AddError(nameof(Name), "Поле не может быть пустым");
-                return false;
-            }
-            if (!SecondName.All(char.IsLetter))
-            {
-                AddError(nameof(SecondName), "Имя должно содержать только буквы");
-                return false;
-            }
-            return true;
-        }
-
-        private bool ValidateApplicantSecondName()
-        {
-            ClearErrors(nameof(SecondName));
-            if (string.IsNullOrWhiteSpace(SecondName))
-            {
-                AddError(nameof(SecondName), "Поле не может быть пустым");
-                return false;
-            }
-            if (!SecondName.All(char.IsLetter))
-            {
-                AddError(nameof(SecondName), "Фамилия должна содержать только буквы");
-                return false;
-            }
-            return true;
-        }
-
-        private bool ValidateApplicantAge()
-        {
-            ClearErrors(nameof(Age));
-            if (Age <= 18 && Age >= 120)
-            {
-                AddError(nameof(Age), "Для регистрации вы должны быть старше 18 лет");
-                return false;
-            }
-            return true;
-        }
-
-        private bool ValidateApplicantEmail()
-        {
-            ClearErrors(nameof(Email));
-            if (string.IsNullOrWhiteSpace(Email))
-            {
-                AddError(nameof(Email), "E-mail не может быть пустым");
-                return false;
-            }
-            if (!new EmailAddressAttribute().IsValid(Email ?? throw new ArgumentNullException()))
-            {
-                AddError(nameof(Email), "Некоректная электронная почта");
-                return false;
-            }
-            return true;
-        }
-
-        private bool ValidateApplicantPassword()
-        {
-            ClearErrors(nameof(Password));
-            if (string.IsNullOrWhiteSpace(Password)){
-                AddError(nameof(Password), "Пароль не может быть пустым");
-                return false;
-            }
-            if (!Password.Any(char.IsPunctuation)){
-                AddError(nameof(Password), "Пароль должен содержать спецсимволы");
-                return false;
-            }
-            if (!Password.Any(char.IsDigit)){
-                AddError(nameof(Password), "Пароль должен содержать цифры");
-                return false;
-            }
-            if (!Password.Any(char.IsLetter)) {
-                AddError(nameof(Password), "Пароль должен содержать буквы");
-                return false;
-            }
-            if (!Password.Any(char.IsUpper)) {
-                AddError(nameof(Password), "Пароль должен содержать прописные буквы");
-                return false;
-            }
-            if (!Password.Any(char.IsLower)){
-                AddError(nameof(Password), "Пароль должен содержать строчные буквы");
-                return false;
-            }
-            if (Password == null || Password?.Length <= 7){
-                AddError(nameof(Password), "Пароль должен быть больше 8 символов");
-                return false;
-            }
-            return true;
-        }
-
-        private void AddError(string propertyName, string error)
-        {
-            if (!_errorsByPropertyName.ContainsKey(propertyName))
-                _errorsByPropertyName[propertyName] = new List<string>();
-
-            if (!_errorsByPropertyName[propertyName].Contains(error))
-            {
-                _errorsByPropertyName[propertyName].Add(error);
-                OnErrorsChanged(propertyName);
+                return _validateApplicantProfessionName ??= new RelayCommand(obj =>
+                {
+                    ClearErrors(nameof(ProfessionName));
+                    if (string.IsNullOrWhiteSpace(ProfessionName))
+                    {
+                        AddError(nameof(ProfessionName), "Поле не может быть пустым");
+                        return;
+                    }
+                    if (!ProfessionName.All(char.IsLetter))
+                    {
+                        AddError(nameof(ProfessionName), "Название профессии должно содержать только буквы");
+                    }
+                });
             }
         }
 
-        private void ClearErrors(string propertyName)
+        private RelayCommand _validateApplicantSalary;
+        public RelayCommand ValidateApplicantSalary
         {
-            if (_errorsByPropertyName.ContainsKey(propertyName))
+            get
             {
-                _errorsByPropertyName.Remove(propertyName);
-                OnErrorsChanged(propertyName);
+                return _validateApplicantSalary ??= new RelayCommand(obj =>
+                {
+                    ClearErrors(nameof(ApplicantSalary));
+                    if (string.IsNullOrWhiteSpace(ApplicantSalary))
+                    {
+                        AddError(nameof(ApplicantSalary), "Поле не может быть пустым");
+                        return;
+                    }
+                    if (!int.TryParse(ApplicantSalary, out _))
+                    {
+                        AddError(nameof(ApplicantSalary), "Желаемая заработная плата должно содержать только цифры");
+                    }
+                });
             }
         }
+
+        private RelayCommand _validateApplicantWorkExperience;
+        public RelayCommand ValidateApplicantWorkExperience
+        {
+            get
+            {
+                return _validateApplicantWorkExperience ??= new RelayCommand(obj =>
+                {
+                    ClearErrors(nameof(WorkExperience));
+                    if (string.IsNullOrWhiteSpace(WorkExperience))
+                    {
+                        AddError(nameof(WorkExperience), "Поле не может быть пустым");
+                        return;
+                    }
+                    if (!int.TryParse(WorkExperience, out var number))
+                    {
+                        AddError(nameof(WorkExperience), "Опыт работы должен содержать только цифры");
+                    }
+                });
+            }
+        }
+
+        private RelayCommand _validateApplicantName;
+        public RelayCommand ValidateApplicantName
+        {
+            get
+            {
+                return _validateApplicantName ??= new RelayCommand(obj =>
+                {
+                    ClearErrors(nameof(Name));
+                    if (string.IsNullOrWhiteSpace(Name))
+                    {
+                        AddError(nameof(Name), "Поле не может быть пустым");
+                        return;
+                    }
+                    if (!Name.All(char.IsLetter))
+                    {
+                        AddError(nameof(Name), "Имя должно содержать только буквы");
+                    }
+                });
+            }
+        }
+
+        private RelayCommand _validateApplicantSecondName;
+        public RelayCommand ValidateApplicantSecondName
+        {
+            get
+            {
+                return _validateApplicantSecondName ??= new RelayCommand(obj =>
+                {
+                    ClearErrors(nameof(SecondName));
+                    if (string.IsNullOrWhiteSpace(SecondName))
+                    {
+                        AddError(nameof(SecondName), "Поле не может быть пустым");
+                        return;
+                    }
+                    if (!SecondName.All(char.IsLetter))
+                    {
+                        AddError(nameof(SecondName), "Фамилия должна содержать только буквы");
+                    }
+                });
+            }
+        }
+
+        private RelayCommand _validateApplicantBirthday;
+        public RelayCommand ValidateApplicantBirthday
+        {
+            get
+            {
+                return _validateApplicantBirthday ??= new RelayCommand(obj =>
+                {
+                    ClearErrors(nameof(Birthday));
+                    if (string.IsNullOrWhiteSpace(Birthday))
+                    {
+                        AddError(nameof(Birthday), "Поле не может быть пустым");
+                        return;
+                    }
+                    if (DateTime.Parse(Birthday) > DateTime.Today)
+                    {
+                        AddError(nameof(Birthday), "Укажите настоящую дату рождения");
+                        return;
+                    }
+                    if (DateTime.Parse(Birthday).AddYears(18) > DateTime.Today)
+                    {
+                        AddError(nameof(Birthday), "Для регистрации вам должно быть больше 18 лет");
+                    }
+                });
+            }
+        }
+
+        private RelayCommand _validateApplicantEmail;
+        public RelayCommand ValidateApplicantEmail
+        {
+            get
+            {
+                return _validateApplicantEmail ??= new RelayCommand(obj =>
+                {
+                    ClearErrors(nameof(Email));
+                    if (string.IsNullOrWhiteSpace(Email))
+                    {
+                        AddError(nameof(Email), "E-mail не может быть пустым");
+                        return;
+                    }
+                    if (!new EmailAddressAttribute().IsValid(Email ?? throw new ArgumentNullException()))
+                    {
+                        AddError(nameof(Email), "Некоректная электронная почта");
+                    }
+                });
+            }
+        }
+
+        private RelayCommand _validateApplicantPassword;
+        public RelayCommand ValidateApplicantPassword
+        {
+            get
+            {
+                return _validateApplicantPassword ??= new RelayCommand(obj =>
+                {
+                    ClearErrors(nameof(Password));
+                    if (string.IsNullOrWhiteSpace(Password))
+                    {
+                        AddError(nameof(Password), "Пароль не может быть пустым");
+                        return;
+                    }
+                    if (!Password.Any(char.IsPunctuation))
+                    {
+                        AddError(nameof(Password), "Пароль должен содержать спецсимволы");
+                        return;
+                    }
+                    if (!Password.Any(char.IsDigit))
+                    {
+                        AddError(nameof(Password), "Пароль должен содержать цифры");
+                        return;
+                    }
+                    if (!Password.Any(char.IsLetter))
+                    {
+                        AddError(nameof(Password), "Пароль должен содержать буквы");
+                        return;
+                    }
+                    if (!Password.Any(char.IsUpper))
+                    {
+                        AddError(nameof(Password), "Пароль должен содержать прописные буквы");
+                        return;
+                    }
+                    if (!Password.Any(char.IsLower))
+                    {
+                        AddError(nameof(Password), "Пароль должен содержать строчные буквы");
+                        return;
+                    }
+                    if (Password == null || Password?.Length <= 7)
+                    {
+                        AddError(nameof(Password), "Пароль должен быть больше 8 символов");
+                    }
+                });
+            }
+        }
+
+        //private void ValidateApplicantProfessionName()
+        //{
+        //    ClearErrors(nameof(ProfessionName));
+        //    if (string.IsNullOrWhiteSpace(ProfessionName)){
+        //        AddError(nameof(ProfessionName), "Поле не может быть пустым");
+        //        return;
+        //    }
+        //    if (!ProfessionName.All(char.IsLetter)){
+        //        AddError(nameof(ProfessionName), "Название профессии должно содержать только буквы");
+        //    }
+        //}
+
+        //private void ValidateApplicantSalary()
+        //{
+        //    ClearErrors(nameof(ApplicantSalary));
+        //    if (string.IsNullOrWhiteSpace(ApplicantSalary)){
+        //        AddError(nameof(ApplicantSalary), "Поле не может быть пустым");
+        //        return;
+        //    }
+        //    if (!int.TryParse(ApplicantSalary, out _)){
+        //        AddError(nameof(ApplicantSalary), "Желаемая заработная плата должно содержать только цифры");
+        //    }
+        //}
+
+        //private void ValidateApplicantWorkExperience()
+        //{
+        //    ClearErrors(nameof(WorkExperience));
+        //    if (string.IsNullOrWhiteSpace(WorkExperience)){
+        //        AddError(nameof(WorkExperience), "Поле не может быть пустым");
+        //        return;
+        //    }
+        //    if (!int.TryParse(WorkExperience, out var number)){
+        //        AddError(nameof(WorkExperience), "Опыт работы должен содержать только цифры");
+        //    }
+        //}
+
+        //private void ValidateApplicantName()
+        //{
+        //    ClearErrors(nameof(Name));
+        //    if (string.IsNullOrWhiteSpace(Name)){
+        //        AddError(nameof(Name), "Поле не может быть пустым");
+        //        return;
+        //    }
+        //    if (!Name.All(char.IsLetter)){
+        //        AddError(nameof(Name), "Имя должно содержать только буквы");
+        //    }
+        //}
+
+        //private void ValidateApplicantSecondName()
+        //{
+        //    ClearErrors(nameof(SecondName));
+        //    if (string.IsNullOrWhiteSpace(SecondName)){
+        //        AddError(nameof(SecondName), "Поле не может быть пустым");
+        //        return;
+        //    }
+        //    if (!SecondName.All(char.IsLetter)){
+        //        AddError(nameof(SecondName), "Фамилия должна содержать только буквы");
+        //    }
+        //}
+
+        //private void ValidateApplicantBirthday()
+        //{
+        //    ClearErrors(nameof(Birthday));
+        //    if (string.IsNullOrWhiteSpace(Birthday)){
+        //        AddError(nameof(Birthday), "Поле не может быть пустым");
+        //        return;
+        //    }
+        //    if(DateTime.Parse(Birthday) > DateTime.Today){
+        //        AddError(nameof(Birthday), "Укажите настоящую дату рождения");
+        //        return;
+        //    }
+        //    if (DateTime.Parse(Birthday).AddYears(18) > DateTime.Today){
+        //        AddError(nameof(Birthday), "Для регистрации вам должно быть больше 18 лет");
+        //    }
+        //}
+
+        //private void ValidateApplicantEmail()
+        //{
+        //    ClearErrors(nameof(Email));
+        //    if (string.IsNullOrWhiteSpace(Email)){
+        //        AddError(nameof(Email), "E-mail не может быть пустым");
+        //        return;
+        //    }
+        //    if (!new EmailAddressAttribute().IsValid(Email ?? throw new ArgumentNullException())){
+        //        AddError(nameof(Email), "Некоректная электронная почта");
+        //    }
+        //}
+
+        //private void ValidateApplicantPassword()
+        //{
+        //    ClearErrors(nameof(Password));
+        //    if (string.IsNullOrWhiteSpace(Password)){
+        //        AddError(nameof(Password), "Пароль не может быть пустым");
+        //        return;
+        //    }
+        //    if (!Password.Any(char.IsPunctuation)){
+        //        AddError(nameof(Password), "Пароль должен содержать спецсимволы");
+        //        return;
+        //    }
+        //    if (!Password.Any(char.IsDigit)){
+        //        AddError(nameof(Password), "Пароль должен содержать цифры");
+        //        return;
+        //    }
+        //    if (!Password.Any(char.IsLetter)) {
+        //        AddError(nameof(Password), "Пароль должен содержать буквы");
+        //        return;
+        //    }
+        //    if (!Password.Any(char.IsUpper)) {
+        //        AddError(nameof(Password), "Пароль должен содержать прописные буквы");
+        //        return;
+        //    }
+        //    if (!Password.Any(char.IsLower)){
+        //        AddError(nameof(Password), "Пароль должен содержать строчные буквы");
+        //        return;
+        //    }
+        //    if (Password == null || Password?.Length <= 7){
+        //        AddError(nameof(Password), "Пароль должен быть больше 8 символов");
+        //    }
+        //}
     }
 }

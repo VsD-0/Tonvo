@@ -6,6 +6,6 @@ namespace Tonvo.MVVM.Models
 {
     internal interface IModel
     {
-        //Доработать интерфейс IModel
+        public int Id { get; set; }
     }
 }

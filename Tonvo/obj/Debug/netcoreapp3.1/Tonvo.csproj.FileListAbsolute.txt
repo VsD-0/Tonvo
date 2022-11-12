@@ -23,7 +23,7 @@ C:\Users\dimva\source\repos\Tonvo\Tonvo\bin\Debug\netcoreapp3.1\Splat.dll
 C:\Users\dimva\source\repos\Tonvo\Tonvo\bin\Debug\netcoreapp3.1\System.Formats.Asn1.dll
 C:\Users\dimva\source\repos\Tonvo\Tonvo\bin\Debug\netcoreapp3.1\System.Security.Cryptography.Cng.dll
 C:\Users\dimva\source\repos\Tonvo\Tonvo\bin\Debug\netcoreapp3.1\System.Security.Cryptography.Pkcs.dll
-C:\Users\dimva\source\repos\Tonvo\Tonvo\bin\Debug\netcoreapp3.1\Ru\MaterialDesignExtensions.resources.dll
+C:\Users\dimva\source\repos\Tonvo\Tonvo\bin\Debug\netcoreapp3.1\ru\MaterialDesignExtensions.resources.dll
 C:\Users\dimva\source\repos\Tonvo\Tonvo\bin\Debug\netcoreapp3.1\ar-DZ\MaterialDesignExtensions.resources.dll
 C:\Users\dimva\source\repos\Tonvo\Tonvo\bin\Debug\netcoreapp3.1\cs-CZ\MaterialDesignExtensions.resources.dll
 C:\Users\dimva\source\repos\Tonvo\Tonvo\bin\Debug\netcoreapp3.1\cs\MaterialDesignExtensions.resources.dll
@@ -32,7 +32,7 @@ C:\Users\dimva\source\repos\Tonvo\Tonvo\bin\Debug\netcoreapp3.1\fr-FR\MaterialDe
 C:\Users\dimva\source\repos\Tonvo\Tonvo\bin\Debug\netcoreapp3.1\fr\MaterialDesignExtensions.resources.dll
 C:\Users\dimva\source\repos\Tonvo\Tonvo\bin\Debug\netcoreapp3.1\pt-BR\MaterialDesignExtensions.resources.dll
 C:\Users\dimva\source\repos\Tonvo\Tonvo\bin\Debug\netcoreapp3.1\pt\MaterialDesignExtensions.resources.dll
-C:\Users\dimva\source\repos\Tonvo\Tonvo\bin\Debug\netcoreapp3.1\ru-ru\MaterialDesignExtensions.resources.dll
+C:\Users\dimva\source\repos\Tonvo\Tonvo\bin\Debug\netcoreapp3.1\ru-RU\MaterialDesignExtensions.resources.dll
 C:\Users\dimva\source\repos\Tonvo\Tonvo\bin\Debug\netcoreapp3.1\uz-Latn-UZ\MaterialDesignExtensions.resources.dll
 C:\Users\dimva\source\repos\Tonvo\Tonvo\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Security.Cryptography.Cng.dll
 C:\Users\dimva\source\repos\Tonvo\Tonvo\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Security.Cryptography.Pkcs.dll

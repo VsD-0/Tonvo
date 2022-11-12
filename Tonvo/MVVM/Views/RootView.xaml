@@ -3,11 +3,13 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
       xmlns:materialDesign = "http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:viewModels="clr-namespace:Tonvo.ViewModels"
       xmlns:models="clr-namespace:Tonvo.Models"
       xmlns:local="clr-namespace:Tonvo.Views" 
-      xmlns:system="clr-namespace:System;assembly=System.Runtime" d:DataContext="{d:DesignInstance Type=viewModels:RootViewModel}"
+      xmlns:system="clr-namespace:System;assembly=System.Runtime" 
+      d:DataContext="{d:DesignInstance Type=viewModels:RootViewModel}"
       mc:Ignorable="d" 
       Title="MainPage"
       d:DesignWidth="1092" d:DesignHeight="607"
@@ -56,7 +58,9 @@
                   Style="{StaticResource MaterialDesignOutlinedComboBox}"
                   materialDesign:HintAssist.Hint="Выберите список"
                   materialDesign:HintAssist.Background="{StaticResource Primary}"
+                  materialDesign:TextFieldAssist.UnderlineBrush ="{StaticResource OnPrimary}"
                   Foreground="{StaticResource OnPrimary}"
+                  materialDesign:HintAssist.Foreground="{StaticResource OnPrimary}"
                   FontWeight="Bold" Height="48">
                 <ComboBoxItem x:Name="cbVacancy" Content="Вакансии" IsSelected="True"/>
                 <ComboBoxItem x:Name="cbApplicant" Content="Резюме"/>
@@ -80,13 +84,12 @@
             </Grid>
             <materialDesign:DialogHost.DialogContent>
                 <StackPanel Margin="16" Width="700">
-                    <ComboBox Width="250" Margin="0,0,0,25"
+                    <ComboBox Width="250" Margin="0,0,0,15"
                           Style="{StaticResource MaterialDesignOutlinedComboBox}"
                           materialDesign:HintAssist.Hint="Выберите список"
                           materialDesign:HintAssist.Background="{StaticResource Primary}"
                           Foreground="{StaticResource OnPrimary}"
                           FontWeight="Bold" Height="48">
-                        <!--<ComboBoxItem x:Name="cbVacancyDh" Content="Вакансии" IsSelected="True"/>-->
                         <ComboBoxItem x:Name="cbApplicantDh" Content="Резюме"/>
                     </ComboBox>
                     <Grid DataContext="{Binding ApplicantNewAccount}">
@@ -99,7 +102,15 @@
                             <TextBox Margin="5, 0, 5, 25"
                                      Style="{StaticResource textBoxStyle}"
                                      materialDesign:HintAssist.Hint = "Название профессии"
+                                     materialDesign:HintAssist.Background="{StaticResource Primary}"
+                                     materialDesign:TextFieldAssist.HasLeadingIcon="True"
+                                     materialDesign:TextFieldAssist.LeadingIcon="ProfessionalHexagon"
                                      Text="{Binding ProfessionName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="TextChanged">
+                                        <i:InvokeCommandAction Command="{Binding ValidateApplicantProfessionName}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
                                 <Validation.ErrorTemplate>
                                     <ControlTemplate>
                                         <StackPanel>
@@ -119,7 +130,17 @@
                             <TextBox Margin="5, 0, 5, 25" 
                                      Style="{StaticResource textBoxStyle}"
                                      materialDesign:HintAssist.Hint = "Желаемая заработная плата"
+                                     materialDesign:HintAssist.Background="{StaticResource Primary}"
+                                     materialDesign:TextFieldAssist.HasLeadingIcon="True"
+                                     materialDesign:TextFieldAssist.LeadingIcon="Money"
+                                     materialDesign:TextFieldAssist.HasTrailingIcon="True"
+                                     materialDesign:TextFieldAssist.TrailingIcon="Ruble"
                                      Text="{Binding ApplicantSalary, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="TextChanged">
+                                        <i:InvokeCommandAction Command="{Binding ValidateApplicantSalary}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
                                 <Validation.ErrorTemplate>
                                     <ControlTemplate>
                                         <StackPanel>
@@ -139,7 +160,15 @@
                             <TextBox Margin="5, 0, 5, 25" 
                                      Style="{StaticResource textBoxStyle}"
                                      materialDesign:HintAssist.Hint = "Опыт работы"
+                                     materialDesign:TextFieldAssist.HasLeadingIcon="True"
+                                     materialDesign:TextFieldAssist.LeadingIcon="ClipboardTextDateOutline"
+                                     materialDesign:HintAssist.Background="{StaticResource Primary}"
                                      Text="{Binding WorkExperience, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="TextChanged">
+                                        <i:InvokeCommandAction Command="{Binding ValidateApplicantWorkExperience}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
                                 <Validation.ErrorTemplate>
                                     <ControlTemplate>
                                         <StackPanel>
@@ -159,7 +188,15 @@
                             <TextBox Margin="5, 0, 5, 25" 
                                      Style="{StaticResource textBoxStyle}"
                                      materialDesign:HintAssist.Hint = "Имя"
+                                     materialDesign:TextFieldAssist.HasLeadingIcon="True"
+                                     materialDesign:TextFieldAssist.LeadingIcon="Abc"
+                                     materialDesign:HintAssist.Background="{StaticResource Primary}"
                                      Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="TextChanged">
+                                        <i:InvokeCommandAction Command="{Binding ValidateApplicantName}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
                                 <Validation.ErrorTemplate>
                                     <ControlTemplate>
                                         <StackPanel>
@@ -181,7 +218,15 @@
                             <TextBox Margin="5, 0, 5, 25" 
                                  Style="{StaticResource textBoxStyle}"
                                  materialDesign:HintAssist.Hint = "Фамилия"
+                                 materialDesign:TextFieldAssist.HasLeadingIcon="True"
+                                 materialDesign:TextFieldAssist.LeadingIcon="Abc"
+                                 materialDesign:HintAssist.Background="{StaticResource Primary}"
                                  Text="{Binding SecondName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="TextChanged">
+                                        <i:InvokeCommandAction Command="{Binding ValidateApplicantSecondName}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
                                 <Validation.ErrorTemplate>
                                     <ControlTemplate>
                                         <StackPanel>
@@ -201,7 +246,15 @@
                             <TextBox Margin="5, 0, 5, 25" 
                                  Style="{StaticResource textBoxStyle}"
                                  materialDesign:HintAssist.Hint = "Электронная почта"
+                                 materialDesign:TextFieldAssist.HasLeadingIcon="True"
+                                 materialDesign:TextFieldAssist.LeadingIcon="Email"
+                                 materialDesign:HintAssist.Background="{StaticResource Primary}"
                                  Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="TextChanged">
+                                        <i:InvokeCommandAction Command="{Binding ValidateApplicantEmail}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
                                 <Validation.ErrorTemplate>
                                     <ControlTemplate>
                                         <StackPanel>
@@ -218,10 +271,24 @@
                                 </Validation.ErrorTemplate>
                             </TextBox>
 
-                            <TextBox Margin="5, 0, 5, 25" 
-                                 Style="{StaticResource textBoxStyle}"
-                                 materialDesign:HintAssist.Hint = "Возраст"
-                                 Text="{Binding Age, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}">
+                            <DatePicker
+                                Text="{Binding Birthday, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
+                                Margin="5,0,5,25" Height="54"
+                                materialDesign:HintAssist.Hint="Дата рождения"
+                                materialDesign:HintAssist.FloatingOffset="0,-23"
+                                materialDesign:DatePickerAssist.OutlinedBorderInactiveThickness="1"
+                                materialDesign:DatePickerAssist.OutlinedBorderActiveThickness="2"
+                                materialDesign:TextFieldAssist.HasClearButton="True"
+                                materialDesign:HintAssist.Background="{StaticResource Primary}"
+                                materialDesign:HintAssist.Foreground="{StaticResource OnPrimary}"
+                                materialDesign:TextFieldAssist.UnderlineBrush ="{StaticResource OnPrimary}"
+                                materialDesign:HintAssist.IsFloating="False"
+                                Style="{StaticResource MaterialDesignOutlinedDatePicker}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="TextChanged">
+                                        <i:InvokeCommandAction Command="{Binding ValidateApplicantBirthday}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
                                 <Validation.ErrorTemplate>
                                     <ControlTemplate>
                                         <StackPanel>
@@ -236,15 +303,22 @@
                                         </StackPanel>
                                     </ControlTemplate>
                                 </Validation.ErrorTemplate>
-                            </TextBox>
+                            </DatePicker>
 
-                            <PasswordBox Margin="5, 0, 5, 25" 
+                            <PasswordBox Margin="5, 0, 5, 25" Height="54"
                                  Style="{StaticResource MaterialDesignOutlinedRevealPasswordBox}"
                                  materialDesign:PasswordBoxAssist.Password="{Binding Password, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
                                  materialDesign:TextFieldAssist.HasClearButton="True"
                                  materialDesign:HintAssist.Hint = "Пароль"
+                                 materialDesign:HintAssist.Background="{StaticResource Primary}"
+                                 materialDesign:TextFieldAssist.UnderlineBrush ="{StaticResource OnPrimary}"
+                                 materialDesign:HintAssist.Foreground="{StaticResource OnPrimary}"
                                  IsEnabled="{Binding ElementName=RevealPasswordDefaultEnabled, Path=IsChecked}">
-                                <!--Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"-->
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="TextChanged">
+                                        <i:InvokeCommandAction Command="{Binding ValidateApplicantPassword}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
                                 <Validation.ErrorTemplate>
                                     <ControlTemplate>
                                         <StackPanel>

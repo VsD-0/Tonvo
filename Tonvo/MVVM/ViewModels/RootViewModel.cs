@@ -24,19 +24,13 @@ namespace Tonvo.ViewModels
     internal class RootViewModel : ReactiveObject
     {
         // TODO: Перенести некоторый функционал на новосозданные ViewModel
+        // TODO: Добавить функционал для двух других классов
+        // TODO: Изменить EventName у PasswordBox и DataPicker
         #region Fields
         private Applicant _selectedApplicant;
         private Vacancy _selectedVacancy;
 
-        private Applicant _applicantNewAccount = new Applicant
-        {
-            ProfessionName = "",
-            Name = "",
-            ApplicantDescription = "",
-            SecondName = "",
-            Email = "",
-            Password = ""
-        };
+        private Applicant _applicantNewAccount = new Applicant();
         private Vacancy _vacancyNewAccount = new Vacancy
         {
             VacancyName = "",
@@ -87,17 +81,19 @@ namespace Tonvo.ViewModels
         }
 
         #region Command
+
         // команда добавления нового соискателя
         public RelayCommand AddApplicantCommand
         {
             get
-            {
+            {// TODO: Вызов методов проверки при нажатии кнопки "Зарегистрироваться"
                 return _addApplicantCommand ??= new RelayCommand(obj =>
                 {
+                    //EventManager.OnValidated();
                     Applicant applicant = _applicantNewAccount;
-                    if (applicant.ValidateApplicant())
+                    if (!applicant.HasErrors)
                     {
-                        applicant.Id = Applicants.Count != 0 ? Applicants.Last<Applicant>().Id + 1 : 0;
+                        applicant.Id = Applicants.Count != 0 ? Applicants.Last<Applicant>().Id + 1 : 0; // TODO: Id не прибавляется
                         DataStorage.Init();
                         DataStorage.Add(applicant);
                         Applicants.Insert(0, applicant);
