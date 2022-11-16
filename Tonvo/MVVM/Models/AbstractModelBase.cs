@@ -4,13 +4,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reactive.Linq;
-using System.Runtime.CompilerServices;
 using Tonvo.Core;
-using ReactiveUI;
 
 namespace Tonvo.MVVM.Models
 {
-    internal abstract class AbstractModelBase : ObservableObject,  INotifyDataErrorInfo
+    public abstract class AbstractModelBase : ObservableObject,  INotifyDataErrorInfo
     {
         #region INotifyDataErrorInfo
         protected readonly Dictionary<string, List<string>> _errorsByPropertyName = new Dictionary<string, List<string>>();

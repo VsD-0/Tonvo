@@ -17,31 +17,19 @@ using System.IO;
 using Tonvo.MVVM.ViewModels;
 using System.Collections;
 using ReactiveUI;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Tonvo.ViewModels
 {
-    internal class RootViewModel : ReactiveObject
+    public class RootViewModel : ReactiveObject
     {
         // TODO: Перенести некоторый функционал на новосозданные ViewModel
         // TODO: Добавить функционал для двух других классов
-        // TODO: Изменить EventName у PasswordBox и DataPicker
         #region Fields
         private Applicant _selectedApplicant;
         private Vacancy _selectedVacancy;
 
-        private Applicant _applicantNewAccount = new Applicant();
-        private Vacancy _vacancyNewAccount = new Vacancy
-        {
-            VacancyName = "",
-            VacancySalary = "",
-            CompanyName = ""
-        };
-
-        private RelayCommand _addVacancyCommand;
-        private RelayCommand _removeVacancyCommand;
-        private RelayCommand _addApplicantCommand;
-        private RelayCommand _removeApplicantCommand;
+        private Applicant _applicantNewAccount = new();
+        private Vacancy _vacancyNewAccount = new ();
         #endregion Fields
 
         #region Properties
@@ -68,6 +56,15 @@ namespace Tonvo.ViewModels
             set => this.RaiseAndSetIfChanged(ref _selectedVacancy, value);
         }
 
+        // команда добавления нового соискателя
+        public RelayCommand AddApplicantCommand { get; set; }
+        // команда удаления соискателя
+        public RelayCommand RemoveApplicantCommand { get; set; }
+
+        // команда добавления новой вакансии
+        public RelayCommand AddVacancyCommand { get; set; }
+        // команда удаления вакансии
+        public RelayCommand RemoveVacancyCommand { get; set; }
 
         public ObservableCollection<Vacancy> Vacancies { get; set; }
         public ObservableCollection<Applicant> Applicants { get; set; }
@@ -76,81 +73,71 @@ namespace Tonvo.ViewModels
         public RootViewModel()
         {
             DataStorage.Init();
+
             Vacancies = DataStorage.ReadVacancyJson();
             Applicants = DataStorage.ReadApplicantsJson();
+
+            AddApplicantCommand = new RelayCommand(OnAddApplicant, CanAddApplicant);
+            RemoveApplicantCommand = new RelayCommand(OnRemoveApplicant, CanRemoveApplicant);
+
+            AddVacancyCommand = new RelayCommand(OnAddVacancy, CanAddVacancy);
+            RemoveVacancyCommand = new RelayCommand(OnRemoveVacancy, CanRemoveVacancy);
         }
 
-        #region Command
-
-        // команда добавления нового соискателя
-        public RelayCommand AddApplicantCommand
+        #region Commands
+        private void OnAddApplicant()
         {
-            get
-            {// TODO: Вызов методов проверки при нажатии кнопки "Зарегистрироваться"
-                return _addApplicantCommand ??= new RelayCommand(obj =>
-                {
-                    //EventManager.OnValidated();
-                    Applicant applicant = _applicantNewAccount;
-                    if (!applicant.HasErrors)
-                    {
-                        applicant.Id = Applicants.Count != 0 ? Applicants.Last<Applicant>().Id + 1 : 0; // TODO: Id не прибавляется
-                        DataStorage.Init();
-                        DataStorage.Add(applicant);
-                        Applicants.Insert(0, applicant);
-                        SelectedApplicant = applicant;
-                    }
-                });
-            }
-        }
-
-        // команда удаления соискателя
-        public RelayCommand RemoveApplicantCommand
-        {
-            get
+            EventManager.OnValidated();
+            if (!_applicantNewAccount.HasErrors)
             {
-                return _removeApplicantCommand ??= new RelayCommand(obj =>
-                {
-                    Applicant applicant = obj as Applicant;
-                    DataStorage.Remove(applicant);
-                    if (applicant != null)
-                        Applicants.Remove(applicant);
-                },
-                 (obj) => Applicants.Count > 0);
+                _applicantNewAccount.Id = Applicants.Count != 0 ? Applicants.First().Id + 1 : 0;
+                DataStorage.Add(_applicantNewAccount);          
+                Applicants.Insert(0, _applicantNewAccount);
+                SelectedApplicant = _applicantNewAccount;
+                ApplicantNewAccount = new Applicant();
             }
-        }
+        } 
+        private bool CanAddApplicant() { return true; }
 
-        // команда добавления новой вакансии
-        public RelayCommand AddVacancyCommand
+        private void OnRemoveApplicant()
         {
-            get
-            {
-                return _addVacancyCommand ??= new RelayCommand(obj =>
-                {
-                    Vacancy vacancy = _vacancyNewAccount;
-                    vacancy.Id = Vacancies.Count != 0 ? Vacancies.Last<Vacancy>().Id + 1 : 0;
-                    DataStorage.Init();
-                    DataStorage.Add(vacancy);
-                    Vacancies.Insert(0, vacancy);
-                    SelectedVacancy = vacancy;
-                });
-            }
+            Applicant applicant = _selectedApplicant;
+            DataStorage.Remove(applicant);
+            if (applicant != null)
+                Applicants.Remove(applicant);
         }
+        private bool CanRemoveApplicant() { return Applicants.Count > 0; }
 
-        // команда удаления вакансии
-        public RelayCommand RemoveVacancyCommand
+
+        private void OnAddVacancy()
         {
-            get
+            EventManager.OnValidated();
+            if (!_applicantNewAccount.HasErrors)
             {
-                return _removeVacancyCommand ??= new RelayCommand(obj =>
-                  {
-                      Vacancy vacancy = obj as Vacancy;
-                      DataStorage.Remove(vacancy);
-                      if (vacancy != null)
-                          Vacancies.Remove(vacancy);
-                  },
-                 (obj) => Vacancies.Count > 0);
+                _applicantNewAccount.Id = Applicants.Count != 0 ? Applicants.First().Id + 1 : 0;
+                DataStorage.Add(_applicantNewAccount);
+                Applicants.Insert(0, _applicantNewAccount);
+                SelectedApplicant = _applicantNewAccount;
+                ApplicantNewAccount = new Applicant();
+
+                Vacancy vacancy = _vacancyNewAccount;
+                vacancy.Id = Vacancies.Count != 0 ? Vacancies.Last<Vacancy>().Id + 1 : 0;
+                DataStorage.Init();
+                DataStorage.Add(vacancy);
+                Vacancies.Insert(0, vacancy);
+                SelectedVacancy = vacancy;
             }
         }
+        private bool CanAddVacancy() { return true; }
+
+        private void OnRemoveVacancy() 
+        {
+            Vacancy vacancy = _selectedVacancy;
+            DataStorage.Remove(vacancy);
+            if (vacancy != null)
+                Vacancies.Remove(vacancy);
+        }
+        private bool CanRemoveVacancy() { return Vacancies.Count > 0; }
         #endregion Commands
     }
 }

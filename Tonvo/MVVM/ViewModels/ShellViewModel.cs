@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Tonvo.MVVM.ViewModels
+﻿namespace Tonvo.MVVM.ViewModels
 {
-    internal class ShellViewModel
+    public class ShellViewModel
     {
         // TODO: Добавить команды управления окном
     }

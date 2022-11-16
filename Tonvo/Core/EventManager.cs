@@ -4,9 +4,8 @@ using System.Text;
 
 namespace Tonvo.Core
 {
-    internal class EventManager
+    public class EventManager
     {
-        // TODO: Возможно удалить
         public static event Action Validated;
 
         public static void OnValidated()

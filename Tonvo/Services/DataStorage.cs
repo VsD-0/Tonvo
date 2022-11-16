@@ -16,7 +16,7 @@ using System.Text.Json;
 
 namespace Tonvo.Services
 {
-    internal static class DataStorage
+    public static class DataStorage
     {
         //TODO: Оптимизировать
         private const string _vacancyDSNameFile = "\\VacancyDataStorage.json";
@@ -34,7 +34,7 @@ namespace Tonvo.Services
             get
             {
                 string codeBase = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
-                UriBuilder uri = new UriBuilder(codeBase);
+                UriBuilder uri = new(codeBase);
                 string path = Uri.UnescapeDataString(uri.Path);
                 return Path.GetDirectoryName(path);
             }
@@ -107,7 +107,7 @@ namespace Tonvo.Services
         // Конвертация списка
         public static ObservableCollection<IModel> ConvertListFromFile<T>(ObservableCollection<T> jsonlist)
         {
-            ObservableCollection<IModel> convertedList = new ObservableCollection<IModel>();
+            ObservableCollection<IModel> convertedList = new();
             foreach (var item in jsonlist)
             {
                 IModel obj = (IModel)item;

@@ -4,13 +4,16 @@ using ReactiveUI;
 
 namespace Tonvo.Core
 {
-    internal class ObservableObject : INotifyPropertyChanged
+    public class ObservableObject : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        private void RaisePropertyChanged(string property)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(property));
+            }
         }
     }
 }
