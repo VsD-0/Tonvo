@@ -29,6 +29,7 @@ namespace Tonvo.MVVM.Models
 
             EventManager.Validated += OnValidateApplicantEmail;
         }
+        
 
         #region Validation
         public RelayCommand ValidateApplicantEmail { get; set; }

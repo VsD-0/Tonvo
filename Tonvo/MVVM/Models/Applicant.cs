@@ -140,8 +140,8 @@ namespace Tonvo.Models
                 AddError(nameof(Birthday), "Укажите настоящую дату рождения");
                 return;
             }
-            if (DateTime.Parse(Birthday).AddYears(18) > DateTime.Today){
-                AddError(nameof(Birthday), "Для регистрации вам должно быть больше 18 лет");
+            if (DateTime.Parse(Birthday).AddYears(14) > DateTime.Today){
+                AddError(nameof(Birthday), "Для регистрации вам должно быть больше 14 лет");
             }
         }
         private bool CanValidateApplicantBirthday() { return true; }

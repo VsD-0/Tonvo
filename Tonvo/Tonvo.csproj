@@ -1,10 +1,11 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net7.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
     <ApplicationIcon>Logo transparency1.ico</ApplicationIcon>
 	  <LangVersion>11.0</LangVersion>
+	  <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Content\Fonts\Montserrat.ttf" />
@@ -43,8 +44,5 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Content\Pictures\Logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Themes\Styles\" />
   </ItemGroup>
 </Project>

@@ -18,7 +18,7 @@ namespace Tonvo.Services
 {
     public static class DataStorage
     {
-        //TODO: Оптимизировать
+        // TODO: Оптимизировать
         private const string _vacancyDSNameFile = "\\VacancyDataStorage.json";
         private const string _companyDSNameFile = "\\CompanyDataStorage.json";
         private const string _applicantDSNameFile = "\\ApplicantDataStorage.json";
@@ -33,7 +33,7 @@ namespace Tonvo.Services
         {
             get
             {
-                string codeBase = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
+                string codeBase = System.Reflection.Assembly.GetExecutingAssembly().Location;
                 UriBuilder uri = new(codeBase);
                 string path = Uri.UnescapeDataString(uri.Path);
                 return Path.GetDirectoryName(path);
@@ -53,7 +53,7 @@ namespace Tonvo.Services
                     _ => throw new Exception("Некоректный тип входных данных"),
                 };
             }
-            catch { return null; } 
+            catch { return null; }
         }
 
         // Создание файла dataStorage.json
@@ -84,8 +84,12 @@ namespace Tonvo.Services
         // Команда удаления
         public static void Remove(IModel acc)
         {
-            var readed = ReadJson(acc);
-            readed.Remove(acc);
+            ObservableCollection<IModel> readed = ReadJson(acc);
+            foreach (var item in readed)
+            {
+                if (acc.Id.Equals(item.Id)) readed.Remove(item);
+            }
+            SaveDataList(readed);
         }
         
         // Чтение файла
@@ -102,6 +106,10 @@ namespace Tonvo.Services
         public static ObservableCollection<Vacancy> ReadVacancyJson()
         {
             return JsonConvert.DeserializeObject<ObservableCollection<Vacancy>>(File.ReadAllText(AssemblyDirectory + _vacancyDSNameFile));
+        }
+        public static ObservableCollection<Company> ReadCompanyJson()
+        {
+            return JsonConvert.DeserializeObject<ObservableCollection<Company>>(File.ReadAllText(AssemblyDirectory + _companyDSNameFile));
         }
 
         // Конвертация списка
