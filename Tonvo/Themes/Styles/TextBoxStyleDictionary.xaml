@@ -1,0 +1,101 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="ColorDictionary.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    
+    <!--Общий стиль для TextBox в окне регистрации-->
+    <Style x:Key="textBoxBaseStyle" TargetType="TextBox"
+           BasedOn="{StaticResource MaterialDesignOutlinedTextBox}">
+        <Setter Property="materialDesign:TextFieldAssist.HasClearButton" 
+                Value="True"/>
+        <Setter Property="materialDesign:HintAssist.Foreground" 
+                Value="{StaticResource OnPrimary}"/>
+        <Setter Property="Margin"
+                Value="5,0,5,25"/>
+        <Setter Property="materialDesign:TextFieldAssist.HasLeadingIcon"
+                Value="True"/>
+        <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush"
+                Value="{StaticResource OnPrimary}"/>
+    </Style>
+    
+    <!--Стиль для поля "Название профессии"-->
+    <Style x:Key="tbProfessionNameStyle" TargetType="TextBox"
+           BasedOn="{StaticResource textBoxBaseStyle}">
+        <Setter Property="materialDesign:HintAssist.Hint"
+                Value="Название профессии"/>
+        <Setter Property="materialDesign:TextFieldAssist.LeadingIcon"
+                Value="ProfessionalHexagon"/>
+        <Setter Property="Text"
+                Value="{Binding ProfessionName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+    </Style>
+    
+    <!--Стиль для поля "Желаемая заработная плата"-->
+    <Style x:Key="tbApplicantSalaryStyle" TargetType="TextBox"
+           BasedOn="{StaticResource textBoxBaseStyle}">
+        <Setter Property="materialDesign:HintAssist.Hint"
+                Value="Желаемая заработная плата"/>
+        <Setter Property="materialDesign:TextFieldAssist.LeadingIcon"
+                Value="Money"/>
+        <Setter Property="materialDesign:TextFieldAssist.HasTrailingIcon"
+                Value="False"/>
+        <Setter Property="Text"
+                Value="{Binding ProfessionName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+        <Setter Property="materialDesign:TextFieldAssist.TrailingIcon"
+                Value="Ruble"/>
+        <Setter Property="Text"
+                Value="{Binding ApplicantSalary, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+        <Style.Triggers>
+            <Trigger Property="Text" Value="">
+                <Setter Property="materialDesign:TextFieldAssist.HasTrailingIcon" Value="True"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--Стиль для поля "Опыт работы"-->
+    <Style x:Key="tbWorkExperienceStyle" TargetType="TextBox"
+           BasedOn="{StaticResource textBoxBaseStyle}">
+        <Setter Property="materialDesign:HintAssist.Hint"
+                Value="Опыт работы"/>
+        <Setter Property="materialDesign:TextFieldAssist.LeadingIcon"
+                Value="ClipboardTextDateOutline"/>
+        <Setter Property="Text"
+                Value="{Binding WorkExperience, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+    </Style>
+
+    <!--Стиль для поля "Имя"-->
+    <Style x:Key="tbNameStyle" TargetType="TextBox"
+           BasedOn="{StaticResource textBoxBaseStyle}">
+        <Setter Property="materialDesign:HintAssist.Hint"
+                Value="Имя"/>
+        <Setter Property="materialDesign:TextFieldAssist.LeadingIcon"
+                Value="Abc"/>
+        <Setter Property="Text"
+                Value="{Binding Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+    </Style>
+
+    <!--Стиль для поля "Фамилия"-->
+    <Style x:Key="tbSecondNameStyle" TargetType="TextBox"
+           BasedOn="{StaticResource textBoxBaseStyle}">
+        <Setter Property="materialDesign:HintAssist.Hint"
+                Value="Фамилия"/>
+        <Setter Property="materialDesign:TextFieldAssist.LeadingIcon"
+                Value="Abc"/>
+        <Setter Property="Text"
+                Value="{Binding SecondName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+    </Style>
+
+    <!--Стиль для поля "Фамилия"-->
+    <Style x:Key="tbEmailStyle" TargetType="TextBox"
+           BasedOn="{StaticResource textBoxBaseStyle}">
+        <Setter Property="materialDesign:HintAssist.Hint"
+                Value="Электронная почта"/>
+        <Setter Property="materialDesign:TextFieldAssist.LeadingIcon"
+                Value="Email"/>
+        <Setter Property="Text"
+                Value="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
+    </Style>
+
+</ResourceDictionary>

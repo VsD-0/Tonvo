@@ -6,5 +6,9 @@
         <ResourceDictionary Source="Styles/TextBlockStyleDictionary.xaml"/>
         <ResourceDictionary Source="Styles/ListViewStyleDictionary.xaml"/>
         <ResourceDictionary Source="Styles/ComboBoxStyleDictionary.xaml"/>
+        <ResourceDictionary Source="Styles/ButtonStyleDictionary.xaml"/>
+        <ResourceDictionary Source="Styles/TextBoxStyleDictionary.xaml"/>
+        <ResourceDictionary Source="Styles/DataPickerStyleDictionary.xaml"/>
+        <ResourceDictionary Source="Styles/PasswordBoxStyleDictionary.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

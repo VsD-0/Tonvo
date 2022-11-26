@@ -1,0 +1,36 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="ColorDictionary.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    
+    <!--DataPicker в окне регистрации-->
+    <Style x:Key="dpBirthdayStyle" TargetType="{x:Type DatePicker}"
+           BasedOn="{StaticResource MaterialDesignOutlinedDatePicker}">
+        <Setter Property="Text"
+                Value="{Binding Birthday, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
+        <Setter Property="Margin"
+                Value="5,0,5,25"/>
+        <Setter Property="Height"
+                Value="54"/>
+        <Setter Property="materialDesign:HintAssist.Hint"
+                Value="Дата рождения"/>
+        <Setter Property="materialDesign:HintAssist.FloatingOffset"
+                Value="0,-23"/>
+        <Setter Property="materialDesign:DatePickerAssist.OutlinedBorderInactiveThickness"
+                Value="1"/>
+        <Setter Property="materialDesign:DatePickerAssist.OutlinedBorderActiveThickness"
+                Value="2"/>
+        <Setter Property="materialDesign:TextFieldAssist.HasClearButton"
+                Value="True"/>
+        <Setter Property="materialDesign:HintAssist.Foreground"
+                Value="{StaticResource OnPrimary}"/>
+        <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush"
+                Value="{StaticResource OnPrimary}"/>
+        <Setter Property="materialDesign:HintAssist.IsFloating"
+                Value="False"/>
+    </Style>
+    
+</ResourceDictionary>

@@ -27,16 +27,28 @@
     <Page Update="MVVM\Views\ListPanelViewxaml.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Themes\Styles\ButtonStyleDictionary.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Themes\Styles\ColorDictionary.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Themes\Styles\ComboBoxStyleDictionary.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Themes\Styles\DataPickerStyleDictionary.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Themes\Styles\ListViewStyleDictionary.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Themes\Styles\PasswordBoxStyleDictionary.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Themes\Styles\TextBlockStyleDictionary.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Themes\Styles\TextBoxStyleDictionary.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

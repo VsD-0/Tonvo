@@ -6,19 +6,30 @@
         <ResourceDictionary Source="ColorDictionary.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="cbSelectionListStyle" TargetType="ComboBox"
+    <!--ComboBox в панели меню-->
+    <Style x:Key="cbSelectListStyle" TargetType="ComboBox"
            BasedOn="{StaticResource MaterialDesignOutlinedComboBox}">
         <Setter Property="materialDesign:HintAssist.Hint"
                 Value="Выберите список"/>
-        <Setter Property="materialDesign:HintAssist.Background"
-                Value="{StaticResource Primary}"/>
         <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush"
                 Value="{StaticResource OnPrimary}"/>
         <Setter Property="materialDesign:HintAssist.Foreground"
+                Value="{StaticResource OnPrimary}"/>
+        <Setter Property="Foreground"
                 Value="{StaticResource OnPrimary}"/>
         <Setter Property="FontWeight"
                 Value="Bold"/>
         <Setter Property="Height"
                 Value="50"/>
+        <Setter Property="Width"
+                Value="250"/>
     </Style>
+    
+    <!--ComboBox в окне регистрации-->
+    <Style x:Key="cbSelectRegistrationStyle" TargetType="ComboBox"
+           BasedOn="{StaticResource cbSelectListStyle}">
+        <Setter Property="Margin"
+                Value="0,0,0,15"/>
+    </Style>
+    
 </ResourceDictionary>

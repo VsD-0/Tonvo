@@ -65,3 +65,7 @@ C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\Themes\Styles\T
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\Themes\Styles\ColorDictionary.baml
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\Themes\Styles\ListViewStyleDictionary.baml
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\Themes\Styles\ComboBoxStyleDictionary.baml
+C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\Themes\Styles\ButtonStyleDictionary.baml
+C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\Themes\Styles\TextBoxStyleDictionary.baml
+C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\Themes\Styles\DataPickerStyleDictionary.baml
+C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\Themes\Styles\PasswordBoxStyleDictionary.baml

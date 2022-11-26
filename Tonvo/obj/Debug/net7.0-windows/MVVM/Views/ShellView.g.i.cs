@@ -80,7 +80,7 @@ namespace Tonvo.MVVM.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Tonvo;component/mvvm/views/shellview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Tonvo;V1.0.0.0;component/mvvm/views/shellview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\MVVM\Views\ShellView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

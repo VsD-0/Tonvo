@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Tonvo.MVVM.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+    <StackPanel Grid.Row="3">
+        <Button Margin="12" Content="Войти"/>
+    </StackPanel>
 </UserControl>
