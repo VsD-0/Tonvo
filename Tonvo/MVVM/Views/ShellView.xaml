@@ -4,44 +4,52 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign = "http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:local="clr-namespace:Tonvo"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:local="clr-namespace:Tonvo" 
+        xmlns:viewModel="clr-namespace:Tonvo.MVVM.ViewModels" 
+        d:DataContext="{d:DesignInstance Type=viewModel:ShellViewModel}"
         mc:Ignorable="d"
         Title="MainWindow"
         Height="650" Width="1100"
         MinHeight="400" MinWidth="500"
         Background="Transparent"
         Icon="/Logo transparency1.ico"
-        WindowStartupLocation="CenterScreen" WindowStyle="None"
-        AllowsTransparency="True" ResizeMode="CanResizeWithGrip"
+        WindowStartupLocation="CenterScreen" 
+        WindowStyle="None"
+        ResizeMode="CanResizeWithGrip"
+        AllowsTransparency="True"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="./#Montserrat">
-    <Window.CommandBindings>
-        <CommandBinding x:Name="CloseCommand"
-                        Command="{x:Static SystemCommands.CloseWindowCommand}"
-                        CanExecute="CloseCommand_CanExecute"
-                        Executed="CloseCommand_Executed"/>
-        <CommandBinding x:Name="MinCommand"
-                        Command="{x:Static SystemCommands.MinimizeWindowCommand}"
-                        CanExecute="MinCommand_CanExecute"
-                        Executed="MinCommand_Executed"/>
-        <CommandBinding x:Name="MaxCommand"
-                        Command="{x:Static SystemCommands.MaximizeWindowCommand}"
-                        CanExecute="MaxCommand_CanExecute"
-                        Executed="MaxCommand_Executed"/>
-    </Window.CommandBindings>
 
-    <Border BorderBrush="{StaticResource Border}" Background="{StaticResource Background}"
-                BorderThickness="0.5" CornerRadius="10" Margin="4">
+    <Border Background="{StaticResource Background}"
+                BorderThickness="1" CornerRadius="10" Margin="4">
+
+        <Border.BorderBrush>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="{StaticResource winBorderColor1}" Offset="0"/>
+                <GradientStop Color="{StaticResource winBorderColor2}" Offset="0.5"/>
+                <GradientStop Color="{StaticResource winBorderColor3}" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.BorderBrush>
+        
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
 
-            <Border Background="{StaticResource PrimaryLight}" CornerRadius="10,10,0,0"
-                    BorderThickness="0.5,0.5,0.5,0" MouseDown="Grid_MouseDown">
+            <Border Background="{StaticResource PrimaryLight}" CornerRadius="10,10,0,0">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseDown">
+                        <i:InvokeCommandAction Command="{Binding MoveWindowCommand}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="MouseEnter">
+                        <i:InvokeCommandAction Command="{Binding MoveWindowCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+
                 <Grid>
                     <!--Иконка и название-->
                     <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="5,0,0,0">
@@ -56,7 +64,7 @@
                         <!--Свернуть окно-->
                         <Button Width="30" Height="30" Margin="3,0,3,0" Cursor="Hand" 
                                 Style="{StaticResource MaterialDesignIconButton}"
-                                Command="{x:Static SystemCommands.MinimizeWindowCommand}">
+                                Command="{Binding MinimizeWindowCommand}">
                             <materialDesign:PackIcon Kind="WindowMinimize" Width="30" Height="30"
                                                              Foreground="{StaticResource PrimaryDark}"/>
 
@@ -65,7 +73,7 @@
                         <Button HorizontalAlignment="Center" VerticalAlignment="Center" 
                                 Width="30" Height="30" Margin="3,0,3,0" Cursor="Hand" 
                                 Style="{StaticResource MaterialDesignIconButton}"
-                                Command="{x:Static SystemCommands.MaximizeWindowCommand}">
+                                Command="{Binding MaximizeWindowCommand}">
                             <materialDesign:PackIcon Kind="WindowMaximize" Width="30" Height="30" 
                                                              Foreground="{StaticResource PrimaryDark}"/>
 
@@ -74,7 +82,7 @@
                         <Button HorizontalAlignment="Center" VerticalAlignment="Center"
                                 Width="30" Height="30" Margin="3,0,3,0" Cursor="Hand" 
                                 Style="{StaticResource MaterialDesignIconButton}"
-                                Command="{x:Static SystemCommands.CloseWindowCommand}">
+                                Command="{Binding ShutdownWindowCommand}">
                             <materialDesign:PackIcon Kind="WindowClose" Width="30" Height="30" 
                                                              Foreground="{StaticResource PrimaryDark}"/>
                         </Button>

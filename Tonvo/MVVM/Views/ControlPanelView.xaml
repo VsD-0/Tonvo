@@ -6,7 +6,9 @@
              xmlns:local="clr-namespace:Tonvo.MVVM.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+    
+    <!--Контейнер фильтра/информации элемента-->
+    <StackPanel Grid.Row="2">
+
+    </StackPanel>
 </UserControl>

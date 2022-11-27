@@ -37,14 +37,14 @@ namespace Tonvo.Models
 
         public Applicant()
         {
-            ValidateApplicantProfessionName = new RelayCommand(OnValidateApplicantProfessionName, CanValidateApplicantProfessionName);
-            ValidateApplicantSalary = new RelayCommand(OnValidateApplicantSalary, CanValidateApplicantSalary);
-            ValidateApplicantWorkExperience = new RelayCommand(OnValidateApplicantWorkExperience, CanValidateApplicantWorkExperience);
-            ValidateApplicantName = new RelayCommand(OnValidateApplicantName, CanValidateApplicantName);
-            ValidateApplicantSecondName = new RelayCommand(OnValidateApplicantSecondName, CanValidateApplicantSecondName);
-            ValidateApplicantBirthday = new RelayCommand(OnValidateApplicantBirthday, CanValidateApplicantBirthday);
-            ValidateApplicantEmail = new RelayCommand(OnValidateApplicantEmail, CanValidateApplicantEmail);
-            ValidateApplicantPassword = new RelayCommand(OnValidateApplicantPassword, CanValidateApplicantPassword);
+            ValidateApplicantProfessionName = new TargetRelayCommand(OnValidateApplicantProfessionName, CanValidateApplicantProfessionName);
+            ValidateApplicantSalary = new TargetRelayCommand(OnValidateApplicantSalary, CanValidateApplicantSalary);
+            ValidateApplicantWorkExperience = new TargetRelayCommand(OnValidateApplicantWorkExperience, CanValidateApplicantWorkExperience);
+            ValidateApplicantName = new TargetRelayCommand(OnValidateApplicantName, CanValidateApplicantName);
+            ValidateApplicantSecondName = new TargetRelayCommand(OnValidateApplicantSecondName, CanValidateApplicantSecondName);
+            ValidateApplicantBirthday = new TargetRelayCommand(OnValidateApplicantBirthday, CanValidateApplicantBirthday);
+            ValidateApplicantEmail = new TargetRelayCommand(OnValidateApplicantEmail, CanValidateApplicantEmail);
+            ValidateApplicantPassword = new TargetRelayCommand(OnValidateApplicantPassword, CanValidateApplicantPassword);
 
             EventManager.Validated += OnValidateApplicantProfessionName;
             EventManager.Validated += OnValidateApplicantSalary;
@@ -57,7 +57,7 @@ namespace Tonvo.Models
         }
 
         #region Validation
-        public RelayCommand ValidateApplicantProfessionName { get; set; }
+        public TargetRelayCommand ValidateApplicantProfessionName { get; set; }
         private void OnValidateApplicantProfessionName()
         {
             ClearErrors(nameof(ProfessionName));
@@ -71,7 +71,7 @@ namespace Tonvo.Models
         }
         private bool CanValidateApplicantProfessionName() { return true; }
 
-        public RelayCommand ValidateApplicantSalary { get; set; }
+        public TargetRelayCommand ValidateApplicantSalary { get; set; }
         private void OnValidateApplicantSalary()
         {
             ClearErrors(nameof(ApplicantSalary));
@@ -85,7 +85,7 @@ namespace Tonvo.Models
         }
         private bool CanValidateApplicantSalary() { return true; }
 
-        public RelayCommand ValidateApplicantWorkExperience { get; set; }
+        public TargetRelayCommand ValidateApplicantWorkExperience { get; set; }
         private void OnValidateApplicantWorkExperience()
         {
             ClearErrors(nameof(WorkExperience));
@@ -100,7 +100,7 @@ namespace Tonvo.Models
         }
         private bool CanValidateApplicantWorkExperience() { return true; }
 
-        public RelayCommand ValidateApplicantName { get; set; }
+        public TargetRelayCommand ValidateApplicantName { get; set; }
         private void OnValidateApplicantName()
         {
             ClearErrors(nameof(Name));
@@ -114,7 +114,7 @@ namespace Tonvo.Models
         }
         private bool CanValidateApplicantName() { return true; }
 
-        public RelayCommand ValidateApplicantSecondName { get; set; }   
+        public TargetRelayCommand ValidateApplicantSecondName { get; set; }   
         private void OnValidateApplicantSecondName()
         {
             ClearErrors(nameof(SecondName));
@@ -128,7 +128,7 @@ namespace Tonvo.Models
         }
         private bool CanValidateApplicantSecondName() { return true; }
 
-        public RelayCommand ValidateApplicantBirthday { get; set; }
+        public TargetRelayCommand ValidateApplicantBirthday { get; set; }
         private void OnValidateApplicantBirthday()
         {
             ClearErrors(nameof(Birthday));
@@ -146,7 +146,7 @@ namespace Tonvo.Models
         }
         private bool CanValidateApplicantBirthday() { return true; }
 
-        public RelayCommand ValidateApplicantEmail { get; set; }
+        public TargetRelayCommand ValidateApplicantEmail { get; set; }
         private void OnValidateApplicantEmail()
         {
             ClearErrors(nameof(Email));
@@ -169,7 +169,7 @@ namespace Tonvo.Models
         }
         private bool CanValidateApplicantEmail() { return true; }
 
-        public RelayCommand ValidateApplicantPassword { get; set; }
+        public TargetRelayCommand ValidateApplicantPassword { get; set; }
         private void OnValidateApplicantPassword()
         {
             ClearErrors(nameof(Password));

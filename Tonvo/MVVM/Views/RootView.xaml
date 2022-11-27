@@ -13,6 +13,7 @@
       TextElement.Foreground = "{DynamicResource MaterialDesignBody}"
       TextElement.FontWeight = "Medium" 
       TextElement.FontSize = "14">
+    
     <!--Главный контейнер-->
     <Grid>
         <Grid.ColumnDefinitions>
@@ -97,6 +98,8 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
                         <StackPanel>
+                            
+                            <!--Название профессии-->
                             <TextBox Style="{StaticResource tbProfessionNameStyle}"
                                      materialDesign:HintAssist.Background="{StaticResource Primary}">
                                 <i:Interaction.Triggers>
@@ -120,6 +123,7 @@
                                 </Validation.ErrorTemplate>
                             </TextBox>
 
+                            <!--Желаемая заработная плата-->
                             <TextBox x:Name="tbApplicantSalary"
                                 Style="{StaticResource tbApplicantSalaryStyle}"
                                      materialDesign:HintAssist.Background="{StaticResource Primary}">
@@ -144,6 +148,7 @@
                                 </Validation.ErrorTemplate>
                             </TextBox>
 
+                            <!--Опыт работы-->
                             <TextBox Style="{StaticResource tbWorkExperienceStyle}"
                                      materialDesign:HintAssist.Background="{StaticResource Primary}">
                                 <i:Interaction.Triggers>
@@ -167,6 +172,7 @@
                                 </Validation.ErrorTemplate>
                             </TextBox>
 
+                            <!--Имя-->
                             <TextBox Style="{StaticResource tbNameStyle}"
                                      materialDesign:HintAssist.Background="{StaticResource Primary}">
                                 <i:Interaction.Triggers>
@@ -192,6 +198,7 @@
                         </StackPanel>
 
                         <StackPanel Grid.Column="1">
+                            <!--Фамилия-->
                             <TextBox Style="{StaticResource tbSecondNameStyle}"
                                  materialDesign:HintAssist.Background="{StaticResource Primary}">
                                 <i:Interaction.Triggers>
@@ -215,6 +222,7 @@
                                 </Validation.ErrorTemplate>
                             </TextBox>
 
+                            <!--Электронная почта-->
                             <TextBox Style="{StaticResource tbEmailStyle}"
                                  materialDesign:HintAssist.Background="{StaticResource Primary}">
                                 <i:Interaction.Triggers>
@@ -238,6 +246,8 @@
                                 </Validation.ErrorTemplate>
                             </TextBox>
 
+                            
+                            <!--Дата рождения-->
                             <DatePicker Style="{StaticResource dpBirthdayStyle}"
                                 materialDesign:HintAssist.Background="{StaticResource Primary}">
                                 <i:Interaction.Triggers>
@@ -261,6 +271,7 @@
                                 </Validation.ErrorTemplate>
                             </DatePicker>
 
+                            <!--Пароль-->
                             <PasswordBox Style="{StaticResource pbPasswordStyle}"
                                  materialDesign:HintAssist.Background="{StaticResource Primary}"
                                  materialDesign:PasswordBoxAssist.Password="{Binding Password, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}">
@@ -286,13 +297,10 @@
                             </PasswordBox>
                         </StackPanel>
                     </Grid>
-                    <Button Margin="15" Content="Зарегистрироваться" Command="{Binding AddApplicantCommand}">
-                        <!--<i:Interaction.Triggers>
-                                <i:EventTrigger EventName="Click">
-                                        <i:InvokeCommandAction Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"/>
-                                    </i:EventTrigger>
-                            </i:Interaction.Triggers>-->
-                    </Button>
+                    
+                    <Button Margin="15" 
+                            Content="Зарегистрироваться" 
+                            Command="{Binding AddApplicantCommand}"/>
                     <Button Margin="15" 
                             Content="Отмена" 
                             Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"/>

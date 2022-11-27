@@ -6,6 +6,7 @@
     <ApplicationIcon>Logo transparency1.ico</ApplicationIcon>
 	  <LangVersion>11.0</LangVersion>
 	  <PlatformTarget>AnyCPU</PlatformTarget>
+	  <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Content\Fonts\Montserrat.ttf" />

@@ -35,7 +35,6 @@ C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\Tonvo.csproj.As
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\Themes\LightTheme.baml
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\App.baml
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\MVVM\Views\ControlButtonsView.g.cs
-C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\MVVM\Views\FilterPanelView.g.cs
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\MVVM\Views\ListPanelViewxaml.g.cs
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\MVVM\Views\RootView.g.cs
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\MVVM\Views\ShellView.g.cs
@@ -44,7 +43,6 @@ C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\Tonvo_Content.g
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\Tonvo_MarkupCompile.cache
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\Tonvo_MarkupCompile.lref
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\MVVM\Views\ControlButtonsView.baml
-C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\MVVM\Views\FilterPanelView.baml
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\MVVM\Views\ListPanelViewxaml.baml
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\MVVM\Views\RootView.baml
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\MVVM\Views\ShellView.baml
@@ -69,3 +67,8 @@ C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\Themes\Styles\B
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\Themes\Styles\TextBoxStyleDictionary.baml
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\Themes\Styles\DataPickerStyleDictionary.baml
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\Themes\Styles\PasswordBoxStyleDictionary.baml
+C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\MVVM\Views\ControlPanelView.g.cs
+C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\MVVM\Views\RegistrationApplicantPanel.g.cs
+C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\MVVM\Views\ControlPanelView.baml
+C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\MVVM\Views\RegistrationApplicantPanel.baml
+C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\GeneratedInternalTypeHelper.g.cs

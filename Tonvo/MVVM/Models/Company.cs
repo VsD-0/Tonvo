@@ -25,14 +25,14 @@ namespace Tonvo.MVVM.Models
 
         public Company()
         {
-            ValidateApplicantEmail = new RelayCommand(OnValidateApplicantEmail, CanValidateApplicantEmail);
+            ValidateApplicantEmail = new TargetRelayCommand(OnValidateApplicantEmail, CanValidateApplicantEmail);
 
             EventManager.Validated += OnValidateApplicantEmail;
         }
         
 
         #region Validation
-        public RelayCommand ValidateApplicantEmail { get; set; }
+        public TargetRelayCommand ValidateApplicantEmail { get; set; }
         private void OnValidateApplicantEmail()
         {
             ClearErrors(nameof(Email));

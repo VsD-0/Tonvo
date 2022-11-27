@@ -57,14 +57,14 @@ namespace Tonvo.ViewModels
         }
 
         // команда добавления нового соискателя
-        public RelayCommand AddApplicantCommand { get; set; }
+        public TargetRelayCommand AddApplicantCommand { get; set; }
         // команда удаления соискателя
-        public RelayCommand RemoveApplicantCommand { get; set; }
+        public TargetRelayCommand RemoveApplicantCommand { get; set; }
 
         // команда добавления новой вакансии
-        public RelayCommand AddVacancyCommand { get; set; }
+        public TargetRelayCommand AddVacancyCommand { get; set; }
         // команда удаления вакансии
-        public RelayCommand RemoveVacancyCommand { get; set; }
+        public TargetRelayCommand RemoveVacancyCommand { get; set; }
 
         public ObservableCollection<Vacancy> Vacancies { get; set; }
         public ObservableCollection<Applicant> Applicants { get; set; }
@@ -77,11 +77,11 @@ namespace Tonvo.ViewModels
             Vacancies = DataStorage.ReadVacancyJson();
             Applicants = DataStorage.ReadApplicantsJson();
 
-            AddApplicantCommand = new RelayCommand(OnAddApplicant, CanAddApplicant);
-            RemoveApplicantCommand = new RelayCommand(OnRemoveApplicant, CanRemoveApplicant);
+            AddApplicantCommand = new TargetRelayCommand(OnAddApplicant, CanAddApplicant);
+            RemoveApplicantCommand = new TargetRelayCommand(OnRemoveApplicant, CanRemoveApplicant);
 
-            AddVacancyCommand = new RelayCommand(OnAddVacancy, CanAddVacancy);
-            RemoveVacancyCommand = new RelayCommand(OnRemoveVacancy, CanRemoveVacancy);
+            AddVacancyCommand = new TargetRelayCommand(OnAddVacancy, CanAddVacancy);
+            RemoveVacancyCommand = new TargetRelayCommand(OnRemoveVacancy, CanRemoveVacancy);
         }
 
         #region Commands

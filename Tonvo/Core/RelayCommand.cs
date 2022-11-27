@@ -3,48 +3,31 @@ using System.Windows.Input;
 
 namespace Tonvo.Core
 {
-    public class RelayCommand : ICommand
+    class RelayCommand : ICommand
     {
-        readonly Action _TargetExecuteMethod;
-        readonly Func<bool> _TargetCanExecuteMethod;
+        private Action<object> _execute;
+        private Func<object, bool> _canExecute;
 
-        public RelayCommand(Action executeMethod)
+        public event EventHandler CanExecuteChanged
         {
-            _TargetExecuteMethod = executeMethod;
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
         }
 
-        public RelayCommand(Action executeMethod, Func<bool> canExecuteMethod)
+        public RelayCommand(Action<object> execute, Func<object, bool> canExecute = null)
         {
-            _TargetExecuteMethod = executeMethod;
-            _TargetCanExecuteMethod = canExecuteMethod;
+            this._execute = execute;
+            this._canExecute = canExecute;
         }
 
-        public void RaiseCanExecuteChanged()
+        public bool CanExecute(object parameter)
         {
-            CanExecuteChanged(this, EventArgs.Empty);
+            return this._canExecute == null || this._canExecute(parameter);
         }
 
-        bool ICommand.CanExecute(object parameter)
+        public void Execute(object parameter)
         {
-
-            if (_TargetCanExecuteMethod != null)
-            {
-                return _TargetCanExecuteMethod();
-            }
-
-            if (_TargetExecuteMethod != null)
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-        public event EventHandler CanExecuteChanged = delegate { };
-
-        void ICommand.Execute(object parameter)
-        {
-            _TargetExecuteMethod?.Invoke();
+            this._execute(parameter);
         }
     }
 }
