@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Tonvo.MVVM.ViewModels;
 
 namespace Tonvo.MVVM.Views
 {
@@ -21,6 +22,7 @@ namespace Tonvo.MVVM.Views
         public ControlButtonsView()
         {
             InitializeComponent();
+            DataContext = new ControlButtonsViewModel();
         }
     }
 }

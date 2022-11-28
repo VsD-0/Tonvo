@@ -13,4 +13,18 @@
         <Setter Property="IsEnabled"
                 Value="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"/>
     </Style>
+    
+    <!--Стиль кнопок управления приложением-->
+    <Style x:Key="btnControlBarStyle" TargetType="Button"
+           BasedOn="{StaticResource MaterialDesignIconButton}">
+        <Setter Property="Width"
+                Value="30"/>
+        <Setter Property="Height"
+                Value="30"/>
+        <Setter Property="Margin"
+                Value="3,0,3,0"/>
+        <Setter Property="Cursor"
+                Value="Hand"/>
+    </Style>
+    
 </ResourceDictionary>

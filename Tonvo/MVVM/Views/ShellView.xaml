@@ -33,13 +33,14 @@
                 <GradientStop Color="{StaticResource winBorderColor3}" Offset="1"/>
             </LinearGradientBrush>
         </Border.BorderBrush>
-        
+
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
 
+            <!--ControlBar-->
             <Border Background="{StaticResource PrimaryLight}" CornerRadius="10,10,0,0">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseDown">
@@ -54,34 +55,28 @@
                     <!--Иконка и название-->
                     <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="5,0,0,0">
                         <Image Width="30" Height="30" Margin="5" Source="/Content/Pictures/Logo transparency2.png"/>
-                        <TextBlock Text="Tonvo" Margin="5,0,5,0" Height="30"
-                                   Foreground="{StaticResource OnBackground}" FontSize="25"
-                                   FontWeight="Medium" FontFamily="./#Montserrat"/>
-
+                        <TextBlock Style="{StaticResource tbApplicationNameStyle}"/>
                     </StackPanel>
+
                     <!--Элементы управления окна-->
                     <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,0,5,0">
+
                         <!--Свернуть окно-->
-                        <Button Width="30" Height="30" Margin="3,0,3,0" Cursor="Hand" 
-                                Style="{StaticResource MaterialDesignIconButton}"
+                        <Button Style="{StaticResource btnControlBarStyle}"
                                 Command="{Binding MinimizeWindowCommand}">
                             <materialDesign:PackIcon Kind="WindowMinimize" Width="30" Height="30"
-                                                             Foreground="{StaticResource PrimaryDark}"/>
-
+                                                     Foreground="{StaticResource PrimaryDark}"/>
                         </Button>
+
                         <!--Окно на весь экран-->
-                        <Button HorizontalAlignment="Center" VerticalAlignment="Center" 
-                                Width="30" Height="30" Margin="3,0,3,0" Cursor="Hand" 
-                                Style="{StaticResource MaterialDesignIconButton}"
+                        <Button Style="{StaticResource btnControlBarStyle}"
                                 Command="{Binding MaximizeWindowCommand}">
                             <materialDesign:PackIcon Kind="WindowMaximize" Width="30" Height="30" 
                                                              Foreground="{StaticResource PrimaryDark}"/>
-
                         </Button>
+
                         <!--Закрыть окно-->
-                        <Button HorizontalAlignment="Center" VerticalAlignment="Center"
-                                Width="30" Height="30" Margin="3,0,3,0" Cursor="Hand" 
-                                Style="{StaticResource MaterialDesignIconButton}"
+                        <Button Style="{StaticResource btnControlBarStyle}"
                                 Command="{Binding ShutdownWindowCommand}">
                             <materialDesign:PackIcon Kind="WindowClose" Width="30" Height="30" 
                                                              Foreground="{StaticResource PrimaryDark}"/>
@@ -90,8 +85,50 @@
                 </Grid>
             </Border>
 
-            <Frame Grid.Row="1" Source="RootView.xaml" NavigationUIVisibility="Hidden"/>
+            <!--Главный контейнер-->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="15*"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
 
+                <!--Контейнер списка-->
+                <Grid>
+                    <ContentPresenter Content="{Binding CurrentListView}"/>
+                </Grid>
+
+                <!--Контейнер панели управления-->
+                <Grid Grid.Column="1" 
+              Background="{StaticResource Primary}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="131*"/>
+                        <RowDefinition Height="59*"/>
+                        <RowDefinition Height="301*"/>
+                        <RowDefinition Height="116"/>
+                    </Grid.RowDefinitions>
+
+                    <Image Source="pack://application:,,,/Content/Pictures/FullLogo transparency2.png"/>
+
+                    <!--Выбор списка-->
+                    <ComboBox Grid.Row="1" 
+                      Style="{StaticResource cbSelectListStyle}"
+                      materialDesign:HintAssist.Background="{StaticResource Primary}">
+                        <ComboBoxItem x:Name="cbiVacancy" Content="Вакансии" IsSelected="True"/>
+                        <ComboBoxItem Content="Резюме"/>
+                    </ComboBox>
+
+                    <!--Контейнер фильтра/информации элемента-->
+                    <StackPanel Grid.Row="2">
+
+                    </StackPanel>
+
+                    <!--Контейнер кнопок-->
+                    <Grid Grid.Row="3">
+                        <ContentPresenter Content="{Binding CurrentControlButtonView}"/>
+                    </Grid>
+                </Grid>
+                <ContentPresenter Grid.RowSpan="4" Grid.ColumnSpan="2" Content="{Binding CurrentRegistrationView}"/>
+            </Grid>
         </Grid>
     </Border>
 </Window>

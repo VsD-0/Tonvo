@@ -14,11 +14,11 @@ using System.Windows.Shapes;
 namespace Tonvo.MVVM.Views
 {
     /// <summary>
-    /// Логика взаимодействия для filterPanelView.xaml
+    /// Логика взаимодействия для ControlPanelView.xaml
     /// </summary>
-    public partial class filterPanelView : UserControl
+    public partial class ControlPanelView : UserControl
     {
-        public filterPanelView()
+        public ControlPanelView()
         {
             InitializeComponent();
         }

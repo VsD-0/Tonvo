@@ -1,0 +1,254 @@
+﻿<UserControl x:Class="Tonvo.MVVM.Views.RegistrationApplicant"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Tonvo.MVVM.Views"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:materialDesign = "http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:viewModels="clr-namespace:Tonvo.ViewModels"
+             d:DataContext="{d:DesignInstance Type=viewModels:RootViewModel}"
+             mc:Ignorable="d"
+             d:DesignWidth="1092" d:DesignHeight="607"
+             TextElement.Foreground = "{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight = "Medium" 
+             TextElement.FontSize = "14">
+    <!--Окно регистрации-->
+    <Grid Grid.ColumnSpan="2" >
+        <materialDesign:DialogHost DialogBackground="{StaticResource Primary}"
+                                   CloseOnClickAway="True">
+
+            <!--Контейнер кнопки регистрации на панели меню-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="15*"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" Margin="12" Content="Регистрация" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"/>
+            </Grid>
+            <materialDesign:DialogHost.DialogContent>
+                <!--Контейнер окна регистрации-->
+                <StackPanel Margin="16" Width="800">
+                    <!--Combobox выбора регистрации-->
+                    <ComboBox Style="{StaticResource cbSelectRegistrationStyle}"
+                              materialDesign:HintAssist.Background="{StaticResource Primary}">
+                        <ComboBoxItem x:Name="cbApplicantDh" Content="Резюме"/>
+                    </ComboBox>
+                    <!--Контейнер текстовых полей-->
+                    <Grid DataContext="{Binding ApplicantNewAccount}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+
+                            <!--Название профессии-->
+                            <TextBox Style="{StaticResource tbProfessionNameStyle}"
+                                     materialDesign:HintAssist.Background="{StaticResource Primary}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="TextChanged">
+                                        <i:InvokeCommandAction Command="{Binding ValidateApplicantProfessionName}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                                <Validation.ErrorTemplate>
+                                    <ControlTemplate>
+                                        <StackPanel>
+                                            <AdornedElementPlaceholder x:Name="textBox" />
+                                            <ItemsControl ItemsSource="{Binding}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock Text="{Binding ErrorContent}" Foreground="Red" />
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </StackPanel>
+                                    </ControlTemplate>
+                                </Validation.ErrorTemplate>
+                            </TextBox>
+
+                            <!--Желаемая заработная плата-->
+                            <TextBox x:Name="tbApplicantSalary"
+                                Style="{StaticResource tbApplicantSalaryStyle}"
+                                     materialDesign:HintAssist.Background="{StaticResource Primary}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="TextChanged">
+                                        <i:InvokeCommandAction Command="{Binding ValidateApplicantSalary}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                                <Validation.ErrorTemplate>
+                                    <ControlTemplate>
+                                        <StackPanel>
+                                            <AdornedElementPlaceholder x:Name="textBox" />
+                                            <ItemsControl ItemsSource="{Binding}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock Text="{Binding ErrorContent}" Foreground="Red" />
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </StackPanel>
+                                    </ControlTemplate>
+                                </Validation.ErrorTemplate>
+                            </TextBox>
+
+                            <!--Опыт работы-->
+                            <TextBox Style="{StaticResource tbWorkExperienceStyle}"
+                                     materialDesign:HintAssist.Background="{StaticResource Primary}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="TextChanged">
+                                        <i:InvokeCommandAction Command="{Binding ValidateApplicantWorkExperience}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                                <Validation.ErrorTemplate>
+                                    <ControlTemplate>
+                                        <StackPanel>
+                                            <AdornedElementPlaceholder x:Name="textBox" />
+                                            <ItemsControl ItemsSource="{Binding}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock Text="{Binding ErrorContent}" Foreground="Red" />
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </StackPanel>
+                                    </ControlTemplate>
+                                </Validation.ErrorTemplate>
+                            </TextBox>
+
+                            <!--Имя-->
+                            <TextBox Style="{StaticResource tbNameStyle}"
+                                     materialDesign:HintAssist.Background="{StaticResource Primary}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="TextChanged">
+                                        <i:InvokeCommandAction Command="{Binding ValidateApplicantName}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                                <Validation.ErrorTemplate>
+                                    <ControlTemplate>
+                                        <StackPanel>
+                                            <AdornedElementPlaceholder x:Name="textBox" />
+                                            <ItemsControl ItemsSource="{Binding}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock Text="{Binding ErrorContent}" Foreground="Red" />
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </StackPanel>
+                                    </ControlTemplate>
+                                </Validation.ErrorTemplate>
+                            </TextBox>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1">
+                            <!--Фамилия-->
+                            <TextBox Style="{StaticResource tbSecondNameStyle}"
+                                 materialDesign:HintAssist.Background="{StaticResource Primary}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="TextChanged">
+                                        <i:InvokeCommandAction Command="{Binding ValidateApplicantSecondName}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                                <Validation.ErrorTemplate>
+                                    <ControlTemplate>
+                                        <StackPanel>
+                                            <AdornedElementPlaceholder x:Name="textBox" />
+                                            <ItemsControl ItemsSource="{Binding}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock Text="{Binding ErrorContent}" Foreground="Red" />
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </StackPanel>
+                                    </ControlTemplate>
+                                </Validation.ErrorTemplate>
+                            </TextBox>
+
+                            <!--Электронная почта-->
+                            <TextBox Style="{StaticResource tbEmailStyle}"
+                                 materialDesign:HintAssist.Background="{StaticResource Primary}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="TextChanged">
+                                        <i:InvokeCommandAction Command="{Binding ValidateApplicantEmail}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                                <Validation.ErrorTemplate>
+                                    <ControlTemplate>
+                                        <StackPanel>
+                                            <AdornedElementPlaceholder x:Name="textBox" />
+                                            <ItemsControl ItemsSource="{Binding}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock Text="{Binding ErrorContent}" Foreground="Red" />
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </StackPanel>
+                                    </ControlTemplate>
+                                </Validation.ErrorTemplate>
+                            </TextBox>
+
+
+                            <!--Дата рождения-->
+                            <DatePicker Style="{StaticResource dpBirthdayStyle}"
+                                materialDesign:HintAssist.Background="{StaticResource Primary}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="SelectedDateChanged">
+                                        <i:InvokeCommandAction Command="{Binding ValidateApplicantBirthday}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                                <Validation.ErrorTemplate>
+                                    <ControlTemplate>
+                                        <StackPanel>
+                                            <AdornedElementPlaceholder x:Name="textBox" />
+                                            <ItemsControl ItemsSource="{Binding}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock Text="{Binding ErrorContent}" Foreground="Red" />
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </StackPanel>
+                                    </ControlTemplate>
+                                </Validation.ErrorTemplate>
+                            </DatePicker>
+
+                            <!--Пароль-->
+                            <PasswordBox Style="{StaticResource pbPasswordStyle}"
+                                 materialDesign:HintAssist.Background="{StaticResource Primary}"
+                                 materialDesign:PasswordBoxAssist.Password="{Binding Password, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="PasswordChanged">
+                                        <i:InvokeCommandAction Command="{Binding ValidateApplicantPassword}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                                <Validation.ErrorTemplate>
+                                    <ControlTemplate>
+                                        <StackPanel>
+                                            <AdornedElementPlaceholder x:Name="textBox" />
+                                            <ItemsControl ItemsSource="{Binding}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock Text="{Binding ErrorContent}" Foreground="Red" />
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </StackPanel>
+                                    </ControlTemplate>
+                                </Validation.ErrorTemplate>
+                            </PasswordBox>
+                        </StackPanel>
+                    </Grid>
+
+                    <Button Margin="15" 
+                            Content="Зарегистрироваться" 
+                            Command="{Binding AddApplicantCommand}"/>
+                    <Button Margin="15" 
+                            Content="Отмена" 
+                            Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"/>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
+    </Grid>
+</UserControl>

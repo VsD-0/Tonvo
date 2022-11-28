@@ -20,10 +20,12 @@ using ReactiveUI;
 
 namespace Tonvo.ViewModels
 {
-    public class RootViewModel : ReactiveObject
+    internal class RootViewModel : ReactiveObject
     {
         // TODO: Перенести некоторый функционал на новосозданные ViewModel
         // TODO: Добавить функционал для двух других классов
+        public GlobalViewModel Global { get; } = GlobalViewModel.Instance;
+
         #region Fields
         private Applicant _selectedApplicant;
         private Vacancy _selectedVacancy;
@@ -66,6 +68,7 @@ namespace Tonvo.ViewModels
         // команда удаления вакансии
         public TargetRelayCommand RemoveVacancyCommand { get; set; }
 
+        //
         public ObservableCollection<Vacancy> Vacancies { get; set; }
         public ObservableCollection<Applicant> Applicants { get; set; }
         #endregion Properties
@@ -74,6 +77,7 @@ namespace Tonvo.ViewModels
         {
             DataStorage.Init();
 
+            //
             Vacancies = DataStorage.ReadVacancyJson();
             Applicants = DataStorage.ReadApplicantsJson();
 
