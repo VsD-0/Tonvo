@@ -3,7 +3,7 @@ using ReactiveUI.Fody.Helpers;
 using System.Collections.ObjectModel;
 using System.Linq;
 using Tonvo.Core;
-using Tonvo.Models;
+using Tonvo.MVVM.Models;
 using Tonvo.Services;
 
 namespace Tonvo.MVVM.ViewModels

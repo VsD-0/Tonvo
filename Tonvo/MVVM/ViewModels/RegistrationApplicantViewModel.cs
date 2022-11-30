@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Tonvo.Core;
-using Tonvo.Models;
+using Tonvo.MVVM.Models;
 
 namespace Tonvo.MVVM.ViewModels
 {

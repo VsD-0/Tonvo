@@ -1,5 +1,26 @@
 [
   {
+    "Id": 25,
+    "ProfessionName": "dfs",
+    "ApplicantSalary": "879",
+    "WorkExperience": "87",
+    "Name": "bn",
+    "SecondName": "vcb",
+    "ApplicantDescription": null,
+    "Birthday": "02.02.2002",
+    "Email": "ghj@fgg",
+    "Password": "thg.HGF78",
+    "ValidateApplicantProfessionName": {},
+    "ValidateApplicantSalary": {},
+    "ValidateApplicantWorkExperience": {},
+    "ValidateApplicantName": {},
+    "ValidateApplicantSecondName": {},
+    "ValidateApplicantBirthday": {},
+    "ValidateApplicantEmail": {},
+    "ValidateApplicantPassword": {},
+    "HasErrors": false
+  },
+  {
     "Id": 24,
     "ProfessionName": "jk",
     "ApplicantSalary": "967",

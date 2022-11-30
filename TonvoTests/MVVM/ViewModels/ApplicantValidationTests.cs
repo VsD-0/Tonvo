@@ -1,14 +1,13 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Tonvo.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Tonvo.Models;
+using Tonvo.MVVM.Models;
 using Tonvo.Core;
 using Tonvo.Services;
 using System.Windows.Documents;
 
-namespace Tonvo.ViewModels.TonvoTests
+namespace Tonvo.MVVM.ViewModels.TonvoTests
 {
     [TestClass()]
     public class ApplicantValidationTests

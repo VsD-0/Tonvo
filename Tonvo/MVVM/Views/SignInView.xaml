@@ -5,7 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:materialDesign = "http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
-             xmlns:local="clr-namespace:Tonvo.MVVM.Views"
+             xmlns:local="clr-namespace:Tonvo.MVVM.Views" 
+             xmlns:viewmodels="clr-namespace:Tonvo.MVVM.ViewModels" 
+             d:DataContext="{d:DesignInstance Type=viewmodels:SignInViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <!--Окно входа-->
@@ -118,8 +120,7 @@
                                 Foreground="{StaticResource OnSecondary}"
                                 BorderThickness="0"
                                 materialDesign:ElevationAssist.Elevation="Dp4"
-                                Command="{Binding AddApplicantCommand}"/>
-                        <!--Добавить команду-->
+                                Command="{Binding MoveToPersonalAccount}"/>
                         <Button Margin="8" 
                                 Content="Отмена" 
                                 Style="{StaticResource MaterialDesignRaisedButton}"

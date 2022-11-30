@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 C:\Users\dimva\source\repos\Tonvo\Tonvo\App.xaml
-17508797214
+181572739303
 1-1582485629
-29-526245747
+31-444931916
 215-1499099546
-MVVM\Views\ControlPanelView.xaml;MVVM\Views\ListView.xaml;MVVM\Views\RegistrationApplicantView.xaml;MVVM\Views\RegistrationVacancyView.xaml;MVVM\Views\RegistrationView.xaml;MVVM\Views\RootView.xaml;MVVM\Views\ShellView.xaml;MVVM\Views\SignInView.xaml;Themes\LightTheme.xaml;Themes\Styles\ButtonStyleDictionary.xaml;Themes\Styles\ColorDictionary.xaml;Themes\Styles\ComboBoxStyleDictionary.xaml;Themes\Styles\DataPickerStyleDictionary.xaml;Themes\Styles\ListViewStyleDictionary.xaml;Themes\Styles\PasswordBoxStyleDictionary.xaml;Themes\Styles\TextBlockStyleDictionary.xaml;Themes\Styles\TextBoxStyleDictionary.xaml;
+MVVM\Views\ControlPanelView.xaml;MVVM\Views\ListView.xaml;MVVM\Views\PersonalAreaView.xaml;MVVM\Views\RegistrationApplicantView.xaml;MVVM\Views\RegistrationVacancyView.xaml;MVVM\Views\RegistrationView.xaml;MVVM\Views\RootView.xaml;MVVM\Views\ShellView.xaml;MVVM\Views\SignInView.xaml;Themes\LightTheme.xaml;Themes\Styles\ButtonStyleDictionary.xaml;Themes\Styles\ColorDictionary.xaml;Themes\Styles\ComboBoxStyleDictionary.xaml;Themes\Styles\DataPickerStyleDictionary.xaml;Themes\Styles\ListViewStyleDictionary.xaml;Themes\Styles\PasswordBoxStyleDictionary.xaml;Themes\Styles\TextBlockStyleDictionary.xaml;Themes\Styles\TextBoxStyleDictionary.xaml;
 
 False
 

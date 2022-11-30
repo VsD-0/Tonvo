@@ -13,7 +13,7 @@
     <Compile Update="MVVM\Views\ListView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="MVVM\Views\PersonalAreaView .xaml.cs">
+    <Compile Update="MVVM\Views\PersonalAreaView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="MVVM\Views\RegistrationApplicantView.xaml.cs">
@@ -23,6 +23,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="MVVM\Views\RegistrationView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MVVM\Views\RootView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="MVVM\Views\SignInView.xaml.cs">
@@ -36,7 +39,7 @@
     <Page Update="MVVM\Views\ListView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MVVM\Views\PersonalAreaView .xaml">
+    <Page Update="MVVM\Views\PersonalAreaView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MVVM\Views\RegistrationApplicantView.xaml">
@@ -46,6 +49,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MVVM\Views\RegistrationView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\Views\RootView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MVVM\Views\SignInView.xaml">

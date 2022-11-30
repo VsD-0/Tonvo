@@ -1,18 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Tonvo.Models;
+using Tonvo.MVVM.Models;
 using Newtonsoft.Json;
 using System.IO;
-using Tonvo.MVVM.Models;
-using Microsoft.VisualBasic;
-using System.CodeDom;
 using System.Collections.ObjectModel;
-using DynamicData;
-using System.Text.Encodings.Web;
-using System.Text.Json;
 
 namespace Tonvo.Services
 {
@@ -47,9 +37,9 @@ namespace Tonvo.Services
             {
                 return acc.GetType().ToString() switch
                 {
-                    "Tonvo.Models.Applicant" => _currentPath = _pathToSaveApplicant,
-                    "Tonvo.Models.Company" => _currentPath = _pathToSaveCompany,
-                    "Tonvo.Models.Vacancy" => _currentPath = _pathToSaveVacancy,
+                    "Tonvo.MVVM.Models.Applicant" => _currentPath = _pathToSaveApplicant,
+                    "Tonvo.MVVM.Models.Company" => _currentPath = _pathToSaveCompany,
+                    "Tonvo.MVVM.Models.Vacancy" => _currentPath = _pathToSaveVacancy,
                     _ => throw new Exception("Некоректный тип входных данных"),
                 };
             }

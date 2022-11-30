@@ -1,6 +1,6 @@
 ﻿using ReactiveUI;
 using System.Collections.ObjectModel;
-using Tonvo.Models;
+using Tonvo.MVVM.Models;
 using Tonvo.Services;
 
 namespace Tonvo.MVVM.ViewModels

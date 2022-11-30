@@ -1,8 +1,7 @@
 ﻿using ReactiveUI.Fody.Helpers;
-using Tonvo.MVVM.ViewModels;
 using ReactiveUI;
 
-namespace Tonvo.ViewModels
+namespace Tonvo.MVVM.ViewModels
 {
     internal class RootViewModel : ReactiveObject
     {

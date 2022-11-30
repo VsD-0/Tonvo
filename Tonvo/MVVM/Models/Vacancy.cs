@@ -5,7 +5,7 @@ using Tonvo.Core;
 using Tonvo.MVVM.Models;
 
 
-namespace Tonvo.Models
+namespace Tonvo.MVVM.Models
 {
     public class Vacancy : AbstractModelBase, IModel
     {

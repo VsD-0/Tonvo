@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:view="clr-namespace:Tonvo.MVVM.Views"
-             xmlns:vms="clr-namespace:Tonvo.MVVM.ViewModels" 
+             xmlns:vms="clr-namespace:Tonvo.MVVM.ViewModels"
              StartupUri="MVVM/Views/ShellView.xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -32,7 +32,10 @@
             <DataTemplate DataType="{x:Type vms:RegistrationVacancyViewModel}">
                 <view:RegistrationVacancyView/>
             </DataTemplate>
-            
+            <DataTemplate DataType="{x:Type vms:RootViewModel}">
+                <view:RootView/>
+            </DataTemplate>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

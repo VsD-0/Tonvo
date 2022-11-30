@@ -4,11 +4,10 @@ using System.Reactive.Linq;
 using System.ComponentModel.DataAnnotations;
 using ReactiveUI.Fody.Helpers;
 using Tonvo.Core;
-using Tonvo.MVVM.Models;
 using Tonvo.Services;
 using System.Collections.ObjectModel;
 
-namespace Tonvo.Models
+namespace Tonvo.MVVM.Models
 {
     public class Applicant : AbstractModelBase, IModel
     {

@@ -90,7 +90,8 @@
             </Border>
 
             <!--Основное содержимое-->
-            <Frame Grid.Row="1" Source="RootView.xaml" NavigationUIVisibility="Hidden"/>
+            <ContentPresenter Grid.Row="1" Content="{Binding CurrentView}"/>
+
         </Grid>
     </Border>
 </Window>
