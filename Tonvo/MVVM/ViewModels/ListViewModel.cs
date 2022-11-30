@@ -1,6 +1,7 @@
 ﻿using ReactiveUI;
 using System.Collections.ObjectModel;
 using Tonvo.Models;
+using Tonvo.Services;
 
 namespace Tonvo.MVVM.ViewModels
 {
@@ -8,19 +9,35 @@ namespace Tonvo.MVVM.ViewModels
     {
         public GlobalViewModel Global { get; } = GlobalViewModel.Instance;
 
-        public Applicant SelectedApplicant { get; set; }
-        public Vacancy SelectedVacancy { get; set; }
+        private Applicant _selectedApplicant;
+        private Vacancy _selectedVacancy;
+
+        public Applicant SelectedApplicant
+        {
+            get => _selectedApplicant;
+            set => this.RaiseAndSetIfChanged(ref _selectedApplicant, value);
+        }
+        public Vacancy SelectedVacancy
+        {
+            get => _selectedVacancy;
+            set => this.RaiseAndSetIfChanged(ref _selectedVacancy, value);
+        }
 
         public ObservableCollection<Vacancy> Vacancies { get; set; }
         public ObservableCollection<Applicant> Applicants { get; set; }
 
         public ListViewModel()
         {
-            Vacancies = Global.Vacancies;
-            Applicants = Global.Applicants;
+            DataStorage.Init();
 
-            SelectedVacancy = Global.SelectedVacancy;
-            SelectedApplicant = Global.SelectedApplicant;
+            Vacancies = DataStorage.ReadVacancyJson();
+            Applicants = DataStorage.ReadApplicantsJson();
+
+            Global.SelectedApplicant = SelectedApplicant;
+            Global.SelectedVacancy = SelectedVacancy;
+
+            Global.Applicants = Applicants;
+            Global.Vacancies = Vacancies;
         }
     }
 }

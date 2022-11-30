@@ -36,7 +36,7 @@
         <Setter Property="Foreground"
                 Value="{StaticResource OnSecondary}"/>
         <Setter Property="FontSize"
-                Value="20"/>
+                Value="30"/>
         <Style.Triggers>
             <DataTrigger Binding="{Binding ElementName=cbiVacancy, Path=IsSelected}" 
                          Value="False">
@@ -55,7 +55,7 @@
         <Setter Property="Foreground"
                 Value="{StaticResource OnSecondary}"/>
         <Setter Property="FontSize"
-                Value="14"/>
+                Value="20"/>
         <Style.Triggers>
             <DataTrigger Binding="{Binding ElementName=cbiVacancy, Path=IsSelected}" 
                          Value="False">
@@ -74,7 +74,7 @@
         <Setter Property="Foreground"
                 Value="{StaticResource OnSecondary}"/>
         <Setter Property="FontSize"
-                Value="14"/>
+                Value="20"/>
         <Style.Triggers>
             <DataTrigger Binding="{Binding ElementName=cbiVacancy, Path=IsSelected}"
                          Value="False">
@@ -85,19 +85,9 @@
     </Style>
 
     <!--Стиль названия приложения на главном окне-->
-    <Style x:Key="tbApplicationNameStyle" TargetType="TextBlock">
-        <Setter Property="Text"
-                Value="Tonvo"/>
-        <Setter Property="Margin"
-                Value="5,0,5,0"/>
-        <Setter Property="Height"
-                Value='30'/>
-        <Setter Property="Foreground"
-                Value="{StaticResource OnBackground}"/>
-        <Setter Property="FontSize"
-                Value="25"/>
-        <Setter Property="FontWeight"
-                Value='Medium'/>
+    <Style x:Key="TextBoxBaseStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily"
+                Value="/Content/Fonts/#Montserrat"/>
     </Style>
     
 </ResourceDictionary>

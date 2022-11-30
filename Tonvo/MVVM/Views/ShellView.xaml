@@ -5,13 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign = "http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
-        xmlns:local="clr-namespace:Tonvo" 
         xmlns:viewModel="clr-namespace:Tonvo.MVVM.ViewModels" 
         d:DataContext="{d:DesignInstance Type=viewModel:ShellViewModel}"
         mc:Ignorable="d"
         Title="MainWindow"
-        Height="650" Width="1100"
-        MinHeight="400" MinWidth="500"
+        Height="750" Width="1200"
+        MinHeight="500" MinWidth="1000"
         Background="Transparent"
         Icon="/Logo transparency1.ico"
         WindowStartupLocation="CenterScreen" 
@@ -20,8 +19,7 @@
         AllowsTransparency="True"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Medium"
-        TextElement.FontSize="14"
-        FontFamily="./#Montserrat">
+        TextElement.FontSize="14">
 
     <Border Background="{StaticResource Background}"
                 BorderThickness="1" CornerRadius="10" Margin="4">
@@ -55,7 +53,13 @@
                     <!--Иконка и название-->
                     <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="5,0,0,0">
                         <Image Width="30" Height="30" Margin="5" Source="/Content/Pictures/Logo transparency2.png"/>
-                        <TextBlock Style="{StaticResource tbApplicationNameStyle}"/>
+                        <TextBlock Style="{StaticResource TextBoxBaseStyle}"
+                                   Margin="5,0,0,0"
+                                   Text="Tonvo"
+                                   VerticalAlignment="Center"
+                                   FontSize="25"
+                                   FontWeight="Bold"
+                                   Foreground="{StaticResource OnPrimary}"/>
                     </StackPanel>
 
                     <!--Элементы управления окна-->
@@ -85,50 +89,8 @@
                 </Grid>
             </Border>
 
-            <!--Главный контейнер-->
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="15*"/>
-                    <ColumnDefinition Width="5*"/>
-                </Grid.ColumnDefinitions>
-
-                <!--Контейнер списка-->
-                <Grid>
-                    <ContentPresenter Content="{Binding CurrentListView}"/>
-                </Grid>
-
-                <!--Контейнер панели управления-->
-                <Grid Grid.Column="1" 
-              Background="{StaticResource Primary}">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="131*"/>
-                        <RowDefinition Height="59*"/>
-                        <RowDefinition Height="301*"/>
-                        <RowDefinition Height="116"/>
-                    </Grid.RowDefinitions>
-
-                    <Image Source="pack://application:,,,/Content/Pictures/FullLogo transparency2.png"/>
-
-                    <!--Выбор списка-->
-                    <ComboBox Grid.Row="1" 
-                      Style="{StaticResource cbSelectListStyle}"
-                      materialDesign:HintAssist.Background="{StaticResource Primary}">
-                        <ComboBoxItem x:Name="cbiVacancy" Content="Вакансии" IsSelected="True"/>
-                        <ComboBoxItem Content="Резюме"/>
-                    </ComboBox>
-
-                    <!--Контейнер фильтра/информации элемента-->
-                    <StackPanel Grid.Row="2">
-
-                    </StackPanel>
-
-                    <!--Контейнер кнопок-->
-                    <Grid Grid.Row="3">
-                        <ContentPresenter Content="{Binding CurrentControlButtonView}"/>
-                    </Grid>
-                </Grid>
-                <ContentPresenter Grid.RowSpan="4" Grid.ColumnSpan="2" Content="{Binding CurrentRegistrationView}"/>
-            </Grid>
+            <!--Основное содержимое-->
+            <Frame Grid.Row="1" Source="RootView.xaml" NavigationUIVisibility="Hidden"/>
         </Grid>
     </Border>
 </Window>

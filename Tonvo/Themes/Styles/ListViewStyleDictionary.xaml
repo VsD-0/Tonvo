@@ -34,7 +34,7 @@
     <!--Шаблон элементов (ItemTemplate) ListView-->
     <DataTemplate x:Key="listViewDataTemplate">
         <materialDesign:Card Background="{StaticResource Secondary}">
-            <Grid>
+            <Grid Height="150">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>

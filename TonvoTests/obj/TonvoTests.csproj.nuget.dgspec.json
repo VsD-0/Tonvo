@@ -57,13 +57,19 @@
               "target": "Package",
               "version": "[2.2.10, )"
             },
+            "MaterialDesignExtensions": {
+              "target": "Package",
+              "version": "[3.3.0, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
-              "version": "[17.3.2, )"
+              "version": "[17.4.0, )"
             },
             "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[3.1.2, )"
+              "version": "[3.2.0, )"
             }
           },
           "imports": [
@@ -145,7 +151,7 @@
             },
             "Newtonsoft.Json": {
               "target": "Package",
-              "version": "[13.0.1, )"
+              "version": "[13.0.2, )"
             },
             "NuGet.Protocol": {
               "target": "Package",
@@ -153,11 +159,11 @@
             },
             "ReactiveUI": {
               "target": "Package",
-              "version": "[18.3.1, )"
+              "version": "[18.4.1, )"
             },
             "ReactiveUI.Fody": {
               "target": "Package",
-              "version": "[18.3.1, )"
+              "version": "[18.4.1, )"
             },
             "ShowMeTheXAML": {
               "target": "Package",

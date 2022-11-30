@@ -7,30 +7,48 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="MVVM\Views\ControlButtonsView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="MVVM\Views\ControlPanelView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="MVVM\Views\ListView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="MVVM\Views\RegistrationApplicant.xaml.cs">
+    <Compile Update="MVVM\Views\PersonalAreaView .xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MVVM\Views\RegistrationApplicantView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MVVM\Views\RegistrationVacancyView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MVVM\Views\RegistrationView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MVVM\Views\SignInView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="MVVM\Views\ControlButtonsView.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="MVVM\Views\ControlPanelView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MVVM\Views\ListView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MVVM\Views\RegistrationApplicant.xaml">
+    <Page Update="MVVM\Views\PersonalAreaView .xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\Views\RegistrationApplicantView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\Views\RegistrationVacancyView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\Views\RegistrationView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\Views\SignInView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Themes\Styles\ButtonStyleDictionary.xaml">

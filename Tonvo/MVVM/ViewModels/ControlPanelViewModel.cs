@@ -1,0 +1,18 @@
+﻿using DynamicData;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Tonvo.Core;
+
+namespace Tonvo.MVVM.ViewModels
+{
+    class ControlPanelViewModel
+    {
+        public GlobalViewModel Global { get; } = GlobalViewModel.Instance;
+        public ControlPanelViewModel()
+        {
+        }
+    }
+}

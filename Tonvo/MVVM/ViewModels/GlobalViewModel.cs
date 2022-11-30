@@ -1,16 +1,13 @@
-﻿using ReactiveUI.Fody.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using Tonvo.Models;
+using ReactiveUI.Fody.Helpers;
+using ReactiveUI;
 
 namespace Tonvo.MVVM.ViewModels
 {
-    class GlobalViewModel
+    class GlobalViewModel : ReactiveObject
     {
+
         public static GlobalViewModel Instance { get; } = new GlobalViewModel();
 
         public ObservableCollection<Vacancy> Vacancies { get; set; }
@@ -18,5 +15,7 @@ namespace Tonvo.MVVM.ViewModels
 
         public Applicant SelectedApplicant { get; set; }
         public Vacancy SelectedVacancy { get; set; }
+
+        public Applicant ApplicantNewAccount { get; set; }
     }
 }
