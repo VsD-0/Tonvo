@@ -6,10 +6,14 @@
              xmlns:materialDesign = "http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:local="clr-namespace:Tonvo.MVVM.Views" 
-             xmlns:viewmodels="clr-namespace:Tonvo.MVVM.ViewModels" 
-             d:DataContext="{d:DesignInstance Type=viewmodels:SignInViewModel}"
+             xmlns:viewModel="clr-namespace:Tonvo.MVVM.ViewModels" 
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.DataContext>
+        <viewModel:SignInViewModel/>
+    </UserControl.DataContext>
+
     <!--Окно входа-->
     <Grid Grid.ColumnSpan="2" >
         <materialDesign:DialogHost DialogBackground="Transparent"
@@ -47,70 +51,42 @@
                     <!--Контейнер окна входа-->
                     <StackPanel Margin="16" Width="300" >
                         <!--Контейнер текстовых полей-->
-                        <Grid DataContext="{Binding ApplicantNewAccount}">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-                            <StackPanel>
-                                <TextBlock Style="{StaticResource MaterialDesignBody2TextBlock}"
-                                       Text="Вход"
-                                       Foreground="{StaticResource OnBackground}"
-                                       FontSize="40"
-                                       Margin="10,0,0,20"
-                                       HorizontalAlignment="Center"/>
+                        <TextBlock Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                    Text="Вход"
+                                    Foreground="{StaticResource OnBackground}"
+                                    FontSize="40"
+                                    Margin="10,0,0,20"
+                                    HorizontalAlignment="Center"/>
 
-                                <!--Электронная почта-->
-                                <TextBox Style="{StaticResource tbEmailStyle}"
+                        <!--Электронная почта-->
+                        <TextBox Style="{StaticResource tbEmailStyle}"
+                                 Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
                                  materialDesign:HintAssist.Background="{StaticResource Primary}">
-                                    <i:Interaction.Triggers>
-                                        <i:EventTrigger EventName="TextChanged">
-                                            <i:InvokeCommandAction Command="{Binding ValidateApplicantEmail}"/>
-                                            <!--Добавить команду-->
-                                        </i:EventTrigger>
-                                    </i:Interaction.Triggers>
-                                    <Validation.ErrorTemplate>
-                                        <ControlTemplate>
-                                            <StackPanel>
-                                                <AdornedElementPlaceholder x:Name="textBox" />
-                                                <ItemsControl ItemsSource="{Binding}">
-                                                    <ItemsControl.ItemTemplate>
-                                                        <DataTemplate>
-                                                            <TextBlock Text="{Binding ErrorContent}" Foreground="Red" />
-                                                        </DataTemplate>
-                                                    </ItemsControl.ItemTemplate>
-                                                </ItemsControl>
-                                            </StackPanel>
-                                        </ControlTemplate>
-                                    </Validation.ErrorTemplate>
-                                </TextBox>
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="TextChanged">
+                                <i:InvokeCommandAction Command="{Binding ValidationSignInEmail}"/>
+                            </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                            <Validation.ErrorTemplate>
+                                <ControlTemplate>
+                                    <StackPanel>
+                                        <AdornedElementPlaceholder x:Name="textBox" />
+                                        <ItemsControl ItemsSource="{Binding}">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Text="{Binding ErrorContent}" Foreground="Red" />
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </StackPanel>
+                                </ControlTemplate>
+                            </Validation.ErrorTemplate>
+                        </TextBox>
 
-                                <!--Пароль-->
-                                <PasswordBox Style="{StaticResource pbPasswordStyle}"
+                        <!--Пароль-->
+                        <PasswordBox Style="{StaticResource pbPasswordStyle}"
                                  materialDesign:HintAssist.Background="{StaticResource Primary}"
-                                 materialDesign:PasswordBoxAssist.Password="{Binding Password, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}">
-                                    <i:Interaction.Triggers>
-                                        <i:EventTrigger EventName="PasswordChanged">
-                                            <i:InvokeCommandAction Command="{Binding ValidateApplicantPassword}"/>
-                                            <!--Добавить команду-->
-                                        </i:EventTrigger>
-                                    </i:Interaction.Triggers>
-                                    <Validation.ErrorTemplate>
-                                        <ControlTemplate>
-                                            <StackPanel>
-                                                <AdornedElementPlaceholder x:Name="textBox" />
-                                                <ItemsControl ItemsSource="{Binding}">
-                                                    <ItemsControl.ItemTemplate>
-                                                        <DataTemplate>
-                                                            <TextBlock Text="{Binding ErrorContent}" Foreground="Red" />
-                                                        </DataTemplate>
-                                                    </ItemsControl.ItemTemplate>
-                                                </ItemsControl>
-                                            </StackPanel>
-                                        </ControlTemplate>
-                                    </Validation.ErrorTemplate>
-                                </PasswordBox>
-                            </StackPanel>
-                        </Grid>
+                                 materialDesign:PasswordBoxAssist.Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
 
                         <Button Margin="8" 
                                 Content="Войти" 
@@ -120,7 +96,7 @@
                                 Foreground="{StaticResource OnSecondary}"
                                 BorderThickness="0"
                                 materialDesign:ElevationAssist.Elevation="Dp4"
-                                Command="{Binding MoveToPersonalAccount}"/>
+                                Command="{Binding SignIn_OnClick}"/>
                         <Button Margin="8" 
                                 Content="Отмена" 
                                 Style="{StaticResource MaterialDesignRaisedButton}"

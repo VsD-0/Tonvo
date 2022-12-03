@@ -11,7 +11,6 @@ namespace Tonvo.MVVM.Views
         public RegistrationApplicantView()
         {
             InitializeComponent();
-            DataContext = new RegistrationApplicantViewModel();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System;
+using System.Windows.Controls;
 using Tonvo.MVVM.ViewModels;
 
 namespace Tonvo.MVVM.Views
@@ -11,7 +12,6 @@ namespace Tonvo.MVVM.Views
         public RegistrationView()
         {
             InitializeComponent();
-            DataContext = new RegistrationViewModel();
         }
     }
 }

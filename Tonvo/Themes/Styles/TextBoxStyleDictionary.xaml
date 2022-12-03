@@ -87,15 +87,13 @@
                 Value="{Binding SecondName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
     </Style>
 
-    <!--Стиль для поля "Фамилия"-->
+    <!--Стиль для поля "Email"-->
     <Style x:Key="tbEmailStyle" TargetType="TextBox"
            BasedOn="{StaticResource textBoxBaseStyle}">
         <Setter Property="materialDesign:HintAssist.Hint"
                 Value="Электронная почта"/>
         <Setter Property="materialDesign:TextFieldAssist.LeadingIcon"
                 Value="Email"/>
-        <Setter Property="Text"
-                Value="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"/>
     </Style>
 
 </ResourceDictionary>

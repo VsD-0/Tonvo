@@ -28,8 +28,6 @@ namespace Tonvo.MVVM.ViewModels
 
         public ListViewModel()
         {
-            DataStorage.Init();
-
             Vacancies = DataStorage.ReadVacancyJson();
             Applicants = DataStorage.ReadApplicantsJson();
 

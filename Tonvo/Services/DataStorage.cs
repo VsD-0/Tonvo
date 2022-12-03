@@ -6,7 +6,7 @@ using System.Collections.ObjectModel;
 
 namespace Tonvo.Services
 {
-    public static class DataStorage
+    internal static class DataStorage
     {
         // TODO: Оптимизировать
         private const string _vacancyDSNameFile = "\\VacancyDataStorage.json";

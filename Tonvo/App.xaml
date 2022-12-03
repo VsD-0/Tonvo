@@ -4,7 +4,7 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:view="clr-namespace:Tonvo.MVVM.Views"
              xmlns:vms="clr-namespace:Tonvo.MVVM.ViewModels"
-             StartupUri="MVVM/Views/ShellView.xaml">
+             Startup="ApplicationStart">
     <Application.Resources>
         <ResourceDictionary>
             
@@ -34,6 +34,9 @@
             </DataTemplate>
             <DataTemplate DataType="{x:Type vms:RootViewModel}">
                 <view:RootView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:PersonalAccountViewModel}">
+                <view:PersonalAccountView/>
             </DataTemplate>
 
         </ResourceDictionary>

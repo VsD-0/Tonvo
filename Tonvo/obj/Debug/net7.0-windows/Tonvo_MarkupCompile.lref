@@ -1,7 +1,10 @@
 ﻿
 FC:\Users\dimva\source\repos\Tonvo\Tonvo\App.xaml;;
-FC:\Users\dimva\source\repos\Tonvo\Tonvo\MVVM\Views\PersonalAreaView.xaml;;
+FC:\Users\dimva\source\repos\Tonvo\Tonvo\MVVM\Views\ControlPanelView.xaml;;
+FC:\Users\dimva\source\repos\Tonvo\Tonvo\MVVM\Views\ListView.xaml;;
+FC:\Users\dimva\source\repos\Tonvo\Tonvo\MVVM\Views\PersonalAccountView.xaml;;
 FC:\Users\dimva\source\repos\Tonvo\Tonvo\MVVM\Views\RegistrationApplicantView.xaml;;
+FC:\Users\dimva\source\repos\Tonvo\Tonvo\MVVM\Views\RegistrationVacancyView.xaml;;
 FC:\Users\dimva\source\repos\Tonvo\Tonvo\MVVM\Views\RegistrationView.xaml;;
 FC:\Users\dimva\source\repos\Tonvo\Tonvo\MVVM\Views\RootView.xaml;;
 FC:\Users\dimva\source\repos\Tonvo\Tonvo\MVVM\Views\ShellView.xaml;;

@@ -46,7 +46,6 @@ C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\Themes\Styles\T
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\Themes\Styles\TextBoxStyleDictionary.baml
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\MVVM\Views\ControlPanelView.g.cs
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\MVVM\Views\ListView.g.cs
-C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\MVVM\Views\PersonalAreaView.g.cs
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\MVVM\Views\RegistrationApplicantView.g.cs
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\MVVM\Views\RegistrationVacancyView.g.cs
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\MVVM\Views\RegistrationView.g.cs
@@ -59,7 +58,6 @@ C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\GeneratedIntern
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\Tonvo_MarkupCompile.cache
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\Tonvo_MarkupCompile.lref
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\App.baml
-C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\MVVM\Views\PersonalAreaView.baml
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\MVVM\Views\RegistrationApplicantView.baml
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\MVVM\Views\RegistrationView.baml
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\MVVM\Views\RootView.baml
@@ -78,3 +76,5 @@ C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\refint\Tonvo.dl
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\Tonvo.pdb
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\Tonvo.genruntimeconfig.cache
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\ref\Tonvo.dll
+C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\MVVM\Views\PersonalAccountView.g.cs
+C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\MVVM\Views\PersonalAccountView.baml

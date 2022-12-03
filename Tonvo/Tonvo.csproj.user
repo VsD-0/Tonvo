@@ -13,7 +13,7 @@
     <Compile Update="MVVM\Views\ListView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="MVVM\Views\PersonalAreaView.xaml.cs">
+    <Compile Update="MVVM\Views\PersonalAccountView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="MVVM\Views\RegistrationApplicantView.xaml.cs">
@@ -39,7 +39,7 @@
     <Page Update="MVVM\Views\ListView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MVVM\Views\PersonalAreaView.xaml">
+    <Page Update="MVVM\Views\PersonalAccountView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MVVM\Views\RegistrationApplicantView.xaml">

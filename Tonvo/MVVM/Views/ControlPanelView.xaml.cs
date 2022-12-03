@@ -11,7 +11,6 @@ namespace Tonvo.MVVM.Views
         public ControlPanelView()
         {
             InitializeComponent();
-            DataContext = new ControlPanelViewModel();
         }
     }
 }

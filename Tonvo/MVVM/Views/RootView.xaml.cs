@@ -25,7 +25,6 @@ namespace Tonvo.MVVM.Views
         public RootView()
         {
             InitializeComponent();
-            DataContext = new RootViewModel();
         }
     }
 }

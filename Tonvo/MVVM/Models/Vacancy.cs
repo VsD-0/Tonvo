@@ -29,6 +29,9 @@ namespace Tonvo.MVVM.Models
         public string VacancyDescription { get; set; }
         [Reactive]
         public string Email { get; set; }
+        // TODO: Убрать после добавления аккаунта компании
+        [Reactive]
+        public string Password { get; set; }
         #endregion Properties
 
         public Vacancy()

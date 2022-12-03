@@ -2,6 +2,8 @@
 using Tonvo.MVVM.Models;
 using ReactiveUI.Fody.Helpers;
 using ReactiveUI;
+using System;
+using System.Collections.Generic;
 
 namespace Tonvo.MVVM.ViewModels
 {
@@ -17,7 +19,12 @@ namespace Tonvo.MVVM.ViewModels
 
         public Applicant ApplicantNewAccount { get; set; }
 
-        [Reactive]
-        public object CurrentView { get; set; }
+        static object _currentView = new();
+        public static object CurrentView { get => _currentView; set {
+                _currentView = value;
+                onViewUpdate.ForEach((item) => item.DynamicInvoke());
+            } }
+
+        public static List<Delegate> onViewUpdate = new();
     }
 }

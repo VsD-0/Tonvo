@@ -10,7 +10,6 @@ namespace Tonvo.MVVM.ViewModels
 {
     class ControlPanelViewModel
     {
-        public GlobalViewModel Global { get; } = GlobalViewModel.Instance;
         public ControlPanelViewModel()
         {
         }

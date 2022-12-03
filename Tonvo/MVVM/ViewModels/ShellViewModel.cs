@@ -5,7 +5,6 @@ using System.Windows.Interop;
 using System;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
-using Tonvo.MVVM.ViewModels;
 
 namespace Tonvo.MVVM.ViewModels
 {
@@ -16,8 +15,6 @@ namespace Tonvo.MVVM.ViewModels
         [LibraryImport("user32.dll", EntryPoint = "SendMessageA")]
         public static partial IntPtr SendMessage(IntPtr hWin, int wMsg, IntPtr wParam, IntPtr lParam);
 
-        private object _currentView;
-
         #region Properties
         public RelayCommand MoveWindowCommand { get; set; }
         public RelayCommand ShutdownWindowCommand { get; set; }
@@ -25,18 +22,16 @@ namespace Tonvo.MVVM.ViewModels
         public RelayCommand MinimizeWindowCommand { get; set; }
         public RelayCommand ControlBarMouseEnter { get; set; }
 
-        public ListViewModel ListVM { get; set; }
         public RootViewModel RootVM { get; set; }
         [Reactive]
         public object CurrentView { get; set; }
-
         #endregion Properties
 
         public ShellViewModel()
         {
             RootVM = new RootViewModel();
-            Global.CurrentView = RootVM;
-            CurrentView = Global.CurrentView;
+            GlobalViewModel.CurrentView = RootVM;
+            CurrentView = GlobalViewModel.CurrentView;
 
             // Приложение не перекрывает панель задач
             Application.Current.MainWindow.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
@@ -55,7 +50,6 @@ namespace Tonvo.MVVM.ViewModels
             MaximizeWindowCommand = new RelayCommand(o =>
             {
                 {
-                    MessageBox.Show(CurrentView.ToString());
                     if (Application.Current.MainWindow.WindowState == WindowState.Maximized)
                         Application.Current.MainWindow.WindowState = WindowState.Normal;
                     else Application.Current.MainWindow.WindowState = WindowState.Maximized;
@@ -63,6 +57,14 @@ namespace Tonvo.MVVM.ViewModels
             });
             // Свернуть приложение в панель задач
             MinimizeWindowCommand = new RelayCommand(o => { Application.Current.MainWindow.WindowState = WindowState.Minimized; });
+            
+
+            GlobalViewModel.onViewUpdate.Add(OnUpdate);
+        }
+
+        void OnUpdate()
+        {
+            CurrentView = GlobalViewModel.CurrentView;
         }
     }
 }

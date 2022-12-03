@@ -24,7 +24,6 @@ namespace Tonvo.MVVM.Views
         public SignInView()
         {
             InitializeComponent();
-            DataContext = new SignInViewModel();
         }
     }
 }
