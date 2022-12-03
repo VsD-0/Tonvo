@@ -10,20 +10,26 @@
         d:DataContext="{d:DesignInstance Type=viewModel:ShellViewModel}"
         mc:Ignorable="d"
         Title="MainWindow"
-        Height="750" Width="1200"
+        Height="760" Width="1250"
         MinHeight="500" MinWidth="1000"
         Background="Transparent"
         Icon="/Logo transparency1.ico"
         WindowStartupLocation="CenterScreen" 
-        WindowStyle="None"
-        ResizeMode="CanResizeWithGrip"
-        AllowsTransparency="True"
+        WindowStyle="SingleBorderWindow"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14">
 
+    <WindowChrome.WindowChrome>
+        <WindowChrome GlassFrameThickness="0"
+                      CornerRadius="20"
+                      CaptionHeight="0"
+                      UseAeroCaptionButtons="False"
+                      ResizeBorderThickness="8"/>
+    </WindowChrome.WindowChrome>
+    
     <Border Background="{StaticResource Background}"
-                BorderThickness="1" CornerRadius="10" Margin="4">
+            BorderThickness="2" CornerRadius="10">
 
         <Border.BorderBrush>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -40,7 +46,8 @@
             </Grid.RowDefinitions>
 
             <!--ControlBar-->
-            <Border Background="{StaticResource PrimaryLight}" CornerRadius="10,10,0,0">
+            <Border Background="{StaticResource PrimaryLight}" CornerRadius="10,10,0,0"
+                    Padding="2">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseDown">
                         <i:InvokeCommandAction Command="{Binding MoveWindowCommand}"/>

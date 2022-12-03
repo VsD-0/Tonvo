@@ -58,6 +58,7 @@ namespace Tonvo.MVVM.ViewModels
 
         public RegistrationApplicantViewModel RegistrationApplicantVM { get; set; }
         public RegistrationVacancyViewModel RegistrationVacancyVM { get; set; }
+        public PersonalAccountViewModel PersonalAccountVM { get; set; }
 
         [Reactive]
         public object CurrentRegistrationPanelView { get; set; }
@@ -110,7 +111,9 @@ namespace Tonvo.MVVM.ViewModels
                         DataStorage.Add(_applicantNewAccount);
                         Global.Applicants.Insert(0, _applicantNewAccount);
                         SelectedApplicant = _applicantNewAccount;
-                        ApplicantNewAccount = new Applicant();
+                        PersonalAccountVM = new PersonalAccountViewModel();
+                        GlobalViewModel.CurrentView = PersonalAccountVM;
+                        GlobalViewModel.UserApplicant = _applicantNewAccount;
                     }
                 });
             }

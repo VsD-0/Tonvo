@@ -122,10 +122,17 @@ namespace Tonvo.Services
         }
 
         // Изменение объекта
-        public static bool AccountChange(IModel replace, IModel toreplace)
+        public static bool AccountChange(IModel replace)
         {
+            int i = -1;
             ObservableCollection<IModel> readed = ReadJson(replace);
-            int i = readed.IndexOf(toreplace);
+            foreach (var item in readed) 
+            {
+                if(item.Id.Equals(replace.Id))
+                {
+                    i = readed.IndexOf(item);
+                }
+            }
             if (i == -1)
                 return false;
             readed[i] = replace;

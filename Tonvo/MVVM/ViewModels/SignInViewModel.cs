@@ -62,6 +62,7 @@ namespace Tonvo.MVVM.ViewModels
                         {
                             ClearErrors(nameof(Email));
                             _applicant = item;
+                            GlobalViewModel.UserApplicant = item;
                             return;
                         }
                     }
@@ -72,6 +73,7 @@ namespace Tonvo.MVVM.ViewModels
                         {
                             ClearErrors(nameof(Email));
                             _vacancy = item;
+                            GlobalViewModel.UserVacancy = item;
                             return;
                         }
                     }

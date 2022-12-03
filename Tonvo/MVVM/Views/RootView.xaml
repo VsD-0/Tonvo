@@ -23,21 +23,24 @@
         </Grid>
 
         <!--Панель управления-->
-        <Grid Grid.Column="1"
-                      Background="{StaticResource Primary}">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="131*"/>
-                <RowDefinition Height="301*"/>
-                <RowDefinition Height="116"/>
-            </Grid.RowDefinitions>
+        <Border CornerRadius="10,0,10,10" 
+                Grid.Column="1" 
+                Background="{StaticResource Primary}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="131*"/>
+                    <RowDefinition Height="301*"/>
+                    <RowDefinition Height="116"/>
+                </Grid.RowDefinitions>
 
-            <Image Source="pack://application:,,,/Content/Pictures/FullLogo transparency2.png"/>
+                <Image Source="pack://application:,,,/Content/Pictures/FullLogo transparency2.png"/>
 
-            <!--Контейнер фильтра/информации элемента-->
-            <StackPanel Grid.Row="2">
-                <ContentPresenter Grid.RowSpan="3" Grid.ColumnSpan="2" Content="{Binding CurrentControlPanelView}"/>
-            </StackPanel>
-        </Grid>
+                <!--Контейнер фильтра/информации элемента-->
+                <StackPanel Grid.Row="2">
+                    <ContentPresenter Grid.RowSpan="3" Grid.ColumnSpan="2" Content="{Binding CurrentControlPanelView}"/>
+                </StackPanel>
+            </Grid>
+        </Border>
         <!--Окно входа-->
         <ContentPresenter Grid.RowSpan="3" Grid.ColumnSpan="2" Content="{Binding CurrentSignInView}"/>
         <!--Окно регистрации-->

@@ -26,5 +26,9 @@ namespace Tonvo.MVVM.ViewModels
             } }
 
         public static List<Delegate> onViewUpdate = new();
+
+        public static Applicant UserApplicant { get; set; }
+        public static Vacancy UserVacancy { get; set; }
+
     }
 }

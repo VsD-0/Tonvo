@@ -146,7 +146,8 @@
 
             <!--Электронная почта-->
             <TextBox Style="{StaticResource tbEmailStyle}"
-                                         materialDesign:HintAssist.Background="{StaticResource Primary}">
+                     Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
+                     materialDesign:HintAssist.Background="{StaticResource Primary}">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="TextChanged">
                         <i:InvokeCommandAction Command="{Binding ValidateApplicantEmail}"/>
