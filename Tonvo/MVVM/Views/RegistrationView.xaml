@@ -90,7 +90,7 @@
                                 Foreground="{StaticResource OnSecondary}"
                                 BorderThickness="0"
                                 materialDesign:ElevationAssist.Elevation="Dp4"
-                                Command="{Binding AddApplicantCommand}"/>
+                                Command="{Binding SignUp}"/>
                         <!--Добавить команду для входа-->
                         <Button Margin="8" 
                                 Width="250"

@@ -18,11 +18,11 @@ namespace Tonvo.MVVM.ViewModels
         private RelayCommand _saveEdit;
         private RelayCommand _canselEdit;
 
-        [Reactive]
         public Applicant UserApplicant { get; set; }
         public Vacancy UserVacancy { get; set; }
 
         public RootViewModel RootVM { get; set; }
+        public PersonalAccountViewModel PersonalAccountVM { get; set; }
 
         public RelayCommand SaveEdit
         {
@@ -41,13 +41,8 @@ namespace Tonvo.MVVM.ViewModels
             {
                 return _canselEdit ??= new RelayCommand(obj =>
                 {
-                    foreach (var item in DataStorage.ReadApplicantsJson())
-                    {
-                        if (item.Id.Equals(UserApplicant.Id))
-                        {
-                            UserApplicant = item;
-                        }
-                    }
+                    PersonalAccountVM = new PersonalAccountViewModel();
+                    GlobalViewModel.CurrentView = PersonalAccountVM;
                 });
             }
         }

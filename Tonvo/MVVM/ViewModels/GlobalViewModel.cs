@@ -18,6 +18,7 @@ namespace Tonvo.MVVM.ViewModels
         public Vacancy SelectedVacancy { get; set; }
 
         public Applicant ApplicantNewAccount { get; set; }
+        public Vacancy VacancyNewAccount { get; set; }
 
         static object _currentView = new();
         public static object CurrentView { get => _currentView; set {

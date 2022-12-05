@@ -14,10 +14,12 @@ namespace Tonvo.MVVM.ViewModels
 
         #region Field
         private Applicant _applicantNewAccount;
-        private Vacancy _vacancyNewAccount = new();
+        private Vacancy _vacancyNewAccount;
 
         private Applicant _selectedApplicant;
         private Vacancy _selectedVacancy;
+
+        private RelayCommand _signUp;
 
         private RelayCommand _addApplicantCommand;
         private RelayCommand _removeApplicantCommand;
@@ -78,6 +80,18 @@ namespace Tonvo.MVVM.ViewModels
         }
 
         #region Command
+        public RelayCommand SignUp
+        {
+            get
+            {
+                return _signUp ??= new RelayCommand(obj =>
+                {
+                    if (_applicantNewAccount != null) AddApplicantCommand();
+                    else AddVacancyCommand();
+                });
+            }
+        }
+
         // Изменение регистрации на регистрацию вакансии
         public RelayCommand ChangeRegistrationToVacancy
         {
@@ -96,29 +110,60 @@ namespace Tonvo.MVVM.ViewModels
             get { return _changeRegistrationToApplicant ??= new RelayCommand(obj => { CurrentRegistrationPanelView = RegistrationApplicantVM; }); }
         }
 
-        // команда добавления нового соискателя
-        public RelayCommand AddApplicantCommand
+        public void AddApplicantCommand()
         {
-            get
+            ApplicantNewAccount = Global.ApplicantNewAccount;
+            Core.EventManager.OnValidated();
+            if (!_applicantNewAccount.HasErrors)
             {
-                return _addApplicantCommand ??= new RelayCommand(obj =>
-                {
-                    ApplicantNewAccount = Global.ApplicantNewAccount;
-                    Core.EventManager.OnValidated();
-                    if (!_applicantNewAccount.HasErrors)
-                    {
-                        _applicantNewAccount.Id = Applicants.Count != 0 ? Applicants.First().Id + 1 : 0;
-                        DataStorage.Add(_applicantNewAccount);
-                        Global.Applicants.Insert(0, _applicantNewAccount);
-                        SelectedApplicant = _applicantNewAccount;
-                        PersonalAccountVM = new PersonalAccountViewModel();
-                        GlobalViewModel.CurrentView = PersonalAccountVM;
-                        GlobalViewModel.UserApplicant = _applicantNewAccount;
-                    }
-                });
+                _applicantNewAccount.Id = Applicants.Count != 0 ? Applicants.First().Id + 1 : 0;
+                DataStorage.AddApplicant(_applicantNewAccount);
+                Global.Applicants.Insert(0, _applicantNewAccount);
+                SelectedApplicant = _applicantNewAccount;
+                PersonalAccountVM = new PersonalAccountViewModel();
+                GlobalViewModel.CurrentView = PersonalAccountVM;
+                GlobalViewModel.UserApplicant = _applicantNewAccount;
             }
-
         }
+        public void AddVacancyCommand()
+        {
+            VacancyNewAccount = Global.VacancyNewAccount;
+            //Core.EventManager.OnValidated();
+            if (!_vacancyNewAccount.HasErrors || true)
+            {
+                _vacancyNewAccount.Id = Vacancies.Count != 0 ? Vacancies.First().Id + 1 : 0;
+                DataStorage.AddVacancy(_vacancyNewAccount);
+                Global.Vacancies.Insert(0, _vacancyNewAccount);
+                SelectedVacancy = _vacancyNewAccount;
+                PersonalAccountVM = new PersonalAccountViewModel();
+                GlobalViewModel.CurrentView = PersonalAccountVM;
+                GlobalViewModel.UserVacancy = _vacancyNewAccount;
+            }
+        }
+
+        // команда добавления нового соискателя
+        //public RelayCommand AddApplicantCommand
+        //{
+        //    get
+        //    {
+        //        return _addApplicantCommand ??= new RelayCommand(obj =>
+        //        {
+        //            ApplicantNewAccount = Global.ApplicantNewAccount;
+        //            Core.EventManager.OnValidated();
+        //            if (!_applicantNewAccount.HasErrors)
+        //            {
+        //                _applicantNewAccount.Id = Applicants.Count != 0 ? Applicants.First().Id + 1 : 0;
+        //                DataStorage.Add(_applicantNewAccount);
+        //                Global.Applicants.Insert(0, _applicantNewAccount);
+        //                SelectedApplicant = _applicantNewAccount;
+        //                PersonalAccountVM = new PersonalAccountViewModel();
+        //                GlobalViewModel.CurrentView = PersonalAccountVM;
+        //                GlobalViewModel.UserApplicant = _applicantNewAccount;
+        //            }
+        //        });
+        //    }
+
+        //}
         // команда удаления соискателя
         public RelayCommand RemoveApplicantCommand
         {
@@ -135,25 +180,27 @@ namespace Tonvo.MVVM.ViewModels
         }
 
         // команда добавления новой вакансии
-        public RelayCommand AddVacancyCommand
-        {
-            get
-            {
-                return _addVacancyCommand ??= new RelayCommand(obj =>
-                {
-                    Core.EventManager.OnValidated();
-                    if (!_applicantNewAccount.HasErrors)
-                    {
-                        _applicantNewAccount.Id = Applicants.Count != 0 ? Applicants.First().Id + 1 : 0;
-                        DataStorage.Add(_applicantNewAccount);
-                        Global.Applicants.Insert(0, _applicantNewAccount);
-                        SelectedApplicant = _applicantNewAccount;
-                        ApplicantNewAccount = new Applicant();
-                    }
-                });
-            }
-
-        }
+        //public RelayCommand AddVacancyCommand
+        //{
+        //    get
+        //    {
+        //        return _addVacancyCommand ??= new RelayCommand(obj =>
+        //        {
+        //            VacancyNewAccount = Global.VacancyNewAccount;
+        //            //Core.EventManager.OnValidated();
+        //            if (!_vacancyNewAccount.HasErrors || true)
+        //            {
+        //                _vacancyNewAccount.Id = Vacancies.Count != 0 ? Vacancies.First().Id + 1 : 0;
+        //                DataStorage.Add(_vacancyNewAccount);
+        //                Global.Vacancies.Insert(0, _vacancyNewAccount);
+        //                SelectedVacancy = _vacancyNewAccount;
+        //                PersonalAccountVM = new PersonalAccountViewModel();
+        //                GlobalViewModel.CurrentView = PersonalAccountVM;
+        //                GlobalViewModel.UserVacancy = _vacancyNewAccount;
+        //            }
+        //        });
+        //    }
+        //}
         // команда удаления вакансии
         public RelayCommand RemoveVacancyCommand
         {

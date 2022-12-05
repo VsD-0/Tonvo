@@ -36,13 +36,13 @@ namespace Tonvo.MVVM.Models
 
         public Vacancy()
         {
-            ValidateApplicantEmail = new TargetRelayCommand(OnValidateApplicantEmail, CanValidateApplicantEmail);
+            ValidateVacancyEmail = new TargetRelayCommand(OnValidateApplicantEmail, CanValidateApplicantEmail);
 
             EventManager.Validated += OnValidateApplicantEmail;
         }
 
         #region Validation
-        public TargetRelayCommand ValidateApplicantEmail { get; set; }
+        public TargetRelayCommand ValidateVacancyEmail { get; set; }
         private void OnValidateApplicantEmail()
         {
             ClearErrors(nameof(Email));

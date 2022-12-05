@@ -18,6 +18,10 @@ namespace Tonvo.Services
         private static string _pathToSaveVacancy;
         private static string _currentPath;
 
+        private static ObservableCollection<Applicant> readedApplicant;
+        private static ObservableCollection<Vacancy> readedVacancy;
+        private static ObservableCollection<Company> readedCompany;
+
         // Путь к файлу
         public static string AssemblyDirectory
         {
@@ -60,13 +64,45 @@ namespace Tonvo.Services
         }
 
         // команда добавления нового объекта
-        public static void Add(IModel acc)
+        public static void AddApplicant(Applicant acc)
         {
             try
             {
-                ObservableCollection<IModel> readed = ReadJson(acc);
-                readed.Insert(0, acc);
-                SaveDataList(readed);
+                CurrentPath(acc);
+                if (_currentPath == _pathToSaveApplicant)
+                {
+                    readedApplicant = ReadApplicantsJson();
+                    readedApplicant.Insert(0, acc);
+                    SaveDataList(readedApplicant);
+                }
+            }
+            catch (Exception ex) { System.Windows.MessageBox.Show("Ошибка чтения данных, очистите файл dataStorage.json\n" + ex.Message + "\n" + ex.StackTrace); }
+        }
+        public static void AddVacancy(Vacancy acc)
+        {
+            try
+            {
+                CurrentPath(acc);
+                if (_currentPath == _pathToSaveVacancy)
+                {
+                    readedVacancy = ReadVacancyJson();
+                    readedVacancy.Insert(0, acc);
+                    SaveDataList(readedVacancy);
+                }
+            }
+            catch (Exception ex) { System.Windows.MessageBox.Show("Ошибка чтения данных, очистите файл dataStorage.json\n" + ex.Message + "\n" + ex.StackTrace); }
+        }
+        public static void AddCompany(Company acc)
+        {
+            try
+            {
+                CurrentPath(acc);
+                if (_currentPath == _pathToSaveCompany)
+                {
+                    readedCompany = ReadCompanyJson();
+                    readedCompany.Insert(0, acc);
+                    SaveDataList(readedCompany);
+                }
             }
             catch (Exception ex) { System.Windows.MessageBox.Show("Ошибка чтения данных, очистите файл dataStorage.json\n" + ex.Message + "\n" + ex.StackTrace); }
         }
@@ -74,19 +110,47 @@ namespace Tonvo.Services
         // Команда удаления
         public static void Remove(IModel acc)
         {
-            ObservableCollection<IModel> readed = ReadJson(acc);
-            foreach (var item in readed)
+            CurrentPath(acc);
+            if (_currentPath == _pathToSaveApplicant)
             {
-                if (acc.Id.Equals(item.Id)) readed.Remove(item);
+                readedApplicant = ReadApplicantsJson();
+                foreach (var item in readedApplicant)
+                {
+                    if (acc.Id.Equals(item.Id)) readedApplicant.Remove(item);
+                }
+                SaveDataList(readedApplicant);// TODO: Доделать
             }
-            SaveDataList(readed);
+            else if (_currentPath == _pathToSaveCompany)
+            {
+                readedCompany = ReadCompanyJson();
+                return;
+            }
+            else if (_currentPath == _pathToSaveVacancy)
+            {
+                readedVacancy = ReadVacancyJson();
+                return;
+            }
         }
         
         // Чтение файла
-        public static ObservableCollection<IModel> ReadJson(IModel acc)
+        public static void ReadJson(IModel acc)
         {
             CurrentPath(acc);
-            return ConvertListFromFile(JsonConvert.DeserializeObject<ObservableCollection<Applicant>>(File.ReadAllText(_currentPath)));
+            if(_currentPath == _pathToSaveApplicant)
+            {
+                readedApplicant = ReadApplicantsJson();
+                return;
+            }
+            else if(_currentPath == _pathToSaveCompany)
+            {
+                readedCompany = ReadCompanyJson();
+                return;
+            }
+            else if(_currentPath == _pathToSaveVacancy)
+            {
+                readedVacancy = ReadVacancyJson();
+                return;
+            }
         }
 
         public static ObservableCollection<Applicant> ReadApplicantsJson()
@@ -115,9 +179,8 @@ namespace Tonvo.Services
         }
 
         // Сохранение данных
-        public static void SaveDataList(ObservableCollection<IModel> accs)
+        public static void SaveDataList<T>(T accs)
         {
-            CurrentPath(accs[0]);
             File.WriteAllText(_currentPath, JsonConvert.SerializeObject(accs, Formatting.Indented));
         }
 
@@ -125,7 +188,8 @@ namespace Tonvo.Services
         public static bool AccountChange(IModel replace)
         {
             int i = -1;
-            ObservableCollection<IModel> readed = ReadJson(replace);
+            CurrentPath(replace);
+            ObservableCollection<IModel> readed = JsonConvert.DeserializeObject<ObservableCollection<IModel>>(File.ReadAllText(_currentPath));
             foreach (var item in readed) 
             {
                 if(item.Id.Equals(replace.Id))
