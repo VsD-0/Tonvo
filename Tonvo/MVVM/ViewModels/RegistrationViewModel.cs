@@ -64,6 +64,9 @@ namespace Tonvo.MVVM.ViewModels
 
         [Reactive]
         public object CurrentRegistrationPanelView { get; set; }
+        
+        // 0 = applicant, 1 = company, 2 = vacancy
+        private int _modeRegistration = 0;
 
         #endregion Property
 
@@ -86,7 +89,7 @@ namespace Tonvo.MVVM.ViewModels
             {
                 return _signUp ??= new RelayCommand(obj =>
                 {
-                    if (_applicantNewAccount != null) AddApplicantCommand();
+                    if (_modeRegistration == 0) AddApplicantCommand();
                     else AddVacancyCommand();
                 });
             }
@@ -99,6 +102,7 @@ namespace Tonvo.MVVM.ViewModels
             { 
                 return _changeRegistrationToVacancy ??= new RelayCommand(obj => 
                 {
+                    _modeRegistration = 2;
                     RegistrationVacancyVM = new RegistrationVacancyViewModel(); 
                     CurrentRegistrationPanelView = RegistrationVacancyVM; 
                 }); 
@@ -107,7 +111,13 @@ namespace Tonvo.MVVM.ViewModels
         // Изменение регистрации на регистрацию соискателя
         public RelayCommand ChangeRegistrationToApplicant
         {
-            get { return _changeRegistrationToApplicant ??= new RelayCommand(obj => { CurrentRegistrationPanelView = RegistrationApplicantVM; }); }
+            get 
+            { return _changeRegistrationToApplicant ??= new RelayCommand(obj => 
+                {
+                    _modeRegistration = 0;
+                    CurrentRegistrationPanelView = RegistrationApplicantVM; 
+                }); 
+            }
         }
 
         public void AddApplicantCommand()

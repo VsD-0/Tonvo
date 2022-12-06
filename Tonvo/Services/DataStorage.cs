@@ -189,7 +189,7 @@ namespace Tonvo.Services
         {
             int i = -1;
             CurrentPath(replace);
-            ObservableCollection<IModel> readed = JsonConvert.DeserializeObject<ObservableCollection<IModel>>(File.ReadAllText(_currentPath));
+            ObservableCollection<IModel> readed = ConvertListFromFile(JsonConvert.DeserializeObject<ObservableCollection<Applicant>>(File.ReadAllText(_currentPath)));
             foreach (var item in readed) 
             {
                 if(item.Id.Equals(replace.Id))

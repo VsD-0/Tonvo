@@ -78,3 +78,5 @@ C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\refint\Tonvo.dl
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\Tonvo.pdb
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\Tonvo.genruntimeconfig.cache
 C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\ref\Tonvo.dll
+C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\MVVM\Views\ApplicantInfoView.g.cs
+C:\Users\dimva\source\repos\Tonvo\Tonvo\obj\Debug\net7.0-windows\MVVM\Views\ApplicantInfoView.baml

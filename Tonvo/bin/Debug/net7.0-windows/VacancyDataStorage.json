@@ -1,5 +1,33 @@
 [
   {
+    "Id": 13,
+    "IdCompany": 0,
+    "VacancyName": "jjjjjjjjj",
+    "VacancySalary": "ghf",
+    "CompanyName": "f",
+    "RequiredExperience": "gftyfty",
+    "AddressCompany": "ftyftyf",
+    "VacancyDescription": null,
+    "Email": "fy",
+    "Password": "tfty",
+    "ValidateVacancyEmail": {},
+    "HasErrors": false
+  },
+  {
+    "Id": 12,
+    "IdCompany": 0,
+    "VacancyName": "jhjhjk",
+    "VacancySalary": "76",
+    "CompanyName": "vghv",
+    "RequiredExperience": "vgjj",
+    "AddressCompany": "gvg",
+    "VacancyDescription": null,
+    "Email": "hvgh",
+    "Password": "vhg",
+    "ValidateVacancyEmail": {},
+    "HasErrors": false
+  },
+  {
     "Id": 11,
     "IdCompany": 0,
     "VacancyName": "jnjnjkln",
